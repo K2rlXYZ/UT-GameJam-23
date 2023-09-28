@@ -45,7 +45,7 @@ Mängu esitleja abi
 - kuni 21:00 Rebasteerimine @ Piro (eelregistreerimist vaja)
 - 23:00 Fresh Meat Party @ Tartu Turg
 ## Laupäev
-- 04:00 Theme reveal
+- 01:00 Theme reveal
 - ~09:00 Alustame brainstormi + hommikusöök?
 - ~12:00 lõuna
 - ~17:00 õhtu
