@@ -5,6 +5,11 @@
 
 # Tööjaotus
 
+## Pre jam tasks
+- mis on meie tiimi nimi?
+- lepime kokku kuna ja kus saame laupäeval kokku, et alustada idee genereerimist
+
+## Development
 Art Assets - Pass
 - _particle texturid_ varastame open source
 
@@ -20,11 +25,19 @@ Game Loop (_logic_) programmer - Tommy
 
 Level design
 - game scene layout n shit
-- 
 
+## Post development
 Mängu esitleja
-- annab ülevaate mängust
-- EI
+- annab ülevaate mängust mängude esitlemisel
+- ideaalis harjutab enne natuke
+- EI lasku liigselt detailidesse, nagu hakkab seletama mis koodi me kirjutasime (boring as fuck)
+- EI tähenda seda, et tema tohib ainukesena rääkida
+
+Mängu esitleja abi
+- mängib meie mängu samal ajal kui esitleja räägib
+- üritab esitluse ajal kõiki featureid näidata
+
+
 
 # Ajakava
 ## Reede
