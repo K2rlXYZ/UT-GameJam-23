@@ -6,8 +6,8 @@
 # Tööjaotus
 
 ## Pre jam tasks
-- mis on meie tiimi nimi?
-- lepime kokku kuna ja kus saame laupäeval kokku, et alustada idee genereerimist
+- mis on meie tiimi nimi? $\checkmark$
+- lepime kokku kuna ja kus saame laupäeval kokku, et alustada idee genereerimist $\checkmark$ Deltas 0730 ⏰
 
 ## Development
 Art Assets - Pass
