@@ -1,3 +1,5 @@
+
+# THEME: LIMITED SPACE
 # UT-GameJam-23
 
 ## Important shit to remember
@@ -5,26 +7,86 @@
 
 # Tööjaotus
 
+
+
 ## Pre jam tasks
 - mis on meie tiimi nimi? $\checkmark$
-- lepime kokku kuna ja kus saame laupäeval kokku, et alustada idee genereerimist $\checkmark$ Deltas 0730 ⏰
+- lepime kokku kuna ja kus saame laupäeval kokku, et alustada idee genereerimist $\checkmark$ 
+	- Deltas 0730 ⏰
 
 ## Development
-Art Assets - Pass
+- Dev strategy:
+	1. Brainstorming
+		1. **General structure sketch**
+		2. Limited amounts of time u can press space
+	3. Minimal viable product
+		1. Consider what would be the functions (most basic functions) of the game (Requirements)
+		2. Design the functions of the game (Code or Draw)
+		3. Test, Make functioning and scalable, visually polish (Test)
+		4. Define new functionalities & go back to 1 (Increase requirements)
+
+- Pass:
+	- Art Assets
+	- **Whenever new functionality is developed notify pass**
+	- Goals:
+		- Draw
+
+- Oskar - UI design:
+	- menus n shit and switching between em
+	- if need scoreboard, oskar make scoreboard
+	- Goals:
+		- Node Tree Structure
+		- Sandbox scene
+			- ?Tilemap configuration
+		- HUD
+		- Pause menu
+		- Main menu
+		- Settings menu
+		- Animation Player $\infty$
+			- ?Cutscenes
+		- UI theme
+		- ?Dialogue options
+
+- Mihkel: 
+	- Sound effects
+		- ?Music
+	- (GPU) Particles
+		- Depending on need
+	- Goals:
+		- Character sounds
+			- ?Movemenet
+			- ?Actions
+		- Sound class as a variable for other classes to avoid code repetition
+		- Menu music
+			- ?button sounds
+				- ?click
+				- ?hover
+			- Background sounds/music
+		- Enviorment sounds
+			- Enviroment charcters
+				- ?Movemenet
+				- ?Actions
+			- Other misc env. sounds
+
+- Tommy:
+	- Game Loop (_logic_)
+	- Goals:
+		- Globals singleton
+		- Character logic
+			- Movement
+			- Actions
+		- Environment logic (depends on level design)
+			- NPC logic
+				- ?Movement
+				- Actions
+			- Misc logic
+		- ?Screenshake
+
+- Level design
+	- ?Tutorial
 - _particle texturid_ varastame open source
+	- [Particle Pack](https://www.kenney.nl/assets/particle-pack "https://www.kenney.nl/assets/particle-pack")
 
-UI design - Oskar
-- menus n shit and switching between em
-- if need scoreboard, oskar make scoreboard
-
-Sound effects - Mihkel
-(GPU) Particles - Mihkel
-
-Game Loop (_logic_) programmer - Tommy
-- only _game_scene_ elements
-
-Level design
-- game scene layout n shit
 
 ## Post development
 Mängu esitleja
