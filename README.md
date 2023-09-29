@@ -107,7 +107,7 @@ Mängu esitleja abi
 - 23:00 Fresh Meat Party @ Tartu Turg
 ## Laupäev
 - 01:00 Theme reveal
-- ~09:00 Alustame brainstormi + hommikusöök?
+- ~07:40 Alustame brainstormi + hommikusöök?
 - ~12:00 lõuna
 - ~17:00 õhtu
 - ~???? tuttu ära (need 8h of sleep to be productive, me ei pea kõik samal ajal puhkama)
