@@ -56,7 +56,6 @@
 		- Character sounds
 			- ?Movemenet
 			- ?Actions
-		- Sound class as a variable for other classes to avoid code repetition
 		- Menu music
 			- ?button sounds
 				- ?click
