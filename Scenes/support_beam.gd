@@ -28,7 +28,6 @@ func set_tiles_around_supported(supported: bool, tiles_data: BetterTilesData):
 				if tile != null:
 					list_of_tile_indexes.append(tile.local_position)
 					tile.supported=true
-					tile.unstable = false
 	else:
 		for el in Globals.support_beams:
 			var beam = el as SupportBeam
@@ -36,12 +35,13 @@ func set_tiles_around_supported(supported: bool, tiles_data: BetterTilesData):
 				for el2 in beam.list_of_tile_indexes:
 					var index = el2 as Vector2i
 					if index in self.list_of_tile_indexes:
-						list_of_tile_indexes.erase(index)
+						self.list_of_tile_indexes.erase(index)
 		for index in self.list_of_tile_indexes:
+			print(index)
 			var tile = tiles_data.find_tile_by_coord(index)
 			tile.supported = false
 			tile.unstable = true
-	Globals.check_for_collapse()
+		Globals.check_for_collapse()
 				
 func after_ready(tiles_data):
 	set_tiles_around_supported(true, tiles_data)

@@ -66,6 +66,7 @@ func movement(delta):
 	
 func pickup_support(support: SupportBeam):
 	support.set_tiles_around_supported(false, tiles_data)
+	Globals.support_beams.erase(support)
 	support.get_parent().remove_child(support)
 	self.number_of_supports+=1
 	

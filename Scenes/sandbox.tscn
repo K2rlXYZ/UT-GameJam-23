@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://btwiwj6rr37q7"]
+[gd_scene load_steps=8 format=3 uid="uid://btwiwj6rr37q7"]
 
+[ext_resource type="Script" path="res://Scenes/sandbox.gd" id="1_ds1of"]
 [ext_resource type="PackedScene" uid="uid://drqvgabvb1y4c" path="res://Scenes/tiles_descriptor.tscn" id="2_ph851"]
 [ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="2_rpt32"]
 [ext_resource type="PackedScene" uid="uid://jhcxxjphb1ov" path="res://Scenes/player_character.tscn" id="3_1n3b2"]
@@ -10,7 +11,9 @@ normal = Vector2(-0.0126572, 0.99992)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mou8n"]
 
-[node name="Sandbox" type="Node2D"]
+[node name="Sandbox" type="Node2D" node_paths=PackedStringArray("tiles_data")]
+script = ExtResource("1_ds1of")
+tiles_data = NodePath("TileMap/BetterTilesData")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-2, -2)
