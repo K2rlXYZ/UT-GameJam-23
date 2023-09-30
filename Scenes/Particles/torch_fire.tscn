@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://ce7g2hrxmryvv"]
+[gd_scene load_steps=12 format=3 uid="uid://ce7g2hrxmryvv"]
 
 [ext_resource type="Texture2D" uid="uid://b8cfwte2egsml" path="res://Assets/ParticleShapes/scorch_01.png" id="1_rikwt"]
 [ext_resource type="Texture2D" uid="uid://bnuokbvpsi0iy" path="res://Assets/ParticleShapes/flame_03.png" id="2_0yc8k"]
-[ext_resource type="Texture2D" uid="uid://c1bqhpwexiqj6" path="res://Assets/light1.png" id="3_tyuyw"]
 
 [sub_resource type="Gradient" id="Gradient_5oab4"]
 offsets = PackedFloat32Array(0, 0.159292, 0.548673, 0.973451)
@@ -87,6 +86,3 @@ material = SubResource("CanvasItemMaterial_j51tl")
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_h0n3q")
 texture = ExtResource("2_0yc8k")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-texture = ExtResource("3_tyuyw")

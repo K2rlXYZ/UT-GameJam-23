@@ -1,12 +1,153 @@
-[gd_scene format=3 uid="uid://c3kasu2jbxtp1"]
+[gd_scene load_steps=12 format=3 uid="uid://c3kasu2jbxtp1"]
 
-[node name="MainMenu" type="Control"]
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu.gd" id="1_7ntto"]
+[ext_resource type="PackedScene" uid="uid://caq5idrkkj5rm" path="res://Scenes/UI/settings.tscn" id="2_2hew0"]
+[ext_resource type="Texture2D" uid="uid://hsjd8cokq4bc" path="res://Assets/backdrop.png" id="2_iw0py"]
+[ext_resource type="PackedScene" uid="uid://dnpc1ofrqqb0g" path="res://Scenes/player_animation.tscn" id="3_1etv6"]
+[ext_resource type="Texture2D" uid="uid://b2323o3mrla40" path="res://Assets/backdrop_trees.png" id="3_f54rh"]
+[ext_resource type="Texture2D" uid="uid://bhjj7w3rfb61o" path="res://Assets/backdrop_grass.png" id="4_nd7tu"]
+[ext_resource type="Texture2D" uid="uid://vrxmw8x5m6g3" path="res://Assets/backdrop_caveentrance.png" id="5_02xc8"]
+[ext_resource type="PackedScene" uid="uid://7y6ih3appi7s" path="res://Scenes/UI/splash_screen.tscn" id="8_ys0q6"]
+
+[sub_resource type="Animation" id="Animation_bhxkr"]
+resource_name = "play"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("M:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAnimation:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(160, 980), Vector2(3045, 980)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerAnimation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_run"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/FadeOut:color")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(9, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vblcf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 980)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("M:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ssk5"]
+_data = {
+"RESET": SubResource("Animation_vblcf"),
+"play": SubResource("Animation_bhxkr")
+}
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("settings")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7ntto")
+settings = NodePath("Settings")
+
+[node name="BackDrop" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 3000.0
+grow_vertical = 2
+texture = ExtResource("2_iw0py")
+
+[node name="PlayerAnimation" parent="." instance=ExtResource("3_1etv6")]
+position = Vector2(160, 980)
+lantern_on = false
+
+[node name="Camera2D" type="Camera2D" parent="PlayerAnimation"]
+limit_left = 0
+limit_top = 0
+limit_right = 3000
+limit_bottom = 1080
+position_smoothing_enabled = true
+
+[node name="Trees" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 3000.0
+grow_vertical = 2
+texture = ExtResource("3_f54rh")
+
+[node name="Grass" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 3000.0
+grow_vertical = 2
+texture = ExtResource("4_nd7tu")
+
+[node name="CaveEntrance" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 3000.0
+grow_vertical = 2
+texture = ExtResource("5_02xc8")
 
 [node name="M" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -24,7 +165,7 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_constants/separation = 80
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="M/HB"]
@@ -53,3 +194,31 @@ text = "Credits
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 text = "Exit"
+
+[node name="Settings" parent="." instance=ExtResource("2_2hew0")]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2ssk5")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeOut" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="SplashScreen" parent="." instance=ExtResource("8_ys0q6")]
+layout_mode = 1
+
+[connection signal="pressed" from="M/HB/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="M/HB/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="M/HB/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="M/HB/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="M/HB/ExitButton" to="." method="_on_exit_button_pressed"]

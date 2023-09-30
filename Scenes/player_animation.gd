@@ -2,7 +2,10 @@ extends Node2D
 
 
 @export var animation_player: AnimationPlayer
+@export var lantern_on: bool = true
 
+func _ready():
+	set_lantern(lantern_on)
 
 func play_mine_upward() -> void:
 	animation_player.play("mine_upward")
@@ -15,3 +18,6 @@ func play_idle() -> void:
 
 func play_run() -> void:
 	animation_player.play("run")
+
+func set_lantern(state: bool):
+	$Torso/RightArm/flame/Lantern.enabled = state
