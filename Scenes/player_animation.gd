@@ -19,6 +19,9 @@ func play_idle() -> void:
 func play_run() -> void:
 	animation_player.play("run")
 
+func play_jump() -> void:
+	animation_player.play("jump")
+
 func set_lantern(state: bool):
 	$Torso/RightArm/flame/Lantern.enabled = state
 	
