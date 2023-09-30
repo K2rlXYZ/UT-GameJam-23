@@ -30,10 +30,12 @@ func movement(delta):
 		velocity.x = movement_speed * (Input.get_action_strength("right") - Input.get_action_strength("left")) * delta
 		
 	if (Input.is_action_just_pressed("up") and not in_air):
+		$PlayerAnimation.play_jump()
 		jump()
 		in_air = true
 		
 	elif Input.is_action_just_pressed("up") and self.is_on_wall() and not jumped_on_wall:
+		$PlayerAnimation.play_jump()
 		jump()
 		jumped_on_wall = true
 		
@@ -48,14 +50,12 @@ func movement(delta):
 	if Input.is_action_pressed("right"):
 		sprite.set_flip_h(true)
 		pickaxe.position.x = pickaxe_x_offset
-#		
 		$PlayerAnimation.play_run()
 	elif Input.is_action_pressed("left"):
 		sprite.set_flip_h(false)
 		pickaxe.position.x = -pickaxe_x_offset
 		$PlayerAnimation.play_run()
-	else:
-		$PlayerAnimation.play_idle()
+	
 		
 	move_and_slide()
 	
@@ -123,13 +123,29 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	movement(delta)
+	animate()
 
 func _input(event):
 	if event is InputEventMouse:
 		if event.is_action_pressed("clickLeft"):
 			mine()
+			if event.position.y > get_node("CollisionShape2D_PlayerCharacter").position.y:
+				$PlayerAnimation.play_mine_upward()
+			else:
+				$PlayerAnimation.play_mine_forward()
 		if event.is_action_pressed("clickRight"):
 			place_or_pickup_support()
 			
 			
-
+func animate() -> void:
+	var player_animation = $PlayerAnimation
+	if !is_on_floor():
+		if player_animation.last_animation() == "jump": return
+		player_animation.play_jump()
+	elif velocity.x != 0:
+		player_animation.play_run()
+	elif !($PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_upward" \
+		 or $PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_forward"\
+		 or $PlayerAnimation/AnimationPlayer.get_current_animation() == "run"\
+		 or $PlayerAnimation/AnimationPlayer.get_current_animation() == "jump"):
+		player_animation.play_idle()
