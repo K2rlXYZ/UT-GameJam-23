@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2r7xjumc0ddl"]
+[gd_scene load_steps=4 format=3 uid="uid://b2r7xjumc0ddl"]
 
 [ext_resource type="Texture2D" uid="uid://ua0impr5pswu" path="res://icon.svg" id="1_2ihel"]
+[ext_resource type="Script" path="res://Scenes/support_beam.gd" id="1_jrtn6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lwm2"]
 size = Vector2(20, 120)
 
 [node name="CharacterBody2D_SupportBeam" type="CharacterBody2D"]
+script = ExtResource("1_jrtn6")
 
 [node name="Sprite2D_SupportBeam" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 1)
