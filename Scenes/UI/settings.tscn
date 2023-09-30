@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://caq5idrkkj5rm"]
+
+[ext_resource type="Script" path="res://Scenes/UI/Settings.gd" id="1_urgba"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3w0x"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 810.0
+offset_top = 490.0
+offset_right = 1110.0
+offset_bottom = 590.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_urgba")
+
+[node name="P" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p3w0x")
+
+[node name="M" type="MarginContainer" parent="P"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VB" type="VBoxContainer" parent="P/M"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Volume" type="HBoxContainer" parent="P/M/VB"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="P/M/VB/Volume"]
+layout_mode = 2
+text = "Audio volume: "
+
+[node name="VolumeSlider" type="HSlider" parent="P/M/VB/Volume"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Fullscreen" type="HBoxContainer" parent="P/M/VB"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="P/M/VB/Fullscreen"]
+layout_mode = 2
+text = "Fullscreen: "
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="P/M/VB/Fullscreen"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="P/M/VB"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Back"
+
+[connection signal="pressed" from="P/M/VB/BackButton" to="." method="_on_back_button_pressed"]

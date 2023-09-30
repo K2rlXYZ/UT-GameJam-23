@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bef71fvcrn6in"]
+[gd_scene load_steps=4 format=3 uid="uid://bef71fvcrn6in"]
 
 [ext_resource type="Script" path="res://Scenes/UI/HUD.gd" id="1_5jl6j"]
+[ext_resource type="PackedScene" uid="uid://caq5idrkkj5rm" path="res://Scenes/UI/settings.tscn" id="2_ji0u5"]
 
-[node name="HUD" type="CanvasLayer"]
+[sub_resource type="LabelSettings" id="LabelSettings_ay0n4"]
+font_size = 60
+font_color = Color(0.462745, 0.462745, 0.462745, 1)
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("beams_label", "ladders_label", "pause_menu", "settings_menu")]
+process_mode = 3
 script = ExtResource("1_5jl6j")
+beams_label = NodePath("UI/M/HB/Beams/BeamsLabel")
+ladders_label = NodePath("UI/M/HB/Ladders/LaddersLabel")
+pause_menu = NodePath("PauseMenu")
+settings_menu = NodePath("PauseMenu/M/Settings")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -53,3 +63,75 @@ text = "Ladders: "
 
 [node name="LaddersLabel" type="Label" parent="UI/M/HB/Ladders"]
 layout_mode = 2
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.152941)
+
+[node name="M" type="MarginContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 200
+
+[node name="PausedLabel" type="Label" parent="PauseMenu/M"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Game is paused"
+label_settings = SubResource("LabelSettings_ay0n4")
+
+[node name="P" type="PanelContainer" parent="PauseMenu/M"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="M" type="MarginContainer" parent="PauseMenu/M/P"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VB" type="VBoxContainer" parent="PauseMenu/M/P/M"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/M/P/M/VB"]
+layout_mode = 2
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="PauseMenu/M/P/M/VB"]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="PauseMenu/M/P/M/VB"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Settings" parent="PauseMenu/M" instance=ExtResource("2_ji0u5")]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="PauseMenu/M/P/M/VB/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/M/P/M/VB/SettingsButton" to="." method="_on_settings_button_pressed"]
