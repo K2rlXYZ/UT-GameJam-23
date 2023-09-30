@@ -3,14 +3,14 @@ class_name SupportBeam
 extends CharacterBody2D
 
 @export var area: Area2D
-@onready var tree = get_tree()
-@onready var player = tree.get_nodes_in_group("player")[0]
 
-var scan_range = 3
+var scan_range = 5
 var weight = 1
 
-func set_tiles_around_supported(supported: bool = false):
+func set_tiles_around_supported(supported: bool, tiles_data: BetterTilesData):
 	var position_of_above_tile = self.position
+	var tree = get_tree()
+	var player = tree.get_nodes_in_group("player")[0]
 	position_of_above_tile.y-=(150+50)
 	var tilemap = tree.current_scene.get_children().filter(func(e): return e is TileMap)[0]
 	var local_coordinate = tilemap.local_to_map(tilemap.to_local(position_of_above_tile)) as Vector2i
@@ -21,12 +21,15 @@ func set_tiles_around_supported(supported: bool = false):
 			var temp_local_coordinate = adjusted_local_coordinate
 			temp_local_coordinate.x+=x_add
 			temp_local_coordinate.y+=y_add
-			var tile = player.tiles_data.find_tile_by_coord(adjusted_local_coordinate)
+			var tile = tiles_data.find_tile_by_coord(temp_local_coordinate)
 			if tile != null:
 				tile.supported=supported
+				
+func after_ready(tiles_data):
+	set_tiles_around_supported(true, tiles_data)
 
 func _ready():
-	set_tiles_around_supported()
+	pass
 	
 	
 

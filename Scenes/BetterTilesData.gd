@@ -6,10 +6,10 @@ extends Node2D
 
 @export var tilemap: TileMap
 
-var lst = []
+var lst: Array[BetterTileData] = []
 
 func find_tile_by_coord(coord: Vector2i) -> BetterTileData:
-	for el in lst:
+	for el in self.lst:
 		var tiledata = el as BetterTileData
 		if tiledata.local_position == coord:
 			return tiledata
@@ -28,7 +28,7 @@ func collapse(start_tile: BetterTileData):
 func check_for_collapse():
 	for el in lst:
 		var tile = el as BetterTileData
-		if tile.unstable and tile.exists:
+		if tile.unstable and tile.exists and not tile.supported:
 			collapse(tile)
 			
 

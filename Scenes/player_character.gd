@@ -54,7 +54,7 @@ func movement(delta):
 	
 func pickup_support(support: SupportBeam):
 	support.get_parent().remove_child(support)
-	support.set_tiles_around_supported(true)
+	support.set_tiles_around_supported(false, tiles_data)
 	self.number_of_supports+=1
 	
 	
@@ -67,6 +67,7 @@ func place_support():
 		prel.position = player_position_adjusted_to_tilemap
 		get_parent().add_child(prel)
 		Globals.support_beams.append(prel)
+		prel.after_ready(tiles_data)
 		self.number_of_supports-=1
 		
 func place_or_pickup_support():
