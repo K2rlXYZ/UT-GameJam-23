@@ -18,7 +18,23 @@
 - Dev strategy:
 	1. Brainstorming
 		1. **General structure sketch**
-		2. Limited amounts of time u can press space
+    
+  		2. Kaevanduses ellu jäämine
+       			1. Without light the pCharacter gets paranoid
+       			2. Limited support beams and limited "ladders"
+       			3. Searching for valuables
+       				1. Radar shows the general place of the valuables
+       			4. Limited time to mine
+       			5. Limited torches
+       				6. each torch has individual time left to burn
+
+			after:
+				inventory and space management
+       			
+		4. Maze runner stiilis
+  		5. Spaceship moneymaker
+    			1. Käi ringi ja paranda
+    		5. Floor is lava
 	3. Minimal viable product
 		1. Consider what would be the functions (most basic functions) of the game (Requirements)
 		2. Design the functions of the game (Code or Draw)
