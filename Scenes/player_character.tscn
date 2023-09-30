@@ -7,9 +7,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a1oi"]
 size = Vector2(120, 120)
 
-[node name="CharacterBody2D_PlayerCharacter" type="CharacterBody2D"]
+[node name="CharacterBody2D_PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "pickaxe", "raycast")]
 position = Vector2(100, 100)
 script = ExtResource("1_do68i")
+sprite = NodePath("Sprite2D_PlayerCharacter")
+pickaxe = NodePath("CharacterBody2D_Pickaxe")
+raycast = NodePath("RayCast2D")
 
 [node name="Sprite2D_PlayerCharacter" type="Sprite2D" parent="."]
 texture = ExtResource("2_p0en4")
@@ -21,4 +24,5 @@ shape = SubResource("RectangleShape2D_0a1oi")
 position = Vector2(40, 0)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = false
 target_position = Vector2(100, 0)
