@@ -46,7 +46,6 @@ func first_collapse(position_for_particles, start_tile_local_position):
 	self.add_child(t)
 	var ck = (func(e, stlp): 
 		var data = Globals.cancelable_tile_index_pairs[stlp]
-		print("ambatta emit")
 		if data[0]:
 			data[1].timeout.emit()
 			print("emitted") \
