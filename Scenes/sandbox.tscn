@@ -32,6 +32,7 @@ position = Vector2(960, 1080)
 shape = SubResource("WorldBoundaryShape2D_mou8n")
 
 [node name="Area2D_PlayerCharacter" parent="." node_paths=PackedStringArray("tiles_data") instance=ExtResource("3_1n3b2")]
+unique_name_in_owner = true
 tiles_data = NodePath("../TileMap/BetterTilesData")
 
 [node name="CharacterBody2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_dukcw")]
