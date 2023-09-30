@@ -1,6 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnpc1ofrqqb0g"]
+[gd_scene load_steps=18 format=3 uid="uid://dnpc1ofrqqb0g"]
 
+[ext_resource type="Texture2D" uid="uid://c6x8f5s43w8ap" path="res://Assets/Player/head.png" id="1_p7qke"]
+[ext_resource type="Texture2D" uid="uid://cnc7dic0l877c" path="res://Assets/Player/body.png" id="1_uhk21"]
+[ext_resource type="Texture2D" uid="uid://d2303y8js1n78" path="res://Assets/Player/leftleg.png" id="2_dg7pa"]
+[ext_resource type="Texture2D" uid="uid://cpf4bhws3j58j" path="res://Assets/Player/rightleg.png" id="3_00jew"]
+[ext_resource type="Texture2D" uid="uid://dtwfuyw21vaju" path="res://Assets/Player/leftarm.png" id="4_eww7j"]
+[ext_resource type="Texture2D" uid="uid://uj7a0ojw7r8n" path="res://Assets/Player/rightarm.png" id="5_txcu7"]
+[ext_resource type="Texture2D" uid="uid://dft6jmjn1o8bs" path="res://Assets/Player/pickaxe.png" id="6_ph6ls"]
+[ext_resource type="Texture2D" uid="uid://1d1pw3eayxqx" path="res://Assets/lantern.png" id="6_rci6h"]
 [ext_resource type="AudioStream" uid="uid://cu0a30e0n8p2c" path="res://Assets/Audio/pickaxe_hitting.wav" id="10_pdjsa"]
+[ext_resource type="AudioStream" uid="uid://cfcobixnk037h" path="res://Assets/Audio/first_step.wav" id="10_r44iw"]
+[ext_resource type="AudioStream" uid="uid://tfo5fgn4j8hj" path="res://Assets/Audio/second_step.wav" id="11_h1725"]
 
 [sub_resource type="Animation" id="Animation_8aoo5"]
 length = 0.001
@@ -154,7 +164,7 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("10_pdjsa")
 }],
-"times": PackedFloat32Array(0.57)
+"times": PackedFloat32Array(0.46)
 }
 tracks/1/use_blend = true
 tracks/2/type = "bezier"
@@ -165,13 +175,14 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.19, -0.598323, 0, -0.22, 0.463916, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.19, -0.598323, 0, -0.16, -0.269868, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 
 [sub_resource type="Animation" id="Animation_x5t7v"]
 resource_name = "run"
 loop_mode = 1
+step = 0.01
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -227,6 +238,36 @@ tracks/4/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.1, -0.104324, -0.164154, -0.2, 0.0677808, 0.2, 0.114128, 0.110558, -0.25, 0, 0.1, -0.0108867, 0, -0.1, 0.122355, 0.25, 0),
 "times": PackedFloat32Array(0, 0.3, 0.8, 1)
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StepSound1")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_r44iw")
+}],
+"times": PackedFloat32Array(0.39)
+}
+tracks/5/use_blend = true
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StepSound1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_h1725")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0nag3"]
 _data = {
@@ -238,43 +279,53 @@ _data = {
 }
 
 [node name="PlayerAnimation" type="Node2D"]
-scale = Vector2(0.08, 0.08)
 
 [node name="Torso" type="Sprite2D" parent="."]
+texture = ExtResource("1_uhk21")
 
 [node name="Face" type="Node2D" parent="Torso"]
-position = Vector2(190.655, -721.584)
+position = Vector2(15.252, -57.727)
 
 [node name="FaceNormal" type="Sprite2D" parent="Torso/Face"]
-offset = Vector2(-190.655, 721.584)
+texture = ExtResource("1_p7qke")
+offset = Vector2(-15.252, 57.727)
 
 [node name="FaceStressed" type="Sprite2D" parent="Torso/Face"]
 visible = false
-offset = Vector2(-190.655, 721.584)
+offset = Vector2(-15.252, 57.727)
 
 [node name="FaceVeryStressed" type="Sprite2D" parent="Torso/Face"]
 visible = false
-offset = Vector2(-190.655, 721.584)
+offset = Vector2(-15.252, 57.727)
 
 [node name="RightLeg" type="Sprite2D" parent="Torso"]
-position = Vector2(291.38, 223.01)
-offset = Vector2(-291.38, -223.01)
+position = Vector2(23.31, 17.841)
+texture = ExtResource("2_dg7pa")
+offset = Vector2(-23.31, -17.841)
 
 [node name="LeftLeg" type="Sprite2D" parent="Torso"]
-position = Vector2(48.825, 150.06)
-offset = Vector2(-48.825, -150.06)
+position = Vector2(3.906, 12.005)
+texture = ExtResource("3_00jew")
+offset = Vector2(-3.906, -12.005)
 
 [node name="RightArm" type="Sprite2D" parent="Torso"]
 show_behind_parent = true
-position = Vector2(578.885, -554.24)
-offset = Vector2(-578.885, 554.24)
+position = Vector2(46.311, -44.339)
+texture = ExtResource("4_eww7j")
+offset = Vector2(-46.311, 44.339)
+
+[node name="Lantern" type="Sprite2D" parent="Torso/RightArm"]
+position = Vector2(-46.311, 44.339)
+texture = ExtResource("6_rci6h")
 
 [node name="LeftArm" type="Sprite2D" parent="Torso"]
-position = Vector2(-300, -600)
-offset = Vector2(300, 600)
+position = Vector2(-24, -48)
+texture = ExtResource("5_txcu7")
+offset = Vector2(24, 48)
 
 [node name="Pickaxe" type="Sprite2D" parent="Torso/LeftArm"]
-position = Vector2(300, 600)
+position = Vector2(24, 48)
+texture = ExtResource("6_ph6ls")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -282,3 +333,5 @@ libraries = {
 }
 
 [node name="PickHitSound" type="AudioStreamPlayer" parent="."]
+
+[node name="StepSound1" type="AudioStreamPlayer" parent="."]
