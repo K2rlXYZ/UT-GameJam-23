@@ -15,6 +15,7 @@ var direction = true
 var pickaxe_x_offset = 50
 var in_air = false
 var jumped_on_wall = false
+var shoved = false
 
 
 
@@ -24,8 +25,9 @@ func jump():
 # Get user input and do something with it
 func movement(delta):
 	Physics.down_accel(self, self.weight, delta)
-
-	velocity.x = movement_speed * (Input.get_action_strength("right") - Input.get_action_strength("left")) * delta
+	
+	if not shoved:
+		velocity.x = movement_speed * (Input.get_action_strength("right") - Input.get_action_strength("left")) * delta
 
 	if (Input.is_action_just_pressed("up") and not in_air):
 		jump()
@@ -53,8 +55,8 @@ func movement(delta):
 	move_and_slide()
 	
 func pickup_support(support: SupportBeam):
-	support.get_parent().remove_child(support)
 	support.set_tiles_around_supported(false, tiles_data)
+	support.get_parent().remove_child(support)
 	self.number_of_supports+=1
 	
 	
@@ -75,6 +77,7 @@ func place_or_pickup_support():
 		var beam = el as SupportBeam
 		var beam_area = beam.area as Area2D
 		if self in beam_area.get_overlapping_bodies():
+			print(beam)
 			pickup_support(beam)
 			return
 	if not in_air:

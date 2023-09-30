@@ -23,6 +23,8 @@ func set_tiles_around_supported(supported: bool, tiles_data: BetterTilesData):
 			temp_local_coordinate.y+=y_add
 			var tile = tiles_data.find_tile_by_coord(temp_local_coordinate)
 			if tile != null:
+				if not supported:
+					tile.unstable = true
 				tile.supported=supported
 				
 func after_ready(tiles_data):
