@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://btwiwj6rr37q7"]
+[gd_scene load_steps=7 format=3 uid="uid://btwiwj6rr37q7"]
 
+[ext_resource type="Script" path="res://Scenes/PlayerCharacter.gd" id="1_4lobh"]
 [ext_resource type="Texture2D" uid="uid://ua0impr5pswu" path="res://icon.svg" id="1_5sngt"]
+[ext_resource type="Script" path="res://Scenes/Physics.gd" id="1_73hsw"]
+[ext_resource type="Script" path="res://Scenes/Pickaxe.gd" id="4_d8f3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a1oi"]
 size = Vector2(120, 120)
@@ -9,12 +12,14 @@ size = Vector2(120, 120)
 size = Vector2(60, 60)
 
 [node name="Sandbox" type="Node2D"]
+script = ExtResource("1_73hsw")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
 
-[node name="Area2D_PlayerCharacter" type="Area2D" parent="."]
+[node name="Area2D_PlayerCharacter" type="CharacterBody2D" parent="."]
 position = Vector2(100, 100)
+script = ExtResource("1_4lobh")
 
 [node name="Sprite2D_PlayerCharacter" type="Sprite2D" parent="Area2D_PlayerCharacter"]
 texture = ExtResource("1_5sngt")
@@ -24,6 +29,7 @@ shape = SubResource("RectangleShape2D_0a1oi")
 
 [node name="Area2D_Pickaxe" type="Area2D" parent="."]
 position = Vector2(500, 100)
+script = ExtResource("4_d8f3o")
 
 [node name="Sprite2D_Pickaxe" type="Sprite2D" parent="Area2D_Pickaxe"]
 scale = Vector2(0.5, 0.5)
