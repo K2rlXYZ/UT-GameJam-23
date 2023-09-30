@@ -48,13 +48,13 @@ func movement(delta):
 		in_air = true
 		
 	if Input.is_action_pressed("right"):
-		sprite.set_flip_h(true)
-		pickaxe.position.x = pickaxe_x_offset
-		$PlayerAnimation.play_run()
+		#sprite.set_flip_h(true)
+		$PlayerAnimation.scale.x = 1
+		#pickaxe.position.x = pickaxe_x_offset
 	elif Input.is_action_pressed("left"):
-		sprite.set_flip_h(false)
-		pickaxe.position.x = -pickaxe_x_offset
-		$PlayerAnimation.play_run()
+		#sprite.set_flip_h(false)
+		$PlayerAnimation.scale.x = -1
+		#pickaxe.position.x = -pickaxe_x_offset
 	
 		
 	move_and_slide()
@@ -104,6 +104,8 @@ func mine():
 		var target_tile = tiles_data.find_tile_by_coord(local_coordinate)
 		if (target_tile.durability == 1):
 			tilemap.erase_cell(0, local_coordinate)
+			$PlayerAnimation.destroy_rock(collision_point)
+			$PlayerAnimation.pickhitsound()
 			target_tile.exists = false
 			var above_target_tile_position = target_tile.local_position
 			above_target_tile_position.y -= 1
@@ -113,8 +115,9 @@ func mine():
 					tile.unstable = true
 		else:
 			target_tile.durability -= 1
+			
 	Globals.check_for_collapse()
-		
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -144,8 +147,10 @@ func animate() -> void:
 		player_animation.play_jump()
 	elif velocity.x != 0:
 		player_animation.play_run()
-		
+		$PlayerAnimation.run_effect()
+	
 	elif !($PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_upward" \
 		 or $PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_forward"\
 		 or $PlayerAnimation/AnimationPlayer.get_current_animation() == "jump"):
 		player_animation.play_idle()
+		player_animation.run_effect_stop()

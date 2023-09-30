@@ -29,6 +29,12 @@ func set_lantern(state: bool):
 func cancel_animation():
 	pass
 
+func turn_player():
+	if Input.is_action_pressed("left"):
+		get_parent().scale.x = -1
+	else:
+		get_parent().scale.x = 1
+
 func last_animation() -> String:
 	return animation_player.assigned_animation
 
@@ -40,3 +46,17 @@ func StepSound1():
 	
 func StepSound2():
 	$StepSound2.play()
+
+func run_effect():
+	$PlayerRun.emitting = true
+
+func run_effect_stop():
+	$PlayerRun.emitting = false
+
+func destroy_rock(position = null):
+	if position != null:
+		$DestroyRock.global_position = position
+	$DestroyRock.emitting = true
+		
+	
+
