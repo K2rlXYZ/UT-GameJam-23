@@ -1,5 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dnpc1ofrqqb0g"]
 
+[ext_resource type="Script" path="res://Scenes/player_animation.gd" id="1_3i0p7"]
 [ext_resource type="Texture2D" uid="uid://c6x8f5s43w8ap" path="res://Assets/Player/head.png" id="1_p7qke"]
 [ext_resource type="Texture2D" uid="uid://cnc7dic0l877c" path="res://Assets/Player/body.png" id="1_uhk21"]
 [ext_resource type="Texture2D" uid="uid://d2303y8js1n78" path="res://Assets/Player/leftleg.png" id="2_dg7pa"]
@@ -279,7 +280,9 @@ _data = {
 "run": SubResource("Animation_x5t7v")
 }
 
-[node name="PlayerAnimation" type="Node2D"]
+[node name="PlayerAnimation" type="Node2D" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_3i0p7")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Torso" type="Sprite2D" parent="."]
 texture = ExtResource("1_uhk21")
