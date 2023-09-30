@@ -335,7 +335,7 @@ tracks/5/use_blend = true
 tracks/6/type = "audio"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("StepSound1")
+tracks/6/path = NodePath("StepSound2")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -344,7 +344,7 @@ tracks/6/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("11_h1725")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.04)
 }
 tracks/6/use_blend = true
 
@@ -424,3 +424,6 @@ libraries = {
 [node name="PickHitSound" type="AudioStreamPlayer" parent="."]
 
 [node name="StepSound1" type="AudioStreamPlayer" parent="."]
+
+[node name="StepSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_h1725")

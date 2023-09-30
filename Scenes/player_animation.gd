@@ -18,6 +18,7 @@ func play_idle() -> void:
 
 func play_run() -> void:
 	animation_player.play("run")
+	
 
 func play_jump() -> void:
 	animation_player.play("jump")
@@ -30,3 +31,12 @@ func cancel_animation():
 
 func last_animation() -> String:
 	return animation_player.assigned_animation
+
+func pickhitsound() -> void:
+	$PickHitSound.play()
+	
+func StepSound1():
+	$StepSound1.play()
+	
+func StepSound2():
+	$StepSound2.play()
