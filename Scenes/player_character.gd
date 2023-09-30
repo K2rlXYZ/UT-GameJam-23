@@ -104,6 +104,7 @@ func mine():
 		var target_tile = tiles_data.find_tile_by_coord(local_coordinate)
 		if (target_tile.durability == 1):
 			tilemap.erase_cell(0, local_coordinate)
+			$PlayerAnimation.destroy_rock(collision_point)
 			target_tile.exists = false
 			var above_target_tile_position = target_tile.local_position
 			above_target_tile_position.y -= 1
@@ -113,8 +114,9 @@ func mine():
 					tile.unstable = true
 		else:
 			target_tile.durability -= 1
+			
 	Globals.check_for_collapse()
-		
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

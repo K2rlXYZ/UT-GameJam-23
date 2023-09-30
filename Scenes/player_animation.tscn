@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://dnpc1ofrqqb0g"]
+[gd_scene load_steps=24 format=3 uid="uid://dnpc1ofrqqb0g"]
 
 [ext_resource type="Script" path="res://Scenes/player_animation.gd" id="1_3i0p7"]
 [ext_resource type="Texture2D" uid="uid://c6x8f5s43w8ap" path="res://Assets/Player/head.png" id="1_p7qke"]
 [ext_resource type="Texture2D" uid="uid://cnc7dic0l877c" path="res://Assets/Player/body.png" id="1_uhk21"]
 [ext_resource type="Texture2D" uid="uid://d2303y8js1n78" path="res://Assets/Player/leftleg.png" id="2_dg7pa"]
+[ext_resource type="PackedScene" uid="uid://bieh4k38ingav" path="res://Scenes/Particles/destroy_rock.tscn" id="2_dje3h"]
 [ext_resource type="Texture2D" uid="uid://cpf4bhws3j58j" path="res://Assets/Player/rightleg.png" id="3_00jew"]
 [ext_resource type="Texture2D" uid="uid://dtwfuyw21vaju" path="res://Assets/Player/leftarm.png" id="4_eww7j"]
 [ext_resource type="Texture2D" uid="uid://uj7a0ojw7r8n" path="res://Assets/Player/rightarm.png" id="5_txcu7"]
@@ -362,6 +363,8 @@ _data = {
 [node name="PlayerAnimation" type="Node2D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_3i0p7")
 animation_player = NodePath("AnimationPlayer")
+
+[node name="DestroyRock" parent="." instance=ExtResource("2_dje3h")]
 
 [node name="Torso" type="Sprite2D" parent="."]
 texture = ExtResource("1_uhk21")

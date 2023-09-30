@@ -52,3 +52,11 @@ func run_effect():
 
 func run_effect_stop():
 	$PlayerRun.emitting = false
+
+func destroy_rock(position = null):
+	if position != null:
+		$DestroyRock.global_position = position
+	$DestroyRock.emitting = true
+		
+	
+
