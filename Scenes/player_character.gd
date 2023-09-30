@@ -113,6 +113,7 @@ func mine():
 					tile.unstable = true
 		else:
 			target_tile.durability -= 1
+	Globals.check_for_collapse()
 		
 
 # Called when the node enters the scene tree for the first time.
