@@ -22,14 +22,14 @@ initial_velocity_min = 1000.0
 initial_velocity_max = 1000.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-linear_accel_min = 100.0
-linear_accel_max = 100.0
+linear_accel_min = 10.0
+linear_accel_max = 20.0
 radial_accel_min = 100.0
 radial_accel_max = 100.0
 tangential_accel_min = 15.52
 tangential_accel_max = 15.52
-scale_min = 0.0
-scale_max = 0.5
+scale_min = 0.1
+scale_max = 0.3
 color_initial_ramp = SubResource("GradientTexture1D_el6gd")
 turbulence_enabled = true
 
@@ -63,14 +63,15 @@ angular_velocity_min = 41.14
 angular_velocity_max = 51.43
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-linear_accel_min = 10.0
-linear_accel_max = 31.43
-radial_accel_min = 10.01
-radial_accel_max = 11.44
+linear_accel_min = 2.0
+linear_accel_max = 8.0
+radial_accel_min = 2.0
+radial_accel_max = 8.0
 radial_accel_curve = SubResource("CurveTexture_wstib")
 angle_min = -318.8
 angle_max = 226.3
-scale_min = 0.0
+scale_min = 0.2
+scale_max = 0.3
 color_ramp = SubResource("GradientTexture1D_xhc7h")
 turbulence_enabled = true
 
@@ -83,10 +84,9 @@ texture = ExtResource("1_rikwt")
 
 [node name="Fire" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_j51tl")
-amount = 500
+amount = 50
 process_material = SubResource("ParticleProcessMaterial_h0n3q")
 texture = ExtResource("2_0yc8k")
-lifetime = 38.5
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = ExtResource("3_tyuyw")

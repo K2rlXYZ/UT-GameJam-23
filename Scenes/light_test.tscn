@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://2xjtwjxi5h0y"]
+[gd_scene load_steps=4 format=3 uid="uid://2xjtwjxi5h0y"]
 
 [ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="1_3xune"]
 [ext_resource type="Texture2D" uid="uid://c1bqhpwexiqj6" path="res://Assets/light1.png" id="2_1q54f"]
+[ext_resource type="PackedScene" uid="uid://ce7g2hrxmryvv" path="res://Scenes/Particles/torch_fire.tscn" id="3_o0wy1"]
 
 [node name="LightTest" type="Node2D"]
 
@@ -16,4 +17,8 @@ texture = ExtResource("2_1q54f")
 texture_scale = 0.3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
+
+[node name="flame" parent="." instance=ExtResource("3_o0wy1")]
+position = Vector2(901, 380)
