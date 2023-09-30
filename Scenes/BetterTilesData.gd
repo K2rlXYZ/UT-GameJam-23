@@ -27,7 +27,7 @@ func collapse(start_tile: BetterTileData):
 func check_for_collapse():
 	for el in lst:
 		var tile = el as BetterTileData
-		if tile.unstable:
+		if tile.unstable and tile.exists:
 			collapse(tile)
 			
 

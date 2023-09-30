@@ -95,10 +95,11 @@ func mine():
 		var target_tile = tiles_data.find_tile_by_coord(local_coordinate)
 		if (target_tile.durability == 1):
 			tilemap.erase_cell(0, local_coordinate)
+			target_tile.exists = false
 			var above_target_tile_position = target_tile.local_position
 			above_target_tile_position.y -= 1
 			var tile = tiles_data.find_tile_by_coord(above_target_tile_position)
-			if tile != null:
+			if tile != null and tile.exists:
 				tile.unstable = true
 		else:
 			target_tile.durability -= 1
