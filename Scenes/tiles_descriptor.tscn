@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://drqvgabvb1y4c"]
+[gd_scene load_steps=6 format=3 uid="uid://drqvgabvb1y4c"]
 
 [ext_resource type="Script" path="res://Scenes/BetterTilesData.gd" id="1_fr5mj"]
 [ext_resource type="Script" path="res://Scenes/BetterTileData.gd" id="2_mwktr"]
+[ext_resource type="AudioStream" uid="uid://c6xlpmidrhfhp" path="res://Assets/Audio/varisemine.wav" id="3_n6h1v"]
+[ext_resource type="PackedScene" uid="uid://cl8noop23xcmk" path="res://Scenes/Particles/collapse_effect.tscn" id="4_myo5f"]
+[ext_resource type="PackedScene" uid="uid://cr00oy7455d0c" path="res://Scenes/Particles/final_collapse.tscn" id="5_x1uiq"]
 
 [node name="BetterTilesData" type="Node2D"]
 script = ExtResource("1_fr5mj")
 
 [node name="BetterTileData" type="Node2D" parent="."]
 script = ExtResource("2_mwktr")
+
+[node name="varisemine" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_n6h1v")
+
+[node name="Collapse" parent="." instance=ExtResource("4_myo5f")]
+
+[node name="FinalCollapse" parent="." instance=ExtResource("5_x1uiq")]

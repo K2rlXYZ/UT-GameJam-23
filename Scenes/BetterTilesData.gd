@@ -18,6 +18,35 @@ func find_tile_by_coord(coord: Vector2i) -> BetterTileData:
 func collapse(start_tile: BetterTileData):
 	var unstable_position = start_tile.local_position
 	unstable_position.y+=1
+	
+	if not $varisemine.playing:
+		$varisemine.play()
+	var position_for_particles = tilemap.to_global(tilemap.map_to_local(start_tile.local_position))
+	var first_collapse = preload("res://Scenes/Particles/collapse_effect.tscn").instantiate() 
+	var particles = first_collapse.get_child(0) as GPUParticles2D
+	particles.position = position_for_particles
+	particles.emitting = true
+	var t = Timer.new()
+	t.set_wait_time(10)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	await t.timeout
+	particles.emitting = true
+	var final_collapse = preload("res://Scenes/Particles/collapse_effect.tscn").instantiate()
+	for child in final_collapse.get_children():
+		child.position = position_for_particles
+		child.emitting = true
+	# TODO: varisemine animation2 start
+	t = Timer.new()
+	t.set_wait_time(5)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	await t.timeout
+	for child in final_collapse.get_children():
+		child.emitting = false
+	
 	while true:
 		if find_tile_by_coord(unstable_position) == null:
 			lst.append(BetterTileData.new().construct(unstable_position))
@@ -31,9 +60,7 @@ func collapse(start_tile: BetterTileData):
 func check_for_collapse():
 	for el in lst:
 		var tile = el as BetterTileData
-		#print(tile.unstable, tile.exists, not tile.supported)
 		if tile.exists and tile.unstable and (not tile.supported):
-			print("Collapseing")
 			collapse(tile)
 			
 
