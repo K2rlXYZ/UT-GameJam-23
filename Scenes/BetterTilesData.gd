@@ -12,7 +12,10 @@ func check_for_collapse():
 	for el in lst:
 		var tile = el as BetterTileData
 		if tile.unstable:
-			var row = tile.local_position.x
+			var unstable_position = tile.local_position
+			depth_to_fall = 1
+			var next_under
+			while ()
 			
 
 # Called when the node enters the scene tree for the first time.

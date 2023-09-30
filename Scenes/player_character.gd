@@ -98,10 +98,9 @@ func mine():
 			var above_target_tile_position = target_tile.local_position
 			above_target_tile_position.y -= 1
 			var possible_tiles = tiles_data.lst.filter(func(e): \
-				return (e as BetterTileData).local_position == above_target_tile_position
+				return (e as BetterTileData).local_position == above_target_tile_position)
 			if (len(possible_tiles) > 0):
-				var tile_above_target_tile =  \
-				)[0] as BetterTileData
+				var tile_above_target_tile = possible_tiles[0] as BetterTileData
 				if tile_above_target_tile != null:
 					tile_above_target_tile.unstable = true
 		else:
