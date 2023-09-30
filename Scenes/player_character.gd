@@ -89,7 +89,6 @@ func place_or_pickup_support():
 		place_support()
 
 func mine():
-	$PlayerAnimation.pickhitsound()
 	# Get vector from player towards mouse and limit its length
 	var vect = get_global_mouse_position() - self.position
 	vect = vect.limit_length(250)
@@ -106,6 +105,7 @@ func mine():
 		if (target_tile.durability == 1):
 			tilemap.erase_cell(0, local_coordinate)
 			$PlayerAnimation.destroy_rock(collision_point)
+			$PlayerAnimation.pickhitsound()
 			target_tile.exists = false
 			var above_target_tile_position = target_tile.local_position
 			above_target_tile_position.y -= 1
