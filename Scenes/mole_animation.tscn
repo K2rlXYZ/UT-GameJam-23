@@ -1,0 +1,271 @@
+[gd_scene load_steps=12 format=3 uid="uid://dli5kqnj0f2gf"]
+
+[ext_resource type="Texture2D" uid="uid://ca5parysyd2cl" path="res://Assets/Mole/molearm1.png" id="1_m2qcr"]
+[ext_resource type="Texture2D" uid="uid://cd6adi62uywi3" path="res://Assets/Mole/molearm2.png" id="2_lctjv"]
+[ext_resource type="Texture2D" uid="uid://cjx7jp20x0776" path="res://Assets/Mole/molebody.png" id="3_jpehr"]
+[ext_resource type="Texture2D" uid="uid://baw3e0et5j31q" path="res://Assets/Mole/molehead.png" id="4_kyv4h"]
+[ext_resource type="Texture2D" uid="uid://b2h4bc3wlelgm" path="res://Assets/Mole/molejaw.png" id="5_kfnf8"]
+[ext_resource type="Texture2D" uid="uid://c864tprlr4hq6" path="res://Assets/Mole/moleleg1.png" id="6_5ifvv"]
+[ext_resource type="Texture2D" uid="uid://dne1lgf426gf1" path="res://Assets/Mole/moleleg2.png" id="7_lnjid"]
+
+[sub_resource type="Animation" id="Animation_ujl0q"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Molebody/Molearm1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Molebody/Molearm2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Molebody/Moleleg1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Molebody/Moleleg2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Molebody/Molehead:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Molebody/Molehead/Molejaw:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_xlrnb"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Molebody/Molearm1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1.8, -0.206549, 0, -1.5, 0.115975, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Molebody/Molearm2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1.2457, 0.130152, 0, -1.3543, -0.133301, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Molebody/Moleleg1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1.3457, -0.107901, 0, -0.954298, 0.0716725, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Molebody/Moleleg2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1.3457, 0.0899843, 0, -1.0543, -0.0860452, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Molebody/Molehead:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1.1457, 0.11125, 0, -1.1543, -0.109673, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Molebody/Molehead/Molejaw:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1.1457, 0.122473, 0, -1.2543, -0.110855, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+
+[sub_resource type="Animation" id="Animation_to30j"]
+resource_name = "run"
+loop_mode = 1
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Molebody/Molearm1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.2, 0.2556, 0.621337, -0.2, -0.131865, 0.28, -0.0314541, -0.568977, -0.25, 0, 0.26, 0.152214, 0, -0.14, -0.149591, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25, 0.7, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Molebody/Molearm2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.14, -0.224279, -0.74351, -0.19, 0.131159, 0.26, 0.110971, 0.506145, -0.25, 0, 0.12, -0.0709259, 0.00707288, -0.15, 0.10737, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25, 0.7, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Molebody/Moleleg1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.14, -0.510873, -1.0088, -0.15, 0.0826497, 0.24, 0.156963, 1.08385, -0.23, -0.204633, 0.15, -0.182777, 0, -0.13, 0.490166, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25, 0.7, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Molebody/Moleleg2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.17, 0.00931787, 0.340339, -0.15, 0.0143151, 0.15, -0.374735, -1.91288, -0.25, 0, 0.21, 0.287315, 0, -0.16, -0.156793, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25, 0.7, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Molebody/Molehead:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.12, -0.0178536, -0.0523599, -0.19, 0.00788628, 0.25, 0, 0.155334, -0.24, -0.0246855, 0.14, -0.00814444, 0, -0.21, 0.0650822, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25, 0.7, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Molebody/Molehead/Molejaw:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.16, -0.0725746, -0.205949, -0.18, 0.0286087, 0.26, 0.0241707, 0.279253, -0.25, -0.0333659, 0.16, -0.0352712, 0, -0.19, 0.0990283, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25, 0.7, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6dxdj"]
+_data = {
+"RESET": SubResource("Animation_ujl0q"),
+"idle": SubResource("Animation_xlrnb"),
+"run": SubResource("Animation_to30j")
+}
+
+[node name="MoleAnimation" type="Node2D"]
+
+[node name="Molebody" type="Sprite2D" parent="."]
+texture = ExtResource("3_jpehr")
+
+[node name="Molearm2" type="Sprite2D" parent="Molebody"]
+show_behind_parent = true
+position = Vector2(-8.9, -2.405)
+texture = ExtResource("2_lctjv")
+offset = Vector2(8.9, 2.405)
+
+[node name="Molehead" type="Sprite2D" parent="Molebody"]
+position = Vector2(-9.425, -69.605)
+texture = ExtResource("4_kyv4h")
+offset = Vector2(9.425, 69.605)
+
+[node name="Molejaw" type="Sprite2D" parent="Molebody/Molehead"]
+show_behind_parent = true
+position = Vector2(-13.875, 37.04)
+texture = ExtResource("5_kfnf8")
+offset = Vector2(23.3, 32.565)
+
+[node name="Moleleg2" type="Sprite2D" parent="Molebody"]
+show_behind_parent = true
+position = Vector2(89.35, 33.585)
+texture = ExtResource("7_lnjid")
+offset = Vector2(-89.35, -33.585)
+
+[node name="Moleleg1" type="Sprite2D" parent="Molebody"]
+position = Vector2(122.265, 27.225)
+texture = ExtResource("6_5ifvv")
+offset = Vector2(-122.265, -27.225)
+
+[node name="Molearm1" type="Sprite2D" parent="Molebody"]
+position = Vector2(37.505, -58.08)
+texture = ExtResource("1_m2qcr")
+offset = Vector2(-37.505, 58.08)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_6dxdj")
+}
