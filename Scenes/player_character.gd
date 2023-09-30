@@ -92,7 +92,7 @@ func mine():
 		#Get the local coordinates from the collision point
 		var local_coordinate = tilemap.local_to_map(tilemap.to_local(collision_point+vect.limit_length(20))) as Vector2i
 		#Get the target tiles BetterTileData
-		var target_tile = tiles_data.lst.filter(func(e): return (e as BetterTileData).local_position == local_coordinate)[0] as BetterTileData
+		var target_tile = tiles_data.find_tile_by_coord(local_coordinate)
 		if (target_tile.durability == 1):
 			tilemap.erase_cell(0, local_coordinate)
 			var above_target_tile_position = target_tile.local_position

@@ -18,10 +18,9 @@ func set_tiles_above_unstable(unstable: bool = false):
 			var adjusted_local_coordinate = local_coordinate
 			adjusted_local_coordinate.x+=x_add
 			adjusted_local_coordinate.y+=y_add
-			for el in player.tiles_data.lst:
-				var tile = el as BetterTileData
-				if tile.local_position == adjusted_local_coordinate:
-					tile.unstable = unstable
+			var tile = player.tiles_data.find_tile_by_coord(adjusted_local_coordinate)
+			if tile != null:
+				tile.unstable=unstable
 
 func _ready():
 	set_tiles_above_unstable()
