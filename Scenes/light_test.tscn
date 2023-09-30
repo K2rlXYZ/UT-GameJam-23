@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://daw8snoqwkalg"]
+[gd_scene load_steps=3 format=3 uid="uid://2xjtwjxi5h0y"]
 
-[ext_resource type="TileSet" uid="uid://8ff40ad8oyaw" path="res://Resources/Tilesets/tileset.tres" id="1_3xune"]
+[ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="1_3xune"]
 [ext_resource type="Texture2D" uid="uid://c1bqhpwexiqj6" path="res://Assets/light1.png" id="2_1q54f"]
 
 [node name="LightTest" type="Node2D"]

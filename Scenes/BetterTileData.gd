@@ -5,7 +5,7 @@ extends Node2D
 var local_pos: Vector2i
 var durability: int
 
-func new(lp: Vector2i):
+func neww(lp: Vector2i, dur: int = 1) -> BetterTileData:
 	self.local_pos = lp
-	self.durability = 3
+	self.durability = dur
 	return self

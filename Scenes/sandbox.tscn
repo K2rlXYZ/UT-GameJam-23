@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://btwiwj6rr37q7"]
+[gd_scene load_steps=6 format=3 uid="uid://btwiwj6rr37q7"]
 
+[ext_resource type="PackedScene" uid="uid://drqvgabvb1y4c" path="res://Scenes/tiles_descriptor.tscn" id="2_ph851"]
 [ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="2_rpt32"]
 [ext_resource type="PackedScene" uid="uid://jhcxxjphb1ov" path="res://Scenes/player_character.tscn" id="3_1n3b2"]
 
@@ -15,7 +16,9 @@ tile_set = ExtResource("2_rpt32")
 format = 2
 layer_0/tile_data = PackedInt32Array(655366, 65536, 0, 655367, 65536, 0, 589832, 65536, 0, 589833, 65536, 0, 589834, 65536, 0, 524299, 65536, 0, 458764, 65536, 0, 393229, 65536, 0, 786444, 0, 1, 720909, 0, 1, 720910, 0, 1, 655375, 0, 1, 589840, 0, 1, 524305, 0, 1, 262161, 65536, 1, 262160, 65536, 1, 262159, 65536, 1, 262158, 65536, 1, 262157, 65536, 1, 262156, 65536, 1, 262155, 65536, 1, 262154, 65536, 1, 327689, 65536, 1)
 
-[node name="Area2D_PlayerCharacter" parent="." instance=ExtResource("3_1n3b2")]
+[node name="BetterTilesData" parent="TileMap" instance=ExtResource("2_ph851")]
+
+[node name="Area2D_PlayerCharacter" parent="TileMap" instance=ExtResource("3_1n3b2")]
 
 [node name="StaticBody_WorldBoundingBox" type="StaticBody2D" parent="."]
 collision_layer = 65535

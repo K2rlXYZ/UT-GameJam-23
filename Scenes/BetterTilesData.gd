@@ -1,5 +1,7 @@
 # THIS NODES PARENT SHOULD BE A TILEMAP
 
+class_name BetterTilesData
+
 extends Node2D
 
 var lst = []
@@ -8,7 +10,7 @@ var lst = []
 func _ready():
 	var tilemap = self.get_parent() as TileMap
 	for cell_coords in tilemap.get_used_cells(0):
-		lst.append(BetterTileData.new())
+		lst.append(BetterTileData.new().neww(cell_coords))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -39,8 +39,9 @@ func mine():
 		var tilemap = raycast.get_collider() as TileMap
 		var local_coord = tilemap.local_to_map(tilemap.to_local(cp+vect.limit_length(20))) as Vector2i
 		tilemap.set_cell(0, local_coord, -1)
-		tilemap.fix_invalid_tiles()
-		tilemap.force_update(0)
+		tilemap.erase_cell(0, local_coord)
+		tilemap.clear_layer(0)
+		
 		
 		
 func mine_test():
@@ -54,5 +55,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	movement(delta)
-	mine_test()
 
+func _input(event):
+	if event is InputEventMouse:
+		if event.is_action_pressed("clickLeft"):
+			mine_test()
