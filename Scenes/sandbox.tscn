@@ -38,4 +38,4 @@ position = Vector2(151, 336)
 tiles_data = NodePath("../TileMap/BetterTilesData")
 
 [node name="mole" parent="." instance=ExtResource("4_3ths7")]
-position = Vector2(494, 218)
+position = Vector2(1439, 444)

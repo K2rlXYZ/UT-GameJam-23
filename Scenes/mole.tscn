@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvgorpsgg04ca"]
+[gd_scene load_steps=8 format=3 uid="uid://dvgorpsgg04ca"]
 
 [ext_resource type="Script" path="res://Mole.gd" id="1_m5t78"]
 [ext_resource type="Texture2D" uid="uid://ua0impr5pswu" path="res://icon.svg" id="2_ysynv"]
+[ext_resource type="AudioStream" uid="uid://ci0p8ff3ypsal" path="res://Assets/Audio/mole_roar.wav" id="3_7af7u"]
+[ext_resource type="AudioStream" uid="uid://bixl5b05fiync" path="res://Assets/Audio/mole_attack.wav" id="4_5bs7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7x3w"]
 size = Vector2(128, 122)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjfdh"]
 radius = 118.152
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3gj6"]
+radius = 1350.15
 
 [node name="mole" type="CharacterBody2D"]
 collision_layer = 8
@@ -27,4 +32,17 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_fjfdh")
 
+[node name="mole_roar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7af7u")
+
+[node name="mole_attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5bs7k")
+autoplay = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_i3gj6")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

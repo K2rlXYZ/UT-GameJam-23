@@ -25,6 +25,7 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body is PlayerCharacter:
+		$mole_attack.play()
 		body.shoved = true
 		body.velocity.x += 200000
 		var t = Timer.new()
@@ -32,7 +33,12 @@ func _on_area_2d_body_entered(body):
 		t.set_one_shot(true)
 		self.add_child(t)
 		t.start()
-		#await t.timeout
+		await t.timeout
 		body.velocity.x -= 200000
 		body.shoved = false
 		change = false
+
+
+func _on_area_2d_2_body_entered(body):
+	if body is PlayerCharacter:
+		$mole_roar.play()
