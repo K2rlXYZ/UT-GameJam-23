@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://btwiwj6rr37q7"]
+[gd_scene load_steps=3 format=3 uid="uid://btwiwj6rr37q7"]
 
 [ext_resource type="Script" path="res://Scenes/physics.gd" id="1_eeonj"]
+[ext_resource type="TileSet" uid="uid://8ff40ad8oyaw" path="res://Resources/Tilesets/tileset.tres" id="2_rpt32"]
 
 [node name="Sandbox" type="Node2D"]
 script = ExtResource("1_eeonj")
 
 [node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_rpt32")
 format = 2
