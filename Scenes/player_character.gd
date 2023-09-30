@@ -1,3 +1,5 @@
+class_name PlayerCharacter
+
 extends CharacterBody2D
 
 @export var movement_speed = 400*100
