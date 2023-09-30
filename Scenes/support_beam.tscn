@@ -4,14 +4,16 @@
 [ext_resource type="Script" path="res://Scenes/support_beam.gd" id="1_jrtn6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lwm2"]
-size = Vector2(20, 120)
+size = Vector2(20, 300)
 
 [node name="CharacterBody2D_SupportBeam" type="CharacterBody2D" node_paths=PackedStringArray("area")]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_jrtn6")
 area = NodePath("Area2D")
 
 [node name="Sprite2D_SupportBeam" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 1)
+scale = Vector2(0.2, 2.34)
 texture = ExtResource("1_2ihel")
 
 [node name="CollisionShape2D_SupportBeam" type="CollisionShape2D" parent="."]

@@ -51,10 +51,11 @@ func place_support():
 	if number_of_supports > 0:
 		var prel = preload("res://Scenes/support_beam.tscn").instantiate()
 		var player_position_adjusted_to_tilemap = self.position
-		player_position_adjusted_to_tilemap.x = int(player_position_adjusted_to_tilemap.x/100)*100
-		player_position_adjusted_to_tilemap.y = int(player_position_adjusted_to_tilemap.y/100)*100
+		player_position_adjusted_to_tilemap.x = int(player_position_adjusted_to_tilemap.x/100)*100+50
+		player_position_adjusted_to_tilemap.y = int(player_position_adjusted_to_tilemap.y/100)*100+50
 		prel.position = player_position_adjusted_to_tilemap
 		get_parent().add_child(prel)
+		Globals.support_beams.append(prel)
 		self.number_of_supports-=1
 		
 func place_or_pickup_support():
@@ -63,8 +64,9 @@ func place_or_pickup_support():
 		var beam_area = beam.area as Area2D
 		if self in beam_area.get_overlapping_bodies():
 			pickup_support(beam)
-		else:
-			place_support()
+			return
+	if not in_air:
+		place_support()
 
 func mine():
 	# Get vector from player towards mouse and limit its length

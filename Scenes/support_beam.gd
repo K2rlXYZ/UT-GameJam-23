@@ -8,12 +8,10 @@ extends CharacterBody2D
 var weight = 1
 
 func _ready():
-	
-	Globals.support_beams.append(self)
+	pass
 	
 
 func _physics_process(delta):
-	Physics.down_accel(self, self.weight, delta)
-	move_and_slide()
+	pass
 	
 	
