@@ -9,7 +9,6 @@ size = Vector2(120, 120)
 [node name="Area2D_PlayerCharacter" type="CharacterBody2D"]
 position = Vector2(100, 100)
 script = ExtResource("1_do68i")
-movement_speed = null
 
 [node name="Sprite2D_PlayerCharacter" type="Sprite2D" parent="."]
 texture = ExtResource("2_p0en4")

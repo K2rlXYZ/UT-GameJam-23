@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
-@export var movement_speed = 400 
-
+@export var movement_speed = 400*100
+@export var weight = 1
 
 # Get user input and do something with it
-func react_input(delta):
-	velocity.y += physics.gravity * delta
+func movement(delta):
+	velocity.y += weight * Physics.gravity * delta
 
 	velocity.x = movement_speed * (Input.get_action_strength("right") - Input.get_action_strength("left")) * delta
 
 	if Input.is_action_just_pressed("up"):
-		velocity.y = -100.0
+		velocity.y = -Physics.gravity
 
 	move_and_slide()
 
@@ -20,4 +20,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	react_input(delta)
+	movement(delta)
