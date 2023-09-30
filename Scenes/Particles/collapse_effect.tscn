@@ -19,24 +19,7 @@ turbulence_enabled = true
 [node name="Collapse" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 1
-process_material = SubResource("ParticleProcessMaterial_a7vyn")
-texture = ExtResource("1_jn1iq")
-
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
-position = Vector2(175, 0)
-amount = 1
-process_material = SubResource("ParticleProcessMaterial_a7vyn")
-texture = ExtResource("1_jn1iq")
-
-[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
-position = Vector2(349, 3)
-amount = 1
-process_material = SubResource("ParticleProcessMaterial_a7vyn")
-texture = ExtResource("1_jn1iq")
-
-[node name="GPUParticles2D4" type="GPUParticles2D" parent="."]
-position = Vector2(600, 2)
+emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_a7vyn")
 texture = ExtResource("1_jn1iq")
