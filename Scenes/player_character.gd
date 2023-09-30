@@ -97,12 +97,9 @@ func mine():
 			tilemap.erase_cell(0, local_coordinate)
 			var above_target_tile_position = target_tile.local_position
 			above_target_tile_position.y -= 1
-			var possible_tiles = tiles_data.lst.filter(func(e): \
-				return (e as BetterTileData).local_position == above_target_tile_position)
-			if (len(possible_tiles) > 0):
-				var tile_above_target_tile = possible_tiles[0] as BetterTileData
-				if tile_above_target_tile != null:
-					tile_above_target_tile.unstable = true
+			var tile = tiles_data.find_tile_by_coord(above_target_tile_position)
+			if tile != null:
+				tile.unstable = true
 		else:
 			target_tile.durability -= 1
 		
