@@ -27,3 +27,6 @@ func set_lantern(state: bool):
 	
 func cancel_animation():
 	pass
+
+func last_animation() -> String:
+	return animation_player.assigned_animation
