@@ -24,6 +24,6 @@ func play_jump() -> void:
 
 func set_lantern(state: bool):
 	$Torso/RightArm/flame/Lantern.enabled = state
-	
-func cancel_animation():
-	pass
+
+func last_animation() -> String:
+	return animation_player.assigned_animation

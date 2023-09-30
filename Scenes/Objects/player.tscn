@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b374vrovdl1ji"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/player.gd" id="1_kesiu"]
+[ext_resource type="PackedScene" uid="uid://dnpc1ofrqqb0g" path="res://Scenes/player_animation.tscn" id="1_qe8ed"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0tppc"]
+radius = 32.0
+height = 180.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_kesiu")
+
+[node name="PlayerAnimation" parent="." instance=ExtResource("1_qe8ed")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0tppc")
