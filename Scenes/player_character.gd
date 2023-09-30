@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var pickaxe: CharacterBody2D
 @export var raycast: RayCast2D
 @export var tiles_data: BetterTilesData
+
+var number_of_supports = 4
 var direction = true
 var pickaxe_x_offset = 50
 var in_air = false
@@ -39,11 +41,20 @@ func movement(delta):
 		pickaxe.position.x = -pickaxe_x_offset
 
 	move_and_slide()
+	
+func place_support():
+	if number_of_supports > 0:
+		var prel = preload("res://Scenes/support_beam.tscn")
+		get_parent().add_child(prel)
+		
+func pickup_support():
+	pass
+	
 
 func mine():
 	# Get vector from player towards mouse and limit its length
 	var vect = get_global_mouse_position() - self.position
-	vect = vect.limit_length(100)
+	vect = vect.limit_length(250)
 	# Set the vector as raycasts target position and update the raycast
 	raycast.target_position = vect
 	raycast.force_raycast_update()
@@ -54,7 +65,7 @@ func mine():
 		var local_coordinate = tilemap.local_to_map(tilemap.to_local(collision_point+vect.limit_length(20))) as Vector2i
 		#Get the target tiles BetterTileData
 		var target_tile = tiles_data.lst.filter(func(e): return (e as BetterTileData).local_position == local_coordinate)[0] as BetterTileData
-		if (target_tile.durability == 0):
+		if (target_tile.durability == 1):
 			tilemap.erase_cell(0, local_coordinate)
 			var above_target_tile_position = target_tile.local_position
 			above_target_tile_position.y -= 1
@@ -64,12 +75,7 @@ func mine():
 			tile_above_target_tile.unstable = true
 		else:
 			target_tile.durability -= 1
-			
-
 		
-func mine_test():
-	if Input.is_action_just_pressed("clickLeft"):
-		mine()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -83,3 +89,8 @@ func _input(event):
 	if event is InputEventMouse:
 		if event.is_action_pressed("clickLeft"):
 			mine()
+		if event.is_action_pressed("clickRight"):
+			pass
+			
+			
+

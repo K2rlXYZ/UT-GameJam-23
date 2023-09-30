@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var player: CharacterBody2D
+@export var area: Area2D
 
 var weight = 1
 
