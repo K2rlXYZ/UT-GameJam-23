@@ -50,11 +50,9 @@ func movement(delta):
 	if Input.is_action_pressed("right"):
 		sprite.set_flip_h(true)
 		pickaxe.position.x = pickaxe_x_offset
-		$PlayerAnimation.play_run()
 	elif Input.is_action_pressed("left"):
 		sprite.set_flip_h(false)
 		pickaxe.position.x = -pickaxe_x_offset
-		$PlayerAnimation.play_run()
 	
 		
 	move_and_slide()
