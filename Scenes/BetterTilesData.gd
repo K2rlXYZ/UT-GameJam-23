@@ -14,8 +14,6 @@ func check_for_collapse():
 		if tile.unstable:
 			var unstable_position = tile.local_position
 			depth_to_fall = 1
-			var next_under
-			while ()
 			
 
 # Called when the node enters the scene tree for the first time.
