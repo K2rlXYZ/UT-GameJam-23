@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_akxpb"]
 size = Vector2(60, 60)
 
-[node name="Area2D_Pickaxe" type="Area2D"]
+[node name="CharacterBody2D_Pickaxe" type="CharacterBody2D"]
 position = Vector2(500, 100)
 script = ExtResource("1_q2lcb")
 

@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 # Get user input and do something with it
 func movement(delta):
-	velocity.y += weight * Physics.gravity * delta
+	Physics.down_accel(self, self.weight, delta)
 
 	velocity.x = movement_speed * (Input.get_action_strength("right") - Input.get_action_strength("left")) * delta
 
@@ -19,5 +19,5 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	movement(delta)

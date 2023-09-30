@@ -1,23 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://btwiwj6rr37q7"]
+[gd_scene load_steps=6 format=3 uid="uid://btwiwj6rr37q7"]
 
 [ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="2_rpt32"]
 [ext_resource type="PackedScene" uid="uid://jhcxxjphb1ov" path="res://Scenes/player_character.tscn" id="3_1n3b2"]
 [ext_resource type="PackedScene" uid="uid://deuis415k5koh" path="res://Scenes/pickaxe.tscn" id="4_p71a1"]
-
-[sub_resource type="GDScript" id="GDScript_p8577"]
-script/source = "extends Node2D
-
-@export var gravity = 100
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wfg4j"]
 normal = Vector2(-0.0126572, 0.99992)
@@ -25,7 +10,6 @@ normal = Vector2(-0.0126572, 0.99992)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mou8n"]
 
 [node name="Sandbox" type="Node2D"]
-script = SubResource("GDScript_p8577")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_rpt32")
@@ -33,6 +17,7 @@ format = 2
 
 [node name="Area2D_PlayerCharacter" parent="." instance=ExtResource("3_1n3b2")]
 movement_speed = 40000
+weight = 1
 
 [node name="Area2D_Pickaxe" parent="." instance=ExtResource("4_p71a1")]
 position = Vector2(600, 200)
