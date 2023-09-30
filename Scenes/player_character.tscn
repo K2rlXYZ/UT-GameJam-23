@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://jhcxxjphb1ov"]
+[gd_scene load_steps=5 format=3 uid="uid://jhcxxjphb1ov"]
 
 [ext_resource type="Script" path="res://Scenes/player_character.gd" id="1_do68i"]
 [ext_resource type="Texture2D" uid="uid://ua0impr5pswu" path="res://icon.svg" id="2_p0en4"]
+[ext_resource type="PackedScene" uid="uid://deuis415k5koh" path="res://Scenes/pickaxe.tscn" id="3_xp5yy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a1oi"]
 size = Vector2(120, 120)
 
-[node name="Area2D_PlayerCharacter" type="CharacterBody2D"]
+[node name="CharacterBody2D_PlayerCharacter" type="CharacterBody2D"]
 position = Vector2(100, 100)
 script = ExtResource("1_do68i")
 
@@ -15,3 +16,6 @@ texture = ExtResource("2_p0en4")
 
 [node name="CollisionShape2D_PlayerCharacter" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0a1oi")
+
+[node name="CharacterBody2D_Pickaxe" parent="." instance=ExtResource("3_xp5yy")]
+position = Vector2(40, 0)
