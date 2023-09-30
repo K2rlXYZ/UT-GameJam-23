@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var movement_speed = 400*100
 @export var weight = 1
-@export var jump_speed = 5*100
+@export var jump_speed = 6*100
 @export var sprite: Sprite2D
 @export var pickaxe: CharacterBody2D
 @export var raycast: RayCast2D
@@ -14,6 +14,7 @@ var number_of_supports = 4
 var direction = true
 var pickaxe_x_offset = 50
 var in_air = false
+var jumped_on_wall = false
 
 
 
@@ -26,9 +27,16 @@ func movement(delta):
 
 	velocity.x = movement_speed * (Input.get_action_strength("right") - Input.get_action_strength("left")) * delta
 
-	if Input.is_action_just_pressed("up") and not in_air:
+	if (Input.is_action_just_pressed("up") and not in_air):
 		jump()
 		in_air = true
+		
+	elif Input.is_action_just_pressed("up") and self.is_on_wall() and not jumped_on_wall:
+		jump()
+		jumped_on_wall = true
+		
+	if not is_on_wall():
+		jumped_on_wall = false
 		
 	if is_on_floor():
 		in_air = false
@@ -46,6 +54,7 @@ func movement(delta):
 	
 func pickup_support(support: SupportBeam):
 	support.get_parent().remove_child(support)
+	support.set_tiles_above_unstable(true)
 	self.number_of_supports+=1
 	
 	
@@ -91,7 +100,8 @@ func mine():
 			var tile_above_target_tile = tiles_data.lst.filter(func(e): \
 				return (e as BetterTileData).local_position == above_target_tile_position \
 			)[0] as BetterTileData
-			tile_above_target_tile.unstable = true
+			if tile_above_target_tile != null:
+				tile_above_target_tile.unstable = true
 		else:
 			target_tile.durability -= 1
 		
