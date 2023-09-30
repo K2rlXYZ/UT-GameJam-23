@@ -89,6 +89,7 @@ func place_or_pickup_support():
 		place_support()
 
 func mine():
+	$PlayerAnimation.pickhitsound()
 	# Get vector from player towards mouse and limit its length
 	var vect = get_global_mouse_position() - self.position
 	vect = vect.limit_length(250)
