@@ -29,6 +29,12 @@ func set_lantern(state: bool):
 func cancel_animation():
 	pass
 
+func turn_player():
+	if Input.is_action_pressed("left"):
+		get_parent().scale.x = -1
+	else:
+		get_parent().scale.x = 1
+
 func last_animation() -> String:
 	return animation_player.assigned_animation
 

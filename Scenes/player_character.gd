@@ -48,11 +48,13 @@ func movement(delta):
 		in_air = true
 		
 	if Input.is_action_pressed("right"):
-		sprite.set_flip_h(true)
-		pickaxe.position.x = pickaxe_x_offset
+		#sprite.set_flip_h(true)
+		$PlayerAnimation.scale.x = 1
+		#pickaxe.position.x = pickaxe_x_offset
 	elif Input.is_action_pressed("left"):
-		sprite.set_flip_h(false)
-		pickaxe.position.x = -pickaxe_x_offset
+		#sprite.set_flip_h(false)
+		$PlayerAnimation.scale.x = -1
+		#pickaxe.position.x = -pickaxe_x_offset
 	
 		
 	move_and_slide()
@@ -142,6 +144,7 @@ func animate() -> void:
 		player_animation.play_jump()
 	elif velocity.x != 0:
 		player_animation.play_run()
+		
 		
 	elif !($PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_upward" \
 		 or $PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_forward"\
