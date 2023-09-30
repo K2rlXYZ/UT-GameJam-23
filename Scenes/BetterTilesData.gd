@@ -19,6 +19,7 @@ func collapse(start_tile: BetterTileData):
 	var unstable_position = start_tile.local_position
 	unstable_position.y+=1
 	while true:
+		find_tile_by_coord(unstable_position).exists = true
 		tilemap.set_cell(0, unstable_position, 1, Vector2i(0, 0))
 		if find_tile_by_coord(unstable_position) != null:
 			break

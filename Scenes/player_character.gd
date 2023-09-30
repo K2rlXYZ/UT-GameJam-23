@@ -54,7 +54,7 @@ func movement(delta):
 	
 func pickup_support(support: SupportBeam):
 	support.get_parent().remove_child(support)
-	support.set_tiles_above_unstable(true)
+	support.set_tiles_around_supported(true)
 	self.number_of_supports+=1
 	
 	
@@ -99,8 +99,9 @@ func mine():
 			var above_target_tile_position = target_tile.local_position
 			above_target_tile_position.y -= 1
 			var tile = tiles_data.find_tile_by_coord(above_target_tile_position)
-			if tile != null and tile.exists:
-				tile.unstable = true
+			if tile != null:
+				if tile.exists and not tile.supported:
+					tile.unstable = true
 		else:
 			target_tile.durability -= 1
 		
