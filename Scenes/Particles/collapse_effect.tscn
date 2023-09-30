@@ -1,19 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://cl8noop23xcmk"]
 
-[ext_resource type="Texture2D" uid="uid://cs4w8q1pst1cb" path="res://Assets/ParticleShapes/circle_05.png" id="1_y2tyx"]
+[ext_resource type="Texture2D" uid="uid://battswadr881f" path="res://Assets/IMG_1012.png" id="1_jn1iq"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a7vyn"]
-lifetime_randomness = 1.0
 particle_flag_disable_z = true
 direction = Vector3(0, 3, 0)
 gravity = Vector3(0, 2000, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 2.0
+angular_velocity_min = 200.0
+angular_velocity_max = 200.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 radial_accel_min = 4.0
 radial_accel_max = 4.0
-color = Color(0.478431, 0.482353, 0.184314, 1)
 turbulence_enabled = true
 
 [node name="Collapse" type="Node2D"]
@@ -21,4 +21,22 @@ turbulence_enabled = true
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_a7vyn")
-texture = ExtResource("1_y2tyx")
+texture = ExtResource("1_jn1iq")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(175, 0)
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_a7vyn")
+texture = ExtResource("1_jn1iq")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
+position = Vector2(349, 3)
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_a7vyn")
+texture = ExtResource("1_jn1iq")
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="."]
+position = Vector2(600, 2)
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_a7vyn")
+texture = ExtResource("1_jn1iq")
