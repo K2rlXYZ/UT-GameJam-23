@@ -3,6 +3,7 @@ extends Control
 
 func _ready():
 	$P/M/VB/Volume/VolumeSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	$P/M/VB/Fullscreen/FullscreenCheckBox.button_pressed = DisplayServer.window_get_mode(0) == DisplayServer.WINDOW_MODE_FULLSCREEN
 
 
 func _on_back_button_pressed():
