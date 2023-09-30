@@ -42,14 +42,29 @@ func movement(delta):
 
 	move_and_slide()
 	
+func pickup_support(support: SupportBeam):
+	support.get_parent().remove_child(support)
+	self.number_of_supports+=1
+	
+	
 func place_support():
 	if number_of_supports > 0:
-		var prel = preload("res://Scenes/support_beam.tscn")
+		var prel = preload("res://Scenes/support_beam.tscn").instantiate()
+		var player_position_adjusted_to_tilemap = self.position
+		player_position_adjusted_to_tilemap.x = int(player_position_adjusted_to_tilemap.x/100)*100
+		player_position_adjusted_to_tilemap.y = int(player_position_adjusted_to_tilemap.y/100)*100
+		prel.position = player_position_adjusted_to_tilemap
 		get_parent().add_child(prel)
+		self.number_of_supports-=1
 		
-func pickup_support():
-	pass
-	
+func place_or_pickup_support():
+	for el in Globals.support_beams:
+		var beam = el as SupportBeam
+		var beam_area = beam.area as Area2D
+		if self in beam_area.get_overlapping_bodies():
+			pickup_support(beam)
+		else:
+			place_support()
 
 func mine():
 	# Get vector from player towards mouse and limit its length
@@ -90,7 +105,7 @@ func _input(event):
 		if event.is_action_pressed("clickLeft"):
 			mine()
 		if event.is_action_pressed("clickRight"):
-			pass
+			place_or_pickup_support()
 			
 			
 
