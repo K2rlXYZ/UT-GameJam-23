@@ -21,3 +21,6 @@ func play_run() -> void:
 
 func set_lantern(state: bool):
 	$Torso/RightArm/flame/Lantern.enabled = state
+	
+func cancel_animation():
+	pass
