@@ -6,8 +6,10 @@ extends CharacterBody2D
 @export var sprite: Sprite2D
 @export var pickaxe: CharacterBody2D
 @export var raycast: RayCast2D
+@export var tiles_data: BetterTilesData
 var direction = true
 var pickaxe_x_offset = 50
+var in_air = false
 
 
 
@@ -20,8 +22,14 @@ func movement(delta):
 
 	velocity.x = movement_speed * (Input.get_action_strength("right") - Input.get_action_strength("left")) * delta
 
-	if Input.is_action_just_pressed("up"):
+	if Input.is_action_just_pressed("up") and not in_air:
 		jump()
+		in_air = true
+		
+	if is_on_floor():
+		in_air = false
+	else:
+		in_air = true
 		
 	if Input.is_action_just_pressed("right"):
 		sprite.set_flip_h(true)
@@ -33,15 +41,30 @@ func movement(delta):
 	move_and_slide()
 
 func mine():
+	# Get vector from player towards mouse and limit its length
 	var vect = get_global_mouse_position() - self.position
-	vect.limit_length(1000)
+	vect = vect.limit_length(100)
+	# Set the vector as raycasts target position and update the raycast
 	raycast.target_position = vect
 	raycast.force_raycast_update()
 	if (raycast.is_colliding() && raycast.get_collider() is TileMap):
-		var cp = raycast.get_collision_point() as Vector2
+		var collision_point = raycast.get_collision_point() as Vector2
 		var tilemap = raycast.get_collider() as TileMap
-		var local_coord = tilemap.local_to_map(tilemap.to_local(cp+vect.limit_length(20))) as Vector2i
-		tilemap.erase_cell(0, local_coord)
+		#Get the local coordinates from the collision point
+		var local_coordinate = tilemap.local_to_map(tilemap.to_local(collision_point+vect.limit_length(20))) as Vector2i
+		#Get the target tiles BetterTileData
+		var target_tile = tiles_data.lst.filter(func(e): return (e as BetterTileData).local_position == local_coordinate)[0] as BetterTileData
+		if (target_tile.durability == 0):
+			tilemap.erase_cell(0, local_coordinate)
+			var above_target_tile_position = target_tile.local_position
+			above_target_tile_position.y -= 1
+			var tile_above_target_tile = tiles_data.lst.filter(func(e): \
+				return (e as BetterTileData).local_position == above_target_tile_position \
+			)[0] as BetterTileData
+			tile_above_target_tile.unstable = true
+		else:
+			target_tile.durability -= 1
+			
 
 		
 func mine_test():
