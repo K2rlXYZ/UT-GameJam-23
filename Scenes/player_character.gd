@@ -29,7 +29,23 @@ func movement(delta):
 
 	move_and_slide()
 
-
+func mine():
+	var vect = get_global_mouse_position() - self.position
+	vect.limit_length(1000)
+	var raycast = self.get_children(true).filter(func(e): return e is RayCast2D)[0] as RayCast2D
+	raycast.target_position = vect
+	if (raycast.is_colliding() && raycast.get_collider() is TileMap):
+		var cp = raycast.get_collision_point() as Vector2
+		var tilemap = raycast.get_collider() as TileMap
+		var local_coord = tilemap.local_to_map(tilemap.to_local(cp+vect.limit_length(20))) as Vector2i
+		tilemap.set_cell(0, local_coord, -1)
+		tilemap.fix_invalid_tiles()
+		tilemap.force_update(0)
+		
+		
+func mine_test():
+	if Input.is_action_just_pressed("clickLeft"):
+		mine()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,4 +54,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	movement(delta)
+	mine_test()
 
