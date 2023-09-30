@@ -77,7 +77,6 @@ func place_or_pickup_support():
 		var beam = el as SupportBeam
 		var beam_area = beam.area as Area2D
 		if self in beam_area.get_overlapping_bodies():
-			print(beam)
 			pickup_support(beam)
 			return
 	if not in_air:
