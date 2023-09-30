@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_covbx")
-name = ""
+name = "Silver"
 value = 0.0
 weight = 0.0

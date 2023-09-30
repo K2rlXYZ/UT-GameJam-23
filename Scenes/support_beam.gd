@@ -36,7 +36,7 @@ func set_tiles_around_supported(supported: bool, tiles_data: BetterTilesData):
 					if index in self.list_of_tile_indexes:
 						self.list_of_tile_indexes.erase(index)
 		for index in self.list_of_tile_indexes:
-			print(index)
+			#print(index)
 			var tile = tiles_data.find_tile_by_coord(index)
 			tile.supported = false
 			tile.unstable = true

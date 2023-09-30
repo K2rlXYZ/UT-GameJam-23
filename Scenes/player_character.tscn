@@ -30,5 +30,3 @@ enabled = false
 target_position = Vector2(100, 0)
 
 [node name="PlayerAnimation" parent="." instance=ExtResource("4_760tx")]
-
-[node name="Camera2D" type="Camera2D" parent="."]

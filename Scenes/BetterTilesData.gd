@@ -30,7 +30,8 @@ func final_collapse_individual(position_for_particles):
 	await t.timeout
 	self.remove_child(final_collapse)
 	
-func first_collapse(position_for_particles):
+func first_collapse(position_for_particles, start_tile_local_position):
+	var cancel: bool = false
 	if not $varisemine.playing:
 		$varisemine.play()
 	var first_collapse = preload("res://Scenes/Particles/collapse_effect.tscn").instantiate() 
@@ -39,19 +40,33 @@ func first_collapse(position_for_particles):
 	particles.emitting = true
 	first_collapse.position = position_for_particles
 	self.add_child(first_collapse)
-	var t = Timer.new()
-	t.set_wait_time(10)
-	t.set_one_shot(true)
+	var t = AlternateTimer.new()
+	t.wait_time = 10
+	t.one_shot=true
 	self.add_child(t)
-	t.timeout.emit()
+	var ck = (func(e, stlp): 
+		var data = Globals.cancelable_tile_index_pairs[stlp]
+		print("ambatta emit")
+		if data[0]:
+			data[1].timeout.emit()
+			print("emitted") \
+	)
+	t.millisecond_elapsed.connect(ck.bind(start_tile_local_position))
 	t.start()
+	Globals.cancelable_tile_index_pairs[start_tile_local_position].append(t)
+	
 	await t.timeout
 	self.remove_child(first_collapse)
+	return cancel
 	
 func collapse(start_tile: BetterTileData):
 	var position_for_particles = tilemap.to_global(tilemap.map_to_local(start_tile.local_position))
+	Globals.cancelable_tile_index_pairs[start_tile.local_position] = [false]
 	
-	await first_collapse(position_for_particles)
+	var cancel = await first_collapse(position_for_particles, start_tile.local_position)
+	
+	if Globals.cancelable_tile_index_pairs[start_tile.local_position][0]:
+		return
 	
 	var unstable_position = start_tile.local_position
 	unstable_position.y+=1
@@ -87,3 +102,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	pass
+
