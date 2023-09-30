@@ -48,13 +48,18 @@ func movement(delta):
 	if Input.is_action_pressed("right"):
 		sprite.set_flip_h(true)
 		pickaxe.position.x = pickaxe_x_offset
-#		
-		$PlayerAnimation.play_run()
+		if !($PlayerAnimation/AnimationPlayer.get_current_animation() != "mine_upward" \
+		or $PlayerAnimation/AnimationPlayer.get_current_animation() != "mine_forward"):
+			$PlayerAnimation.play_run()
 	elif Input.is_action_pressed("left"):
 		sprite.set_flip_h(false)
 		pickaxe.position.x = -pickaxe_x_offset
-		$PlayerAnimation.play_run()
-	else:
+		if !($PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_upward" \
+		or $PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_forward"):
+			$PlayerAnimation.play_run()
+	elif !($PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_upward" \
+		 or $PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_forward"):
+		print($PlayerAnimation/AnimationPlayer.get_current_animation())
 		$PlayerAnimation.play_idle()
 		
 	move_and_slide()
@@ -128,6 +133,10 @@ func _input(event):
 	if event is InputEventMouse:
 		if event.is_action_pressed("clickLeft"):
 			mine()
+			if event.position.y > get_node("CollisionShape2D_PlayerCharacter").position.y:
+				$PlayerAnimation.play_mine_upward()
+			else:
+				$PlayerAnimation.play_mine_forward()
 		if event.is_action_pressed("clickRight"):
 			place_or_pickup_support()
 			
