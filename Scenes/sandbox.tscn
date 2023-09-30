@@ -1,11 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://btwiwj6rr37q7"]
+[gd_scene load_steps=7 format=3 uid="uid://btwiwj6rr37q7"]
 
 [ext_resource type="Script" path="res://Scenes/physics.gd" id="1_eeonj"]
-[ext_resource type="TileSet" uid="uid://8ff40ad8oyaw" path="res://Resources/Tilesets/tileset.tres" id="2_rpt32"]
+[ext_resource type="TileSet" path="res://Resources/Tilesets/tileset.tres" id="2_rpt32"]
+[ext_resource type="PackedScene" uid="uid://jhcxxjphb1ov" path="res://Scenes/player_character.tscn" id="3_1n3b2"]
+[ext_resource type="PackedScene" uid="uid://deuis415k5koh" path="res://Scenes/pickaxe.tscn" id="4_p71a1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wfg4j"]
+normal = Vector2(-0.0126572, 0.99992)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mou8n"]
 
 [node name="Sandbox" type="Node2D"]
 script = ExtResource("1_eeonj")
+gravity = null
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_rpt32")
 format = 2
+
+[node name="Area2D_PlayerCharacter" parent="." instance=ExtResource("3_1n3b2")]
+
+[node name="Area2D_Pickaxe" parent="." instance=ExtResource("4_p71a1")]
+position = Vector2(600, 200)
+
+[node name="Area2D_WorldBoundingBox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D_Roof" type="CollisionShape2D" parent="Area2D_WorldBoundingBox"]
+position = Vector2(960, 0)
+shape = SubResource("WorldBoundaryShape2D_wfg4j")
+
+[node name="CollisionShape2D_Floor" type="CollisionShape2D" parent="Area2D_WorldBoundingBox"]
+position = Vector2(960, 1080)
+shape = SubResource("WorldBoundaryShape2D_mou8n")

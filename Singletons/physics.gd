@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Physics
+
 @export var gravity = 100
 
 # Called when the node enters the scene tree for the first time.
