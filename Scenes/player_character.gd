@@ -144,9 +144,10 @@ func animate() -> void:
 		player_animation.play_jump()
 	elif velocity.x != 0:
 		player_animation.play_run()
-		
-		
+		$PlayerAnimation.run_effect()
+	
 	elif !($PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_upward" \
 		 or $PlayerAnimation/AnimationPlayer.get_current_animation() == "mine_forward"\
 		 or $PlayerAnimation/AnimationPlayer.get_current_animation() == "jump"):
 		player_animation.play_idle()
+		player_animation.run_effect_stop()

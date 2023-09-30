@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dnpc1ofrqqb0g"]
+[gd_scene load_steps=23 format=3 uid="uid://dnpc1ofrqqb0g"]
 
 [ext_resource type="Script" path="res://Scenes/player_animation.gd" id="1_3i0p7"]
 [ext_resource type="Texture2D" uid="uid://c6x8f5s43w8ap" path="res://Assets/Player/head.png" id="1_p7qke"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cu0a30e0n8p2c" path="res://Assets/Audio/pickaxe_hitting.wav" id="10_pdjsa"]
 [ext_resource type="AudioStream" uid="uid://cfcobixnk037h" path="res://Assets/Audio/first_step.wav" id="10_r44iw"]
 [ext_resource type="AudioStream" uid="uid://tfo5fgn4j8hj" path="res://Assets/Audio/second_step.wav" id="11_h1725"]
+[ext_resource type="PackedScene" uid="uid://b2g361ijwdkp6" path="res://Scenes/Particles/player_run.tscn" id="15_o783e"]
 
 [sub_resource type="Animation" id="Animation_8aoo5"]
 length = 0.001
@@ -427,3 +428,5 @@ libraries = {
 
 [node name="StepSound2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_h1725")
+
+[node name="PlayerRun" parent="." instance=ExtResource("15_o783e")]

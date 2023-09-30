@@ -46,3 +46,9 @@ func StepSound1():
 	
 func StepSound2():
 	$StepSound2.play()
+
+func run_effect():
+	$PlayerRun.emitting = true
+
+func run_effect_stop():
+	$PlayerRun.emitting = false
