@@ -30,10 +30,9 @@ func final_collapse_individual(position_for_particles):
 	await t.timeout
 	self.remove_child(final_collapse)
 	
-func collapse(start_tile: BetterTileData):
+func first_collapse(position_for_particles):
 	if not $varisemine.playing:
 		$varisemine.play()
-	var position_for_particles = tilemap.to_global(tilemap.map_to_local(start_tile.local_position))
 	var first_collapse = preload("res://Scenes/Particles/collapse_effect.tscn").instantiate() 
 	var particles = first_collapse.get_child(0) as GPUParticles2D
 	first_collapse.z_index = -10
@@ -44,9 +43,15 @@ func collapse(start_tile: BetterTileData):
 	t.set_wait_time(10)
 	t.set_one_shot(true)
 	self.add_child(t)
+	t.timeout.emit()
 	t.start()
 	await t.timeout
 	self.remove_child(first_collapse)
+	
+func collapse(start_tile: BetterTileData):
+	var position_for_particles = tilemap.to_global(tilemap.map_to_local(start_tile.local_position))
+	
+	await first_collapse(position_for_particles)
 	
 	var unstable_position = start_tile.local_position
 	unstable_position.y+=1

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MineralResource" load_steps=2 format=3 uid="uid://ga4vk8ku4lkk"]
+
+[ext_resource type="Script" path="res://Resources/MineralResource.gd" id="1_lk1mr"]
+
+[resource]
+script = ExtResource("1_lk1mr")
+name = "Gold"
+value = 0.0
+weight = 0.0

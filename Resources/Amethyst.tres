@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MineralResource" load_steps=2 format=3 uid="uid://4txi00tqv3nc"]
+
+[ext_resource type="Script" path="res://Resources/MineralResource.gd" id="1_aiyrv"]
+
+[resource]
+script = ExtResource("1_aiyrv")
+name = "Amethyst"
+value = 0.0
+weight = 0.0
