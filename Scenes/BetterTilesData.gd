@@ -19,16 +19,21 @@ func collapse(start_tile: BetterTileData):
 	var unstable_position = start_tile.local_position
 	unstable_position.y+=1
 	while true:
-		find_tile_by_coord(unstable_position).exists = true
+		if find_tile_by_coord(unstable_position) == null:
+			lst.append(BetterTileData.new().construct(unstable_position))
+			find_tile_by_coord(unstable_position).exists = true
+		else:
+			if find_tile_by_coord(unstable_position).exists:
+				break
 		tilemap.set_cell(0, unstable_position, 1, Vector2i(0, 0))
-		if find_tile_by_coord(unstable_position) != null:
-			break
 		unstable_position.y+=1
 
 func check_for_collapse():
 	for el in lst:
 		var tile = el as BetterTileData
-		if tile.unstable and tile.exists and not tile.supported:
+		#print(tile.unstable, tile.exists, not tile.supported)
+		if tile.exists and tile.unstable and (not tile.supported):
+			print("Collapseing")
 			collapse(tile)
 			
 
@@ -40,4 +45,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	check_for_collapse()
+	pass
