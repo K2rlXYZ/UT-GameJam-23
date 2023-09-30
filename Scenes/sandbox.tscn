@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://btwiwj6rr37q7"]
+[gd_scene load_steps=7 format=3 uid="uid://btwiwj6rr37q7"]
 
 [ext_resource type="PackedScene" uid="uid://drqvgabvb1y4c" path="res://Scenes/tiles_descriptor.tscn" id="2_ph851"]
 [ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="2_rpt32"]
 [ext_resource type="PackedScene" uid="uid://jhcxxjphb1ov" path="res://Scenes/player_character.tscn" id="3_1n3b2"]
+[ext_resource type="PackedScene" uid="uid://dvgorpsgg04ca" path="res://Scenes/mole.tscn" id="4_3ths7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wfg4j"]
 normal = Vector2(-0.0126572, 0.99992)
@@ -35,3 +36,6 @@ shape = SubResource("WorldBoundaryShape2D_mou8n")
 unique_name_in_owner = true
 position = Vector2(151, 336)
 tiles_data = NodePath("../TileMap/BetterTilesData")
+
+[node name="mole" parent="." instance=ExtResource("4_3ths7")]
+position = Vector2(1498, 276)
