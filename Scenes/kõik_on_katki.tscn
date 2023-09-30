@@ -1,0 +1,203 @@
+[gd_scene load_steps=9 format=3 uid="uid://becmpfoun2cl7"]
+
+[ext_resource type="PackedScene" uid="uid://02oxhiddjl0u" path="res://Scenes/block.tscn" id="1_6ew6n"]
+[ext_resource type="Texture2D" uid="uid://4nicaqniisum" path="res://Assets/supportbeam.png" id="2_kqst5"]
+[ext_resource type="PackedScene" uid="uid://btg8jxsknvbgt" path="res://Scenes/player.tscn" id="3_id1qc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fm23r"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g5872"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_73ro2"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_de541"]
+size = Vector2(399.32, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukclt"]
+size = Vector2(99.8302, 250)
+
+[node name="KõikOnKatki" type="Node2D"]
+scale = Vector2(1.0017, 1)
+
+[node name="Barrier" type="StaticBody2D" parent="."]
+collision_layer = 255
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier"]
+position = Vector2(550, 750)
+shape = SubResource("WorldBoundaryShape2D_fm23r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Barrier"]
+position = Vector2(50, 450)
+shape = SubResource("WorldBoundaryShape2D_g5872")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Barrier"]
+position = Vector2(950, 450)
+shape = SubResource("WorldBoundaryShape2D_73ro2")
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="Block" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(100, 100)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(200, 100)
+
+[node name="Block3" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(300, 100)
+
+[node name="Block4" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(400, 100)
+
+[node name="Block5" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(500, 100)
+
+[node name="Block6" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(600, 100)
+
+[node name="Block7" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(700, 100)
+
+[node name="Block8" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(800, 100)
+
+[node name="Block9" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(900, 100)
+
+[node name="Block10" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(100, 200)
+
+[node name="Block11" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(200, 200)
+
+[node name="Block12" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(300, 200)
+
+[node name="Block13" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(400, 200)
+
+[node name="Block14" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(500, 200)
+
+[node name="Block15" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(600, 200)
+
+[node name="Block16" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(700, 200)
+
+[node name="Block17" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(800, 200)
+
+[node name="Block18" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(900, 200)
+
+[node name="Block19" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(100, 300)
+
+[node name="Block20" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(200, 300)
+
+[node name="Block22" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(400, 300)
+
+[node name="Block27" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(900, 300)
+
+[node name="Block28" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(100, 400)
+
+[node name="Block29" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(200, 400)
+
+[node name="Block31" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(400, 400)
+
+[node name="Block36" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(900, 400)
+
+[node name="Block37" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(100, 500)
+
+[node name="Block38" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(200, 500)
+
+[node name="Block40" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(400, 500)
+
+[node name="Block45" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(900, 500)
+
+[node name="Block46" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(100, 600)
+
+[node name="Block47" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(200, 600)
+
+[node name="Block48" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(300, 600)
+
+[node name="Block49" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(400, 600)
+
+[node name="Block50" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(500, 600)
+
+[node name="Block51" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(600, 600)
+
+[node name="Block52" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(700, 600)
+
+[node name="Block53" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(800, 600)
+
+[node name="Block54" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(900, 600)
+
+[node name="Block55" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(100, 700)
+
+[node name="Block56" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(200, 700)
+
+[node name="Block57" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(300, 700)
+
+[node name="Block58" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(400, 700)
+
+[node name="Block59" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(500, 700)
+
+[node name="Block60" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(600, 700)
+
+[node name="Block61" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(700, 700)
+
+[node name="Block62" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(800, 700)
+
+[node name="Block63" parent="Blocks" instance=ExtResource("1_6ew6n")]
+position = Vector2(900, 700)
+
+[node name="SupportBeam" type="StaticBody2D" parent="."]
+position = Vector2(649.894, 400)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SupportBeam"]
+position = Vector2(-0.998291, -125)
+shape = SubResource("RectangleShape2D_de541")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SupportBeam"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_ukclt")
+
+[node name="Sprite2D" type="Sprite2D" parent="SupportBeam"]
+texture = ExtResource("2_kqst5")
+
+[node name="Player" parent="." instance=ExtResource("3_id1qc")]
+position = Vector2(648.896, 425)
