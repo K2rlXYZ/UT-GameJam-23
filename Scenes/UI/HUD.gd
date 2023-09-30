@@ -7,6 +7,7 @@ extends CanvasLayer
 @export var pause_menu: Control
 @export var settings_menu: Control
 
+
 func set_beams(amount: int) -> void:
 	beams_label.text = str(amount)
 
