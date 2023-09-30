@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rbo17y2jxgw"]
+
+[ext_resource type="PackedScene" uid="uid://dli5kqnj0f2gf" path="res://Scenes/mole_animation.tscn" id="1_bwfdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lua33"]
+size = Vector2(239, 132)
+
+[node name="Mole" type="Area2D"]
+
+[node name="MoleAnimation" parent="." instance=ExtResource("1_bwfdj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -13)
+shape = SubResource("RectangleShape2D_lua33")
