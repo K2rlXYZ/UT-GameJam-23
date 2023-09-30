@@ -1,14 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnpc1ofrqqb0g"]
+[gd_scene load_steps=8 format=3 uid="uid://dnpc1ofrqqb0g"]
 
-[ext_resource type="Texture2D" uid="uid://clt512xoylglb" path="res://Assets/Player/IMG_0983.png" id="1_6abju"]
-[ext_resource type="Texture2D" uid="uid://cnnu0plbb00ik" path="res://Assets/Player/IMG_0980.png" id="2_vuop2"]
-[ext_resource type="Texture2D" uid="uid://cf31hnfnnglwl" path="res://Assets/Player/IMG_0981.png" id="3_uht2a"]
-[ext_resource type="Texture2D" uid="uid://cmhoqtk2twinp" path="res://Assets/Player/IMG_0982.png" id="4_70wdc"]
-[ext_resource type="Texture2D" uid="uid://dmvdt4ufu0ddr" path="res://Assets/Player/IMG_0987.png" id="5_ryrtb"]
-[ext_resource type="Texture2D" uid="uid://cgh3tus4cedgy" path="res://Assets/Player/IMG_0986.png" id="6_btb85"]
-[ext_resource type="Texture2D" uid="uid://eyufkwthxd36" path="res://Assets/Player/IMG_0985.png" id="7_0ttt2"]
-[ext_resource type="Texture2D" uid="uid://dbnhxo3shjmva" path="res://Assets/Player/IMG_0984.png" id="8_hiwv6"]
-[ext_resource type="Texture2D" uid="uid://c3w7vj53xdj3q" path="res://Assets/Player/IMG_0979.png" id="9_3xrtg"]
+[ext_resource type="AudioStream" uid="uid://cu0a30e0n8p2c" path="res://Assets/Audio/pickaxe_hitting.wav" id="10_pdjsa"]
 
 [sub_resource type="Animation" id="Animation_8aoo5"]
 length = 0.001
@@ -66,6 +58,115 @@ tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_vl3vl"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/RightArm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 1, -0.152005, 0, -0.9, 0.245007, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/LeftArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.9, 0.309984, 0, -0.8, -0.198139, 0.2, 0.142343),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/Face:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.3, 0.0734666, 0, -0.8, -0.0629858, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="Animation" id="Animation_yy5kq"]
+resource_name = "mine_forward"
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/LeftArm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.09, -2.74466, -3.48779, -0.18, -0.0371563, 0.3, 0.397794, -0.790663, -0.15, 0.0349708, 0.09, -0.0437136, -1.39626, -0.14, 0.028582, 0.14, 0.00235391, 0, -0.13, 0.105465, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8, 1)
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PickHitSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_pdjsa")
+}],
+"times": PackedFloat32Array(0.57)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_py3ue"]
+resource_name = "mine_upward"
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/LeftArm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.09, -2.74466, -3.48779, -0.18, -0.0371563, 0.3, 0.397794, -2.15015, -0.09, 0.00874281, 0.11, 0.0131142, -2.67472, -0.25, 0, 0.23, 0.201082, 0, -0.13, 0.105465, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.49, 0.73, 1)
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PickHitSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_pdjsa")
+}],
+"times": PackedFloat32Array(0.57)
+}
+tracks/1/use_blend = true
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/Face:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.19, -0.598323, 0, -0.22, 0.463916, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
 }
 
 [sub_resource type="Animation" id="Animation_x5t7v"]
@@ -127,100 +228,57 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.8, 1)
 }
 
-[sub_resource type="Animation" id="Animation_vl3vl"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Torso/RightArm:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 1, -0.152005, 0, -0.9, 0.245007, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Torso/LeftArm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.9, 0.309984, 0, -0.8, -0.198139, 0.2, 0.142343),
-"times": PackedFloat32Array(0, 2)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Torso/Face:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.3, 0.0734666, 0, -0.8, -0.0629858, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0nag3"]
 _data = {
 "RESET": SubResource("Animation_8aoo5"),
 "idle": SubResource("Animation_vl3vl"),
+"mine_forward": SubResource("Animation_yy5kq"),
+"mine_upward": SubResource("Animation_py3ue"),
 "run": SubResource("Animation_x5t7v")
 }
 
 [node name="PlayerAnimation" type="Node2D"]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.08, 0.08)
 
 [node name="Torso" type="Sprite2D" parent="."]
-texture = ExtResource("1_6abju")
 
 [node name="Face" type="Node2D" parent="Torso"]
 position = Vector2(190.655, -721.584)
 
 [node name="FaceNormal" type="Sprite2D" parent="Torso/Face"]
-texture = ExtResource("2_vuop2")
 offset = Vector2(-190.655, 721.584)
 
 [node name="FaceStressed" type="Sprite2D" parent="Torso/Face"]
 visible = false
-texture = ExtResource("3_uht2a")
 offset = Vector2(-190.655, 721.584)
 
 [node name="FaceVeryStressed" type="Sprite2D" parent="Torso/Face"]
 visible = false
-texture = ExtResource("4_70wdc")
 offset = Vector2(-190.655, 721.584)
 
 [node name="RightLeg" type="Sprite2D" parent="Torso"]
 position = Vector2(291.38, 223.01)
-texture = ExtResource("5_ryrtb")
 offset = Vector2(-291.38, -223.01)
 
 [node name="LeftLeg" type="Sprite2D" parent="Torso"]
 position = Vector2(48.825, 150.06)
-texture = ExtResource("6_btb85")
 offset = Vector2(-48.825, -150.06)
 
 [node name="RightArm" type="Sprite2D" parent="Torso"]
 show_behind_parent = true
 position = Vector2(578.885, -554.24)
-texture = ExtResource("7_0ttt2")
 offset = Vector2(-578.885, 554.24)
 
 [node name="LeftArm" type="Sprite2D" parent="Torso"]
 position = Vector2(-300, -600)
-texture = ExtResource("8_hiwv6")
 offset = Vector2(300, 600)
 
 [node name="Pickaxe" type="Sprite2D" parent="Torso/LeftArm"]
 position = Vector2(300, 600)
-texture = ExtResource("9_3xrtg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_0nag3")
 }
+
+[node name="PickHitSound" type="AudioStreamPlayer" parent="."]

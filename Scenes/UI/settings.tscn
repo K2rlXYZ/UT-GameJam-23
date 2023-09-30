@@ -48,6 +48,9 @@ text = "Audio volume: "
 [node name="VolumeSlider" type="HSlider" parent="P/M/VB/Volume"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="Fullscreen" type="HBoxContainer" parent="P/M/VB"]
 layout_mode = 2
@@ -64,4 +67,6 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "Back"
 
+[connection signal="value_changed" from="P/M/VB/Volume/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="toggled" from="P/M/VB/Fullscreen/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
 [connection signal="pressed" from="P/M/VB/BackButton" to="." method="_on_back_button_pressed"]
