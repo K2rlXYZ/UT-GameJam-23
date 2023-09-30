@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3285n3srhkns"
-path="res://.godot/imported/body.png-8a768ffbced62509d3858d9fd887a47c.ctex"
+uid="uid://u3m7rimwsfgy"
+path="res://.godot/imported/molehead.png-2c0ed367f8e989a280a38b4ab8c3c42e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://body.png"
-dest_files=["res://.godot/imported/body.png-8a768ffbced62509d3858d9fd887a47c.ctex"]
+source_file="res://Assets/molehead.png"
+dest_files=["res://.godot/imported/molehead.png-2c0ed367f8e989a280a38b4ab8c3c42e.ctex"]
 
 [params]
 

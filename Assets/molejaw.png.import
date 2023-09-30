@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3285n3srhkns"
-path="res://.godot/imported/body.png-8a768ffbced62509d3858d9fd887a47c.ctex"
+uid="uid://blatkmlr6dy74"
+path="res://.godot/imported/molejaw.png-f7da269102652618cc05d594d0b58511.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://body.png"
-dest_files=["res://.godot/imported/body.png-8a768ffbced62509d3858d9fd887a47c.ctex"]
+source_file="res://Assets/molejaw.png"
+dest_files=["res://.godot/imported/molejaw.png-f7da269102652618cc05d594d0b58511.ctex"]
 
 [params]
 

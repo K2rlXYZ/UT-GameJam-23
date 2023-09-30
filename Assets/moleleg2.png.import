@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3285n3srhkns"
-path="res://.godot/imported/body.png-8a768ffbced62509d3858d9fd887a47c.ctex"
+uid="uid://bsa2se16ldduo"
+path="res://.godot/imported/moleleg2.png-27b5fcc061309376dec170d8c582bbfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://body.png"
-dest_files=["res://.godot/imported/body.png-8a768ffbced62509d3858d9fd887a47c.ctex"]
+source_file="res://Assets/moleleg2.png"
+dest_files=["res://.godot/imported/moleleg2.png-27b5fcc061309376dec170d8c582bbfb.ctex"]
 
 [params]
 
