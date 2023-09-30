@@ -42,21 +42,18 @@ turbulence_noise_scale = 6.71
 [node name="FinalCollapse" type="Node2D"]
 
 [node name="dirt" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 2
+amount = 1
 process_material = SubResource("ParticleProcessMaterial_kj1r2")
 texture = ExtResource("1_ufne4")
 
 [node name="rocks" type="GPUParticles2D" parent="."]
 position = Vector2(-45, -50)
-emitting = false
-amount = 3
+amount = 2
 process_material = SubResource("ParticleProcessMaterial_2ve5a")
 texture = ExtResource("2_30sk2")
 
 [node name="rocks2" type="GPUParticles2D" parent="."]
 position = Vector2(33, -6)
-emitting = false
-amount = 3
+amount = 2
 process_material = SubResource("ParticleProcessMaterial_bwi5r")
 texture = ExtResource("2_30sk2")
