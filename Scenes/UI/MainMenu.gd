@@ -11,9 +11,10 @@ extends Control
 func _on_play_button_pressed():
 	
 	$AnimationPlayer.play("play")
+	await $AnimationPlayer.animation_finished
 	
 	#oota kuni cutscene läbi
-#	get_tree().change_scene_to_packed(scene_to_play)
+	get_tree().change_scene_to_packed(scene_to_play)
 
 func _on_tutorial_button_pressed():
 	pass # Replace with function body.
