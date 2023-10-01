@@ -17,6 +17,7 @@ var in_air = false
 var jumped_on_wall = false
 var shoved = false
 
+var inventory = [0,0]
 
 
 func jump():
@@ -103,6 +104,12 @@ func mine():
 		#Get the target tiles BetterTileData
 		var target_tile = tiles_data.find_tile_by_coord(local_coordinate)
 		if (target_tile.durability == 1):
+			var source_id := tilemap.get_cell_source_id(0, local_coordinate)
+			if source_id != null:
+				var atlas_coord := tilemap.get_cell_atlas_coords(0, local_coordinate)
+				var tile_data = tilemap.tile_set.get_source(source_id).get_tile_data(atlas_coord,0)
+				var custom_data = tile_data.get_custom_data("obj")
+				add_to_inventory(custom_data)
 			tilemap.erase_cell(0, local_coordinate)
 			$PlayerAnimation.destroy_rock(collision_point)
 			$PlayerAnimation.pickhitsound()
@@ -127,7 +134,7 @@ func _ready():
 func _physics_process(delta):
 	movement(delta)
 	animate()
-
+	
 func _input(event):
 	if event is InputEventMouse:
 		if event.is_action_pressed("clickLeft"):
@@ -154,3 +161,12 @@ func animate() -> void:
 		 or $PlayerAnimation/AnimationPlayer.get_current_animation() == "jump"):
 		player_animation.play_idle()
 		player_animation.run_effect_stop()
+
+func add_to_inventory(id):
+	if id != null:
+		if id.name == "Gold":
+			inventory[0] += 1
+		elif id.name == "Silver":
+			inventory[1] += 1
+		else:
+			pass
