@@ -14,13 +14,13 @@ func _enemy_timer_timeout():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var arr = [Vector2(400, 352), Vector2(1672, 352), Vector2(1005, 352)]
+	var arr = [Vector2(135.7413, 307.924),Vector2(632.2584, 307.9859),Vector2(1165.591, 207.924),Vector2(-201.076, 207.924),Vector2(1643.37, 107.924)]
 	for i in arr:
 		var prel = preload("res://Scenes/support_beam.tscn").instantiate()
-		var player_position_adjusted_to_tilemap = i
-		player_position_adjusted_to_tilemap.x = int(player_position_adjusted_to_tilemap.x/100)*100+50
-		player_position_adjusted_to_tilemap.y = int(player_position_adjusted_to_tilemap.y-20/100)*100+50
-		prel.position = player_position_adjusted_to_tilemap
+		var position_adjusted_to_tilemap = i
+		position_adjusted_to_tilemap.x = int(position_adjusted_to_tilemap.x/100)*100+50
+		position_adjusted_to_tilemap.y = int((position_adjusted_to_tilemap.y-20)/100)*100+50
+		prel.position = position_adjusted_to_tilemap
 		Globals.support_beams.append(prel)
 		self.add_child(prel)
 		prel.after_ready(tiles_data)

@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var raycast: RayCast2D
 @export var tiles_data: BetterTilesData
 
-var number_of_supports = 4
+var number_of_supports = 0
 var direction = true
 var pickaxe_x_offset = 50
 var in_air = false
@@ -71,8 +71,8 @@ func place_support():
 	if number_of_supports > 0:
 		var prel = preload("res://Scenes/support_beam.tscn").instantiate()
 		var player_position_adjusted_to_tilemap = self.position
-		player_position_adjusted_to_tilemap.x = int(player_position_adjusted_to_tilemap.x/100)*100+50
-		player_position_adjusted_to_tilemap.y = int((player_position_adjusted_to_tilemap.y-20)/100)*100+50
+		player_position_adjusted_to_tilemap.x = int((player_position_adjusted_to_tilemap.x)/100)*100+50
+		player_position_adjusted_to_tilemap.y = int((player_position_adjusted_to_tilemap.y-30)/100)*100+50
 		prel.position = player_position_adjusted_to_tilemap
 		get_parent().add_child(prel)
 		Globals.support_beams.append(prel)
@@ -98,6 +98,7 @@ func set_above_unstable_after_mine(target_tile):
 	if tile != null:
 		if tile.exists and not tile.supported:
 			tile.unstable = true
+			tiles_data.unsupported_lst.append(tile)
 
 func mine():
 	print(inventory)
@@ -151,6 +152,7 @@ func _input(event):
 			else:
 				$PlayerAnimation.play_mine_forward()
 		if event.is_action_pressed("clickRight"):
+			print(self.position)
 			place_or_pickup_support()
 			
 			

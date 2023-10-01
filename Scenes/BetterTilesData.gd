@@ -7,6 +7,7 @@ extends Node2D
 @export var tilemap: TileMap
 
 var lst: Array[BetterTileData] = []
+var unsupported_lst: Array[BetterTileData] = []
 
 func find_tile_by_coord(coord: Vector2i) -> BetterTileData:
 	for el in self.lst:
@@ -47,6 +48,7 @@ func first_collapse(position_for_particles, start_tile_local_position):
 	var emitted = false
 	var ck = (func(e, stlp): 
 		#print(Globals.cancelable_tile_index_pairs)
+		print(e)
 		if (stlp in Globals.cancelable_tile_index_pairs.keys()):
 			var data = Globals.cancelable_tile_index_pairs[stlp]
 			#print(data[0])
@@ -65,23 +67,27 @@ func collapse(start_tile: BetterTileData):
 	var position_for_particles = tilemap.to_global(tilemap.map_to_local(start_tile.local_position))
 	Globals.cancelable_tile_index_pairs[start_tile.local_position] = [false]
 	
-	var cancel = await first_collapse(position_for_particles, start_tile.local_position)
+	await first_collapse(position_for_particles, start_tile.local_position)
 	if start_tile.local_position in Globals.cancelable_tile_index_pairs.keys():
 		if Globals.cancelable_tile_index_pairs[start_tile.local_position][0]:
 			Globals.cancelable_tile_index_pairs.erase(start_tile.local_position)
+			if $varisemine.playing:
+				$varisemine.stop()
 			return
 	else:
+		if $varisemine.playing:
+				$varisemine.stop()
 		return
 	
 	var unstable_position = start_tile.local_position
 	unstable_position.y+=1
 	while true && unstable_position.y < 100:
-		
-		if find_tile_by_coord(unstable_position) == null:
+		var unstb = find_tile_by_coord(unstable_position)
+		if unstb == null:
 			lst.append(BetterTileData.new().construct(unstable_position))
-			find_tile_by_coord(unstable_position).exists = true
+			unstb.exists = true
 		else:
-			if find_tile_by_coord(unstable_position).exists:
+			if unstb.exists:
 				break
 		position_for_particles = tilemap.to_global(tilemap.map_to_local(unstable_position))
 		final_collapse_individual(position_for_particles)
@@ -89,12 +95,13 @@ func collapse(start_tile: BetterTileData):
 		unstable_position.y+=1
 
 func check_for_collapse():
-	for el in lst:
+	for el in unsupported_lst:
 		var tile = el as BetterTileData
 		if tile.exists and tile.unstable and (not tile.supported):
 			var temp_coord = tile.local_position
 			temp_coord.y+=1
-			if find_tile_by_coord(temp_coord) == null or not find_tile_by_coord(temp_coord).exists:
+			var tile_temp = find_tile_by_coord(temp_coord)
+			if tile_temp == null or not tile_temp.exists:
 				collapse(tile)
 			
 

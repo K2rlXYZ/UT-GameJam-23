@@ -13,7 +13,7 @@ signal minute_elapsed(num_m : int)
 signal hour_elapsed(num_h : int)
 
 # internal
-const MILLISECONDS : int = 1000
+const MILLISECONDS : int = 100
 const MINUTE : int = 60
 const HOUR : int = 60
 var timer_active : bool = false
