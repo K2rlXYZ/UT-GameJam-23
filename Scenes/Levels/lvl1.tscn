@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://bq60v2ip27auy" path="res://Assets/Audio/jumpscare.wav" id="5_bwt7h"]
 [ext_resource type="AudioStream" uid="uid://ci0p8ff3ypsal" path="res://Assets/Audio/mole_roar.wav" id="5_tsofx"]
 [ext_resource type="Texture2D" uid="uid://cuykn1x63h8s1" path="res://Assets/blood_phantom.png" id="7_q3xlg"]
-[ext_resource type="Script" path="res://Scenes/blood_demon.gd" id="8_kgmri"]
 [ext_resource type="AudioStream" uid="uid://ch6pirwenvmoj" path="res://Assets/Audio/hyperventilating.wav" id="9_0q58s"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mou8n"]
@@ -96,6 +95,22 @@ _data = {
 "scare": SubResource("Animation_iwroj")
 }
 
+[sub_resource type="GDScript" id="GDScript_y2u2g"]
+script/source = "class_name spook
+
+extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [node name="lv1" type="Node2D" node_paths=PackedStringArray("tiles_data")]
 script = ExtResource("1_5fgc0")
 tiles_data = NodePath("TileMap/BetterTilesData")
@@ -140,7 +155,7 @@ visibility_layer = 2
 position = Vector2(2020, 500)
 rotation = -0.846485
 texture = ExtResource("7_q3xlg")
-script = ExtResource("8_kgmri")
+script = SubResource("GDScript_y2u2g")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D_PlayerCharacter/AnimationPlayer/blood_demon"]
 

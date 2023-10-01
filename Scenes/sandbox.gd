@@ -35,8 +35,6 @@ func _ready():
 	timer.timeout.connect(_enemy_timer_timeout)
 	timer.start()
 	
-	var player = get_tree().get_nodes_in_group("player")[0] as PlayerCharacter
-	# spawn hud
 	hud = load("res://Scenes/UI/hud.tscn").instantiate()
 	add_child(hud)
 	
@@ -44,11 +42,6 @@ func _ready():
 	
 	get_tree().get_nodes_in_group("player")[0].mined.connect(hud.set_mineral_amounts)
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _input(event):
 	if event is InputEvent:
