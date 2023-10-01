@@ -12,6 +12,7 @@ var wait: bool = true
 
 
 func _physics_process(_delta):
+	$MoleAnimation.play_run()
 	var player = get_tree().get_nodes_in_group("player")
 	var player_position = player[0].get_position()
 	if change:
