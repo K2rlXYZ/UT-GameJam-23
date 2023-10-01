@@ -40,6 +40,7 @@ func start() -> void:
 
 func stop() -> void:
 	timer_active = false
+	emit_signal("timeout")
 
 func reset() -> void:
 	iterations = 0
@@ -59,7 +60,7 @@ func iteration() -> void:
 			stop()
 		else:
 			start()
-		emit_signal("timeout")
+			emit_signal("timeout")
 
 func hour() -> void:
 	if minutes > HOUR-1:

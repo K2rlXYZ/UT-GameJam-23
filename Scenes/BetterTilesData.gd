@@ -41,14 +41,16 @@ func first_collapse(position_for_particles, start_tile_local_position):
 	first_collapse.position = position_for_particles
 	self.add_child(first_collapse)
 	var t = AlternateTimer.new()
-	t.wait_time = 10
+	t.wait_time = 10*1000
 	t.one_shot=true
 	self.add_child(t)
+	var emitted = false
 	var ck = (func(e, stlp): 
+		#print(Globals.cancelable_tile_index_pairs)
 		var data = Globals.cancelable_tile_index_pairs[stlp]
+		#print(data[0])
 		if data[0]:
-			data[1].timeout.emit()
-			print("emitted") \
+			data[1].stop() \
 	)
 	t.millisecond_elapsed.connect(ck.bind(start_tile_local_position))
 	t.start()
@@ -65,6 +67,7 @@ func collapse(start_tile: BetterTileData):
 	var cancel = await first_collapse(position_for_particles, start_tile.local_position)
 	
 	if Globals.cancelable_tile_index_pairs[start_tile.local_position][0]:
+		Globals.cancelable_tile_index_pairs.erase(start_tile.local_position)
 		return
 	
 	var unstable_position = start_tile.local_position

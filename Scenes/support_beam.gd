@@ -29,7 +29,7 @@ func set_tiles_around_supported(supported: bool, tiles_data: BetterTilesData):
 					tile.supported=true
 		for tile_local_coords in (Globals.cancelable_tile_index_pairs as Dictionary).keys():
 			if tile_local_coords in self.list_of_tile_indexes:
-				pass
+				Globals.cancelable_tile_index_pairs[tile_local_coords][0] = true
 	else:
 		for el in Globals.support_beams:
 			var beam = el as SupportBeam
