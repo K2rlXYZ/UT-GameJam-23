@@ -14,8 +14,8 @@ func spawn_mole():
 	var tree = get_tree()
 	var player = tree.get_nodes_in_group("player")[0] as PlayerCharacter
 	if randf() < 0.5:
-		mole.position = Vector2(player.position.x+randf_range(1000,1500), player.position.y+randf_range(-500,500))
+		mole.position = Vector2(player.position.x+randf_range(2000,2500), player.position.y+randf_range(-900,900))
 	else:
-		mole.position = Vector2(player.position.x-randf_range(1000,1500), player.position.y+randf_range(-500,500))
+		mole.position = Vector2(player.position.x-randf_range(2000,2500), player.position.y+randf_range(-900,900))
 	get_tree().current_scene.add_child(mole)
 	
