@@ -85,9 +85,11 @@ func place_or_pickup_support():
 		var beam_area = beam.area as Area2D
 		if self in beam_area.get_overlapping_bodies():
 			pickup_support(beam)
+			$PlayerAnimation.Remove()
 			return
 	if not in_air:
 		place_support()
+		$PlayerAnimation.Place()
 		
 func set_above_unstable_after_mine(target_tile):
 	var above_target_tile_position = target_tile.local_position
@@ -186,4 +188,7 @@ func add_to_inventory(local_coordinate, tilemap):
 							inventory[2] += 1
 						else:
 							pass
+	
+func _ready():
+	$PlayerAnimation.AmbientHorror()
 	

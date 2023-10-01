@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dnpc1ofrqqb0g"]
+[gd_scene load_steps=27 format=3 uid="uid://dnpc1ofrqqb0g"]
 
 [ext_resource type="Script" path="res://Scenes/player_animation.gd" id="1_3i0p7"]
 [ext_resource type="Texture2D" uid="uid://c6x8f5s43w8ap" path="res://Assets/Player/head.png" id="1_p7qke"]
@@ -16,6 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://cfcobixnk037h" path="res://Assets/Audio/first_step.wav" id="10_r44iw"]
 [ext_resource type="AudioStream" uid="uid://tfo5fgn4j8hj" path="res://Assets/Audio/second_step.wav" id="11_h1725"]
 [ext_resource type="PackedScene" uid="uid://b2g361ijwdkp6" path="res://Scenes/Particles/player_run.tscn" id="15_o783e"]
+[ext_resource type="AudioStream" uid="uid://cqkvp7aim3jc7" path="res://Assets/Audio/ambient_horror.wav" id="17_qtewn"]
+[ext_resource type="AudioStream" uid="uid://di6g2hhdvbq6f" path="res://Assets/Audio/korjamine.wav" id="18_ete17"]
+[ext_resource type="AudioStream" uid="uid://dyt64ae221wn2" path="res://Assets/Audio/asetamine.wav" id="19_gvo0g"]
 
 [sub_resource type="Animation" id="Animation_8aoo5"]
 length = 0.001
@@ -434,3 +437,13 @@ stream = ExtResource("10_pdjsa")
 stream = ExtResource("11_h1725")
 
 [node name="PlayerRun" parent="." instance=ExtResource("15_o783e")]
+
+[node name="AmbientHorror" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_qtewn")
+volume_db = -10.866
+
+[node name="PickUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_ete17")
+
+[node name="Place" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_gvo0g")

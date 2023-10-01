@@ -33,6 +33,7 @@ shape = SubResource("CircleShape2D_fjfdh")
 
 [node name="mole_roar" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_7af7u")
+volume_db = 24.0
 
 [node name="mole_attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5bs7k")
@@ -50,6 +51,7 @@ stream = ExtResource("5_4idv5")
 
 [node name="Scream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_qrfvg")
+volume_db = 6.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
