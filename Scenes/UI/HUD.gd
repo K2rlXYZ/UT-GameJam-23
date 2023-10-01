@@ -10,6 +10,8 @@ extends CanvasLayer
 @export var gold_label: Label
 @export var uranium_label: Label
 @export var amethyst_label: Label
+@export var diamond_label: Label
+@export var blood_label: Label
 
 @export var time_label: Label
 
@@ -19,6 +21,8 @@ func set_mineral_amounts(inventory):
 	gold_label.text = str(inventory[1])
 	uranium_label.text = str(inventory[2])
 	amethyst_label.text = str(inventory[3])
+	diamond_label.text = str(inventory[4])
+	blood_label.text = str(inventory[5])
 
 
 func pause_game() -> void:

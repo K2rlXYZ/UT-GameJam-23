@@ -12,6 +12,7 @@ func _end_game():
 	
 	var lvl = get_tree().current_scene
 	var hud = lvl.get_node("HUD")
+	hud.time_label.text = "Survived " + str(end_game_timer.elapsed / 1000) + " seconds"
 	lvl.remove_child(hud)
 	lvl.queue_free()
 	get_tree().root.add_child(hud)
@@ -19,6 +20,7 @@ func _end_game():
 	hud.move_child(end_screen, 0)
 	get_tree().current_scene = hud
 	
+	end_game_timer.stop()
 	
 
 func _ready():

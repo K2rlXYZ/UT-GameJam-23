@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bef71fvcrn6in"]
+[gd_scene load_steps=13 format=3 uid="uid://bef71fvcrn6in"]
 
 [ext_resource type="Script" path="res://Scenes/UI/HUD.gd" id="1_5jl6j"]
 [ext_resource type="PackedScene" uid="uid://c3kasu2jbxtp1" path="res://Scenes/UI/main_menu.tscn" id="2_52qnp"]
@@ -24,11 +24,19 @@ region = Rect2(100, 0, 50, 50)
 atlas = SubResource("CompressedTexture2D_m8xtl")
 region = Rect2(150, 0, 50, 50)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5yx4"]
+atlas = SubResource("CompressedTexture2D_m8xtl")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dado8"]
+atlas = SubResource("CompressedTexture2D_m8xtl")
+region = Rect2(50, 50, 50, 50)
+
 [sub_resource type="LabelSettings" id="LabelSettings_ay0n4"]
 font_size = 60
 font_color = Color(0.462745, 0.462745, 0.462745, 1)
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("pause_menu", "settings_menu", "silver_label", "gold_label", "uranium_label", "amethyst_label", "time_label")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("pause_menu", "settings_menu", "silver_label", "gold_label", "uranium_label", "amethyst_label", "diamond_label", "blood_label", "time_label")]
 process_mode = 3
 script = ExtResource("1_5jl6j")
 pause_menu = NodePath("PauseMenu")
@@ -38,6 +46,8 @@ silver_label = NodePath("UI/M/HB/Silver/SilverAmount")
 gold_label = NodePath("UI/M/HB/Gold/GoldAmount")
 uranium_label = NodePath("UI/M/HB/Uranium/UraniumAmount")
 amethyst_label = NodePath("UI/M/HB/Amethyst/AmethystAmount")
+diamond_label = NodePath("UI/M/HB/Diamond/DiamondAmount")
+blood_label = NodePath("UI/M/HB/Blood/BloodAmount")
 time_label = NodePath("UI/M/TimeLabel")
 
 [node name="UI" type="Control" parent="."]
@@ -110,6 +120,28 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_8utfv")
 
 [node name="AmethystAmount" type="Label" parent="UI/M/HB/Amethyst"]
+layout_mode = 2
+text = "0"
+
+[node name="Diamond" type="HBoxContainer" parent="UI/M/HB"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/M/HB/Diamond"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_y5yx4")
+
+[node name="DiamondAmount" type="Label" parent="UI/M/HB/Diamond"]
+layout_mode = 2
+text = "0"
+
+[node name="Blood" type="HBoxContainer" parent="UI/M/HB"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/M/HB/Blood"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_dado8")
+
+[node name="BloodAmount" type="Label" parent="UI/M/HB/Blood"]
 layout_mode = 2
 text = "0"
 

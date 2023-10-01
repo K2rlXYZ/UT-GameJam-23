@@ -18,6 +18,7 @@ const MINUTE : int = 60
 const HOUR : int = 60
 var timer_active : bool = false
 var start_ticks : int = 0
+var elapsed: int = 0
 
 @export var time_left: int = 0
 var last_ms_ticks : int = 0
@@ -95,7 +96,8 @@ func second() -> bool:
 			seconds = MINUTE
 			to_display = 0
 		emit_signal("second_elapsed", to_display)
-		time_left = wait_time-(ticks() - start_ticks)
+		elapsed = ticks() - start_ticks
+		time_left = wait_time-(elapsed)
 		return true
 	return false
 
