@@ -19,6 +19,7 @@ const HOUR : int = 60
 var timer_active : bool = false
 var start_ticks : int = 0
 
+var time_left: int = 0
 var last_ms_ticks : int = 0
 
 #time tracking
@@ -37,6 +38,7 @@ func start() -> void:
 	timer_active = true
 	last_ms_ticks = ticks()
 	start_ticks = last_ms_ticks
+	time_left = wait_time
 
 func stop() -> void:
 	timer_active = false
@@ -93,6 +95,7 @@ func second() -> bool:
 			seconds = MINUTE
 			to_display = 0
 		emit_signal("second_elapsed", to_display)
+		time_left = wait_time-(ticks() - start_ticks)
 		return true
 	return false
 
