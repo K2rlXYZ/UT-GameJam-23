@@ -58,5 +58,11 @@ func destroy_rock(position = null):
 		$DestroyRock.global_position = position
 	$DestroyRock.emitting = true
 		
+func AmbientHorror():
+	$AmbientHorror.play()
 	
-
+func Remove():
+	$PickUp.play()
+	
+func Place():
+	$Place.play()	

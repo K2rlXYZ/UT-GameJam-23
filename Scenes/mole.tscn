@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvgorpsgg04ca"]
+[gd_scene load_steps=10 format=3 uid="uid://dvgorpsgg04ca"]
 
 [ext_resource type="Script" path="res://Mole.gd" id="1_m5t78"]
 [ext_resource type="AudioStream" uid="uid://ci0p8ff3ypsal" path="res://Assets/Audio/mole_roar.wav" id="3_7af7u"]
 [ext_resource type="AudioStream" uid="uid://bixl5b05fiync" path="res://Assets/Audio/mole_attack.wav" id="4_5bs7k"]
+[ext_resource type="AudioStream" uid="uid://ch6pirwenvmoj" path="res://Assets/Audio/hyperventilating.wav" id="5_4idv5"]
 [ext_resource type="PackedScene" uid="uid://dli5kqnj0f2gf" path="res://Scenes/mole_animation.tscn" id="5_6dr0b"]
+[ext_resource type="AudioStream" uid="uid://cp813a5xukc4d" path="res://Assets/Audio/karje.wav" id="6_qrfvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7x3w"]
 size = Vector2(225, 225)
@@ -31,6 +33,7 @@ shape = SubResource("CircleShape2D_fjfdh")
 
 [node name="mole_roar" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_7af7u")
+volume_db = 24.0
 
 [node name="mole_attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5bs7k")
@@ -42,6 +45,13 @@ autoplay = true
 shape = SubResource("CircleShape2D_i3gj6")
 
 [node name="MoleAnimation" parent="." instance=ExtResource("5_6dr0b")]
+
+[node name="HyperVentilate" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4idv5")
+
+[node name="Scream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qrfvg")
+volume_db = 6.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

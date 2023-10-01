@@ -6,6 +6,7 @@ var timer: Timer
 func _enemy_timer_timeout():
 	print("Mole Spawned")
 	$mole_roar.play()
+	$HyperVentilate.play()
 	await get_tree().create_timer(randf_range(4,5.5)).timeout
 	Globals.spawn_mole()
 	timer.set_wait_time(randf_range(25, 40))

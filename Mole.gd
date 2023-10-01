@@ -27,6 +27,7 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if body is PlayerCharacter:
 		$mole_attack.play()
+		$Scream.play()
 		body.shoved = true
 		body.velocity.x += randf_range(2000,2500)
 		body.velocity.y -= randf_range(300,900)

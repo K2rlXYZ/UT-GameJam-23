@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxe0u1dpxnwsd"]
+[gd_scene load_steps=8 format=3 uid="uid://dxe0u1dpxnwsd"]
 
 [ext_resource type="Script" path="res://Scenes/sandbox.gd" id="1_t2qam"]
 [ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="2_u53kb"]
 [ext_resource type="PackedScene" uid="uid://drqvgabvb1y4c" path="res://Scenes/tiles_descriptor.tscn" id="3_i8g6g"]
 [ext_resource type="PackedScene" uid="uid://jhcxxjphb1ov" path="res://Scenes/player_character.tscn" id="4_2m4du"]
 [ext_resource type="AudioStream" uid="uid://ci0p8ff3ypsal" path="res://Assets/Audio/mole_roar.wav" id="5_ruc7r"]
+[ext_resource type="AudioStream" uid="uid://ch6pirwenvmoj" path="res://Assets/Audio/hyperventilating.wav" id="6_nrqsw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mou8n"]
 
@@ -37,3 +38,6 @@ tiles_data = NodePath("../TileMap/BetterTilesData")
 
 [node name="mole_roar" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ruc7r")
+
+[node name="HyperVentilate" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_nrqsw")
