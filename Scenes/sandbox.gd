@@ -55,8 +55,8 @@ func _ready():
 	
 	
 	get_tree().get_nodes_in_group("player")[0].mined.connect(hud.set_mineral_amounts)
-	var egt = (Globals.end_game_timer as AlternateTimer)
-	egt.second_elapsed.connect(hud._update_clock.bind(egt.time_left))
+	var egt = Globals.end_game_timer
+#	egt.second_elapsed.connect(hud._update_clock)
 	
 
 

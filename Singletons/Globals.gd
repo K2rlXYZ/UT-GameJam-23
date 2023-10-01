@@ -9,13 +9,13 @@ var end_game_timer: AlternateTimer
 func _end_game():
 	print("Game Over")
 
-func _ready():
-	var end_game_timer = AlternateTimer.new()
+func _init():
+	end_game_timer = AlternateTimer.new()
 	end_game_timer.autostart = false
 	end_game_timer.one_shot = true
-	end_game_timer.wait_time = 300
-	end_game_timer.timeout.connect()
-	end_game_timer.second_elapsed.connect()
+	end_game_timer.wait_time = 300 * 1000
+#	end_game_timer.timeout.connect()
+#	end_game_timer.second_elapsed.connect()
 	end_game_timer.start()
 
 func check_for_collapse():
