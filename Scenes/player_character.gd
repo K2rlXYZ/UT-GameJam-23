@@ -17,7 +17,7 @@ var in_air = false
 var jumped_on_wall = false
 var shoved = false
 
-signal mined()
+signal mined(inventory)
 
 var inventory = [0,0,0]
 
@@ -133,7 +133,7 @@ func mine():
 			tilemap.erase_cell(0, local_coordinate)
 		else:
 			target_tile.durability -= 1
-	mined.emit()
+	mined.emit(inventory)
 	Globals.check_for_collapse()
 	
 
@@ -184,12 +184,14 @@ func add_to_inventory(local_coordinate, tilemap):
 				if tile_data != null:
 					var custom_data = tile_data.get_custom_data("obj")
 					if custom_data != null:
-						if custom_data.name == "Gold":
+						if custom_data.name == "Silver":
 							inventory[0] += 1
-						elif custom_data.name == "Silver":
+						elif custom_data.name == "Gold":
 							inventory[1] += 1
-						elif custom_data.name == "Dirt":
+						elif custom_data.name == "Uranium":
 							inventory[2] += 1
+						elif custom_data.name == "Amethyst":
+							inventory[3] += 1
 						else:
 							pass
 	
