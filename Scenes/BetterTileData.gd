@@ -8,9 +8,9 @@ var unstable: bool
 var exists: bool
 var supported: bool
 
-func construct(local_position: Vector2i, durability: int = 1, unstable: bool = false, supported: bool = false) -> BetterTileData:
-	self.local_position = local_position
-	self.durability = durability
-	self.unstable = unstable
+func construct(_local_position: Vector2i, _durability: int = 1, _unstable: bool = false, _supported: bool = false) -> BetterTileData:
+	self.local_position = _local_position
+	self.durability = _durability
+	self.unstable = _unstable
 	self.exists = true
 	return self
