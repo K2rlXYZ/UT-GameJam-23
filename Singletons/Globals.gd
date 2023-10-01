@@ -14,8 +14,6 @@ func _ready():
 	end_game_timer.autostart = false
 	end_game_timer.one_shot = true
 	end_game_timer.wait_time = 300
-	end_game_timer.timeout.connect()
-	end_game_timer.second_elapsed.connect()
 	end_game_timer.start()
 
 func check_for_collapse():
