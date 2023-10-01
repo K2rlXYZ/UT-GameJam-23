@@ -2,7 +2,7 @@ extends Node2D
 
 @export var tiles_data: BetterTilesData
 var timer: Timer
-var end_conditions = [[15,0,0], [0,25,0]]
+var end_conditions = [[15,0,0], [0,25,0]] # 15 gold or 25 silver
 
 func win():
 	# TODO: OSKAR!!!! MAKE WIN INVOLVED IN GAMEFLOW
