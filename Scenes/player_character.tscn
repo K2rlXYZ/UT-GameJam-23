@@ -22,3 +22,10 @@ target_position = Vector2(100, 0)
 [node name="PlayerAnimation" parent="." instance=ExtResource("4_760tx")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

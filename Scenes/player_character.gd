@@ -194,3 +194,7 @@ func add_to_inventory(local_coordinate, tilemap):
 func _ready():
 	$PlayerAnimation.AmbientHorror()
 	
+
+
+func _on_timer_timeout():
+	print("level failed")
