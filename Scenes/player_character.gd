@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var pickaxe: CharacterBody2D
 @export var raycast: RayCast2D
 @export var tiles_data: BetterTilesData
-
+#
 var number_of_supports = 0
 var direction = true
 var pickaxe_x_offset = 50
