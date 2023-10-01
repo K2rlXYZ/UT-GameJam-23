@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0yrtcyvyww5k"]
+[gd_scene load_steps=4 format=3 uid="uid://c0yrtcyvyww5k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/end_screen.gd" id="1_jr38d"]
+[ext_resource type="Texture2D" uid="uid://dgxad6oh4o47h" path="res://Assets/game_over_screen.png" id="2_v5v8q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_migi4"]
 font_size = 106
+font_color = Color(0.407843, 0.407843, 0.407843, 1)
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3
@@ -14,15 +16,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jr38d")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_v5v8q")
 
 [node name="M" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -31,21 +32,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 300
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 300
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
 
 [node name="Label" type="Label" parent="M"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
+size_flags_vertical = 0
 text = "You have perished!"
 label_settings = SubResource("LabelSettings_migi4")
 
 [node name="ExitButton" type="Button" parent="M"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Exit to menu"
 

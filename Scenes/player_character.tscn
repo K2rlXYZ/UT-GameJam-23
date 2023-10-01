@@ -10,9 +10,7 @@
 size = Vector2(170, 215)
 
 [sub_resource type="GDScript" id="GDScript_y2u2g"]
-script/source = "class_name spook
-
-extends Sprite2D
+script/source = "extends Sprite2D
 
 
 # Called when the node enters the scene tree for the first time.

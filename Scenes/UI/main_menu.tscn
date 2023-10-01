@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3kasu2jbxtp1"]
+[gd_scene load_steps=14 format=3 uid="uid://c3kasu2jbxtp1"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu.gd" id="1_7ntto"]
 [ext_resource type="PackedScene" uid="uid://caq5idrkkj5rm" path="res://Scenes/UI/settings.tscn" id="2_2hew0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bhjj7w3rfb61o" path="res://Assets/backdrop_grass.png" id="4_nd7tu"]
 [ext_resource type="Texture2D" uid="uid://vrxmw8x5m6g3" path="res://Assets/backdrop_caveentrance.png" id="5_02xc8"]
 [ext_resource type="AudioStream" uid="uid://ps5t2w1x87wh" path="res://Assets/Audio/main_menu.wav" id="9_rs8qf"]
+[ext_resource type="Texture2D" uid="uid://bdrauo7trn1em" path="res://Assets/tutorial_page.png" id="10_v2omv"]
 
 [sub_resource type="Animation" id="Animation_vblcf"]
 length = 0.001
@@ -107,6 +108,7 @@ grow_vertical = 2
 script = ExtResource("1_7ntto")
 scene_to_play = ExtResource("2_2lv5g")
 settings = NodePath("Settings")
+metadata/_edit_use_anchors_ = true
 
 [node name="BackDrop" type="TextureRect" parent="."]
 layout_mode = 1
@@ -217,6 +219,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Tutorial" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_v2omv")
 
 [node name="MainMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_rs8qf")

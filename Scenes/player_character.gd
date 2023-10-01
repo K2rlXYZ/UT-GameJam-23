@@ -19,7 +19,7 @@ var shoved = false
 
 signal mined(inventory)
 
-var inventory = [0,0,0,0]
+var inventory = [0,0,0,0,0,0]
 
 
 func jump():
@@ -197,6 +197,12 @@ func add_to_inventory(local_coordinate, tilemap):
 						elif custom_data.name == "Amethyst":
 							inventory[3] += 1
 							Globals.end_game_timer.wait_time+=4
+						elif custom_data.name == "Bloodstone":
+							inventory[4] += 1
+							Globals.end_game_timer.wait_time+=5
+						elif custom_data.name == "Diamond":
+							inventory[5] += 1
+							Globals.end_game_timer.wait_time+=6
 						else:
 							pass
 	
