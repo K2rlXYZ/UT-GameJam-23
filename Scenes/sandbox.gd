@@ -4,6 +4,7 @@ extends Node2D
 var timer: Timer
 var end_conditions = [[15,0,0], [0,25,0]] # 15 gold or 25 silver
 
+
 func win():
 	# TODO: OSKAR!!!! MAKE WIN INVOLVED IN GAMEFLOW
 	print("U won!")
@@ -21,7 +22,7 @@ func _enemy_timer_timeout():
 	Globals.spawn_mole()
 	timer.set_wait_time(randf_range(25, 40))
 	timer.start()
-
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var arr = [Vector2(135, 307),Vector2(632, 307),Vector2(1165, 207),Vector2(-201, 207),Vector2(1643, 107)]
