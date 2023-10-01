@@ -124,9 +124,8 @@ layer_0/tile_data = PackedInt32Array(393203, 262145, 1, 458739, 262145, 1, 39320
 tilemap = NodePath("..")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="TileMap"]
-visible = false
 position = Vector2(2, 2)
-color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="StaticBody_WorldBoundingBox" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -162,6 +161,7 @@ libraries = {
 }
 
 [node name="blood_demon" type="Sprite2D" parent="Area2D_PlayerCharacter/AnimationPlayer"]
+visible = false
 modulate = Color(100, 15.9686, 100, 1)
 light_mask = 2
 visibility_layer = 2
