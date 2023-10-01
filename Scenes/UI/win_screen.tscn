@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://7e8di7cre3wx"]
+
+[ext_resource type="Script" path="res://Scenes/UI/win_screen.gd" id="1_61f54"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ywpjn"]
+font_size = 111
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_61f54")
+
+[node name="M" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 200
+
+[node name="Label" type="Label" parent="M"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level won!"
+label_settings = SubResource("LabelSettings_ywpjn")
+
+[node name="NextLevel" type="Button" parent="M"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Next Level"
