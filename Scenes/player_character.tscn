@@ -102,8 +102,8 @@ target_position = Vector2(100, 0)
 modulate = Color(11.83, 0, 13.61, 1)
 light_mask = 2
 visibility_layer = 2
-position = Vector2(400, 900)
-scale = Vector2(10, 10)
+position = Vector2(2020, 500)
+rotation = -0.846485
 texture = ExtResource("4_o6e22")
 script = ExtResource("5_qjeqr")
 
