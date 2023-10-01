@@ -124,7 +124,6 @@ layer_0/tile_data = PackedInt32Array(393203, 262145, 1, 458739, 262145, 1, 39320
 tilemap = NodePath("..")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="TileMap"]
-visible = false
 position = Vector2(2, 2)
 color = Color(0, 0, 0, 1)
 
