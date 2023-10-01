@@ -162,6 +162,7 @@ libraries = {
 }
 
 [node name="blood_demon" type="Sprite2D" parent="Area2D_PlayerCharacter/AnimationPlayer"]
+visible = false
 modulate = Color(100, 15.9686, 100, 1)
 light_mask = 2
 visibility_layer = 2
