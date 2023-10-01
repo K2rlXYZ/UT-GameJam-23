@@ -104,12 +104,17 @@ func mine():
 		#Get the target tiles BetterTileData
 		var target_tile = tiles_data.find_tile_by_coord(local_coordinate)
 		if (target_tile.durability == 1):
-			var source_id := tilemap.get_cell_source_id(0, local_coordinate)
+			var source_id = tilemap.get_cell_source_id(0, local_coordinate)
 			if source_id != null:
-				var atlas_coord := tilemap.get_cell_atlas_coords(0, local_coordinate)
-				var tile_data = tilemap.tile_set.get_source(source_id).get_tile_data(atlas_coord,0)
-				var custom_data = tile_data.get_custom_data("obj")
-				add_to_inventory(custom_data)
+				var atlas_coord = tilemap.get_cell_atlas_coords(0, local_coordinate)
+				if atlas_coord != null:
+					var source = tilemap.tile_set.get_source(source_id)
+					if source != null:
+						var tile_data = source.get_tile_data(atlas_coord,0)
+						if tile_data != null:
+							var custom_data = tile_data.get_custom_data("obj")
+							if custom_data != null:
+								add_to_inventory(custom_data)
 			tilemap.erase_cell(0, local_coordinate)
 			$PlayerAnimation.destroy_rock(collision_point)
 			$PlayerAnimation.pickhitsound()
@@ -126,8 +131,7 @@ func mine():
 	Globals.check_for_collapse()
 	
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+# Called when the node enters the scene treaaaaaaaaaa
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

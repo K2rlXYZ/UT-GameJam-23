@@ -18,12 +18,12 @@ func find_tile_by_coord(coord: Vector2i) -> BetterTileData:
 func final_collapse_individual(position_for_particles):
 	var final_collapse = preload("res://Scenes/Particles/final_collapse.tscn").instantiate()
 	final_collapse.z_index = 10
+	final_collapse.position = position_for_particles
 	for child in final_collapse.get_children():
 		child.emitting = true
-		child.position = position_for_particles
 	self.add_child(final_collapse)
 	var t = Timer.new()
-	t.set_wait_time(5)
+	t.set_wait_time(2)
 	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()
@@ -41,16 +41,17 @@ func first_collapse(position_for_particles, start_tile_local_position):
 	first_collapse.position = position_for_particles
 	self.add_child(first_collapse)
 	var t = AlternateTimer.new()
-	t.wait_time = 10*1000
+	t.wait_time = 4*1000
 	t.one_shot=true
 	self.add_child(t)
 	var emitted = false
 	var ck = (func(e, stlp): 
 		#print(Globals.cancelable_tile_index_pairs)
-		var data = Globals.cancelable_tile_index_pairs[stlp]
-		#print(data[0])
-		if data[0]:
-			data[1].stop() \
+		if (stlp in Globals.cancelable_tile_index_pairs.keys()):
+			var data = Globals.cancelable_tile_index_pairs[stlp]
+			#print(data[0])
+			if data[0]:
+				data[1].stop() 
 	)
 	t.millisecond_elapsed.connect(ck.bind(start_tile_local_position))
 	t.start()
@@ -65,9 +66,11 @@ func collapse(start_tile: BetterTileData):
 	Globals.cancelable_tile_index_pairs[start_tile.local_position] = [false]
 	
 	var cancel = await first_collapse(position_for_particles, start_tile.local_position)
-	
-	if Globals.cancelable_tile_index_pairs[start_tile.local_position][0]:
-		Globals.cancelable_tile_index_pairs.erase(start_tile.local_position)
+	if start_tile.local_position in Globals.cancelable_tile_index_pairs.keys():
+		if Globals.cancelable_tile_index_pairs[start_tile.local_position][0]:
+			Globals.cancelable_tile_index_pairs.erase(start_tile.local_position)
+			return
+	else:
 		return
 	
 	var unstable_position = start_tile.local_position
