@@ -137,7 +137,8 @@ libraries = {
 }
 
 [node name="blood_demon" type="Sprite2D" parent="CanvasGroup/Area2D_PlayerCharacter/AnimationPlayer"]
-modulate = Color(100, 100, 100, 1)
+visible = false
+modulate = Color(100, 15.9686, 100, 1)
 light_mask = 2
 visibility_layer = 2
 position = Vector2(960, 1400)
