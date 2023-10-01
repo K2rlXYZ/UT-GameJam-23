@@ -29,7 +29,7 @@ func _ready():
 		prel.after_ready(tiles_data)
 	
 	timer = Timer.new()
-	timer.set_wait_time(randf_range(1, 2))
+	timer.set_wait_time(randf_range(10, 12))
 	timer.set_one_shot(true)
 	self.add_child(timer)
 	timer.timeout.connect(_enemy_timer_timeout)
