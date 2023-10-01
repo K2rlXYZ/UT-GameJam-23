@@ -14,7 +14,6 @@ func set_tiles_around_supported(supported: bool, tiles_data: BetterTilesData):
 	if supported:
 		var position_of_above_tile = self.position
 		var tree = get_tree()
-		var player = tree.get_nodes_in_group("player")[0]
 		position_of_above_tile.y-=(150+50)
 		var tilemap = tree.current_scene.get_children().filter(func(e): return e is TileMap)[0]
 		var local_coordinate = tilemap.local_to_map(tilemap.to_local(position_of_above_tile)) as Vector2i

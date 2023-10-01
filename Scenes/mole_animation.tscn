@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dli5kqnj0f2gf"]
+[gd_scene load_steps=13 format=3 uid="uid://dli5kqnj0f2gf"]
 
+[ext_resource type="Script" path="res://Scenes/mole_animation.gd" id="1_ck8a2"]
 [ext_resource type="Texture2D" uid="uid://ca5parysyd2cl" path="res://Assets/Mole/molearm1.png" id="1_m2qcr"]
 [ext_resource type="Texture2D" uid="uid://cd6adi62uywi3" path="res://Assets/Mole/molearm2.png" id="2_lctjv"]
 [ext_resource type="Texture2D" uid="uid://cjx7jp20x0776" path="res://Assets/Mole/molebody.png" id="3_jpehr"]
@@ -227,6 +228,7 @@ _data = {
 }
 
 [node name="MoleAnimation" type="Node2D"]
+script = ExtResource("1_ck8a2")
 
 [node name="Molebody" type="Sprite2D" parent="."]
 texture = ExtResource("3_jpehr")
