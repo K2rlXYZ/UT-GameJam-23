@@ -8,14 +8,8 @@ var change = true
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _ready():
-	var t = Timer.new()
-	t.wait_time = 2
-	t.one_shot=true
-	get_tree().current_scene.add_child(t)
-	change = false
-	t.start()
-	await t.timeout
+var wait: bool = true
+
 
 func _physics_process(delta):
 	var player = get_tree().get_nodes_in_group("player")
@@ -53,4 +47,4 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_2_body_entered(body):
 	if body is PlayerCharacter:
-		$mole_roar.play()
+		pass
