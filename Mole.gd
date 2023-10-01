@@ -32,6 +32,7 @@ func _on_area_2d_body_entered(body):
 		body.velocity.y -= randf_range(300,900)
 		var lambda = func(empty, bod):
 			bod.velocity*=0.95
+			$Scream.play()
 		var t = AlternateTimer.new()
 		t.wait_time = 5*100
 		t.one_shot=true
