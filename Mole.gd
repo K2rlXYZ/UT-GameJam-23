@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var wait: bool = true
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var player = get_tree().get_nodes_in_group("player")
 	var player_position = player[0].get_position()
 	if change:
@@ -34,7 +34,7 @@ func _on_area_2d_body_entered(body):
 		else:
 			body.velocity.x -= randf_range(2000,2500)
 		body.velocity.y -= randf_range(300,900)
-		var lambda = func(empty, bod):
+		var lambda = func(_empty, bod):
 			bod.velocity*=0.95
 		var t = AlternateTimer.new()
 		t.wait_time = 5*100

@@ -4,14 +4,6 @@ extends Node2D
 var timer: Timer
 @export var end_conditions = [[15,0,0], [0,25,0]] # 15 gold or 25 silver
 
-func win():
-	# TODO: OSKAR!!!! MAKE WIN INVOLVED IN GAMEFLOW
-	var win_screen = load("res://Scenes/UI/win_screen.tscn").instantiate()
-	hud.add_child(win_screen)
-
-func _check_win_conditions():
-	var player = get_tree().get_nodes_in_group("player")[0] as PlayerCharacter
-
 func _enemy_timer_timeout():
 	print("Mole Spawned")
 	$mole_roar.play()
@@ -43,9 +35,6 @@ func _ready():
 	timer.timeout.connect(_enemy_timer_timeout)
 	timer.start()
 	
-	var player = get_tree().get_nodes_in_group("player")[0] as PlayerCharacter
-	player.mined.connect(_check_win_conditions)
-	# spawn hud
 	hud = load("res://Scenes/UI/hud.tscn").instantiate()
 	add_child(hud)
 	
@@ -53,11 +42,6 @@ func _ready():
 	
 	get_tree().get_nodes_in_group("player")[0].mined.connect(hud.set_mineral_amounts)
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _input(event):
 	if event is InputEvent:

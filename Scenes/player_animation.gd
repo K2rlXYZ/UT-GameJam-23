@@ -53,9 +53,9 @@ func run_effect():
 func run_effect_stop():
 	$PlayerRun.emitting = false
 
-func destroy_rock(position = null):
-	if position != null:
-		$DestroyRock.global_position = position
+func destroy_rock(pos_ition = null):
+	if pos_ition != null:
+		$DestroyRock.global_position = pos_ition
 	$DestroyRock.emitting = true
 		
 func AmbientHorror():

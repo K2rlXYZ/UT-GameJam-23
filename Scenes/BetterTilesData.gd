@@ -35,18 +35,17 @@ func first_collapse(position_for_particles, start_tile_local_position):
 	var cancel: bool = false
 	if not $varisemine.playing:
 		$varisemine.play()
-	var first_collapse = preload("res://Scenes/Particles/collapse_effect.tscn").instantiate() 
-	var particles = first_collapse.get_child(0) as GPUParticles2D
-	first_collapse.z_index = -10
+	var first_collapse_particles = preload("res://Scenes/Particles/collapse_effect.tscn").instantiate() 
+	var particles = first_collapse_particles.get_child(0) as GPUParticles2D
+	first_collapse_particles.z_index = -10
 	particles.emitting = true
-	first_collapse.position = position_for_particles
-	self.add_child(first_collapse)
+	first_collapse_particles.position = position_for_particles
+	self.add_child(first_collapse_particles)
 	var t = AlternateTimer.new()
 	t.wait_time = 4*1000
 	t.one_shot=true
 	self.add_child(t)
-	var emitted = false
-	var ck = (func(e, stlp): 
+	var ck = (func(_e, stlp): 
 		#print(Globals.cancelable_tile_index_pairs)
 		#print(e)
 		if (stlp in Globals.cancelable_tile_index_pairs.keys()):
@@ -60,7 +59,7 @@ func first_collapse(position_for_particles, start_tile_local_position):
 	Globals.cancelable_tile_index_pairs[start_tile_local_position].append(t)
 	
 	await t.timeout
-	self.remove_child(first_collapse)
+	self.remove_child(first_collapse_particles)
 	return cancel
 	
 func collapse(start_tile: BetterTileData):
@@ -113,6 +112,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 
