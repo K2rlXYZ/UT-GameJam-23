@@ -2,12 +2,14 @@ extends Node2D
 
 @export var tiles_data: BetterTilesData
 var timer: Timer
-var end_conditions = [[15,0,0], [0,25,0]] # 15 gold or 25 silver
+@export var end_conditions = [[15,0,0], [0,25,0]] # 15 gold or 25 silver
 
 
 func win():
 	# TODO: OSKAR!!!! MAKE WIN INVOLVED IN GAMEFLOW
-	print("U won!")
+	var win_screen = load("res://Scenes/UI/win_screen.tscn").instantiate()
+	hud.add_child(win_screen)
+	
 
 func _check_win_conditions():
 	var player = get_tree().get_nodes_in_group("player")[0] as PlayerCharacter

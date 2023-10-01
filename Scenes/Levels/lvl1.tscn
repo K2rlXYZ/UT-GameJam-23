@@ -12,6 +12,7 @@
 [node name="lv1" type="Node2D" node_paths=PackedStringArray("tiles_data")]
 script = ExtResource("1_5fgc0")
 tiles_data = NodePath("TileMap/BetterTilesData")
+end_conditions = [[1, 0, 0], [0, 3, 0]]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-2, -2)
