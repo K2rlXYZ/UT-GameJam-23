@@ -101,12 +101,11 @@ target_position = Vector2(100, 0)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="blood_demon" type="Sprite2D" parent="Camera2D"]
-visible = false
 modulate = Color(100, 0, 10.65, 1)
 light_mask = 2
 visibility_layer = 2
-position = Vector2(300, 900)
-scale = Vector2(10, 10)
+position = Vector2(2020, 500)
+rotation = -0.846485
 texture = ExtResource("3_tlmuo")
 script = ExtResource("4_n0nhx")
 
