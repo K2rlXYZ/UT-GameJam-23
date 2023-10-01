@@ -154,12 +154,10 @@ func _input(event):
 			else:
 				$PlayerAnimation.play_mine_forward()
 		if event.is_action_pressed("clickRight"):
-			#print(self.position)
+			print(self.position)
 			place_or_pickup_support()
-			if randf_range(0,100) < 20:
-				$Camera2D/AnimationPlayer.play("scare")
-				
-				
+			
+			
 func animate() -> void:
 	var player_animation = $PlayerAnimation
 	if !is_on_floor():
