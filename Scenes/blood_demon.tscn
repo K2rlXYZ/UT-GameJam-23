@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://b8kmv8ebtqnm4"]
+[gd_scene load_steps=3 format=3 uid="uid://b8kmv8ebtqnm4"]
 
-[node name="blood_demon" type="Node2D"]
+[sub_resource type="Animation" id="Animation_4xfmj"]
+resource_name = "scare"
+length = 9.7
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28sh2"]
+_data = {
+"scare": SubResource("Animation_4xfmj")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_28sh2")
+}

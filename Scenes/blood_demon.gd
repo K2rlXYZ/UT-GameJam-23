@@ -1,3 +1,5 @@
+class_name spook
+
 extends Sprite2D
 
 

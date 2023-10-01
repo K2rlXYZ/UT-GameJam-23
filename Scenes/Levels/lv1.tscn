@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxe0u1dpxnwsd"]
+[gd_scene load_steps=10 format=3 uid="uid://dxe0u1dpxnwsd"]
 
 [ext_resource type="Script" path="res://Scenes/sandbox.gd" id="1_t2qam"]
 [ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="2_u53kb"]
@@ -6,6 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://jhcxxjphb1ov" path="res://Scenes/player_character.tscn" id="4_2m4du"]
 [ext_resource type="AudioStream" uid="uid://ci0p8ff3ypsal" path="res://Assets/Audio/mole_roar.wav" id="5_ruc7r"]
 [ext_resource type="AudioStream" uid="uid://ch6pirwenvmoj" path="res://Assets/Audio/hyperventilating.wav" id="6_nrqsw"]
+[ext_resource type="PackedScene" uid="uid://b8kmv8ebtqnm4" path="res://Scenes/blood_demon.tscn" id="7_61p3l"]
+
+[sub_resource type="Animation" id="Animation_npxw1"]
+resource_name = "jumpy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1e-05, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k4enw"]
+_data = {
+"jumpy": SubResource("Animation_npxw1")
+}
 
 [node name="lv1" type="Node2D" node_paths=PackedStringArray("tiles_data")]
 script = ExtResource("1_t2qam")
@@ -38,3 +59,10 @@ stream = ExtResource("6_nrqsw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
+
+[node name="blood_demon" parent="." instance=ExtResource("7_61p3l")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k4enw")
+}
