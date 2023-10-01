@@ -19,7 +19,7 @@ var shoved = false
 
 signal mined(inventory)
 
-var inventory = [0,0,0]
+var inventory = [0,0,0,0]
 
 
 func jump():
