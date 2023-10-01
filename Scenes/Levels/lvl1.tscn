@@ -132,12 +132,11 @@ libraries = {
 }
 
 [node name="blood_demon" type="Sprite2D" parent="Area2D_PlayerCharacter/AnimationPlayer"]
-visible = false
 modulate = Color(100, 15.9686, 100, 1)
 light_mask = 2
 visibility_layer = 2
-position = Vector2(960, 1400)
-scale = Vector2(10, 10)
+position = Vector2(2020, 500)
+rotation = -0.846485
 texture = ExtResource("7_q3xlg")
 script = ExtResource("8_kgmri")
 

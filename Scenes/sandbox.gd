@@ -21,6 +21,7 @@ func _enemy_timer_timeout():
 	Globals.spawn_mole()
 	timer.set_wait_time(randf_range(25, 40))
 	timer.start()
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
