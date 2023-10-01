@@ -41,3 +41,6 @@ stream = ExtResource("5_ruc7r")
 
 [node name="HyperVentilate" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_nrqsw")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)

@@ -38,3 +38,6 @@ shape = SubResource("WorldBoundaryShape2D_mou8n")
 unique_name_in_owner = true
 position = Vector2(400, 336)
 tiles_data = NodePath("../TileMap/BetterTilesData")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
