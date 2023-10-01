@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3kasu2jbxtp1"]
+[gd_scene load_steps=17 format=3 uid="uid://c3kasu2jbxtp1"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu.gd" id="1_7ntto"]
 [ext_resource type="PackedScene" uid="uid://caq5idrkkj5rm" path="res://Scenes/UI/settings.tscn" id="2_2hew0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b2323o3mrla40" path="res://Assets/backdrop_trees.png" id="3_f54rh"]
 [ext_resource type="Texture2D" uid="uid://bhjj7w3rfb61o" path="res://Assets/backdrop_grass.png" id="4_nd7tu"]
 [ext_resource type="Texture2D" uid="uid://vrxmw8x5m6g3" path="res://Assets/backdrop_caveentrance.png" id="5_02xc8"]
+[ext_resource type="Texture2D" uid="uid://c1fcabu3qfpcs" path="res://nimed.png" id="8_mytlc"]
 [ext_resource type="AudioStream" uid="uid://ps5t2w1x87wh" path="res://Assets/Audio/main_menu.wav" id="9_rs8qf"]
 [ext_resource type="Texture2D" uid="uid://bdrauo7trn1em" path="res://Assets/tutorial_page.png" id="10_v2omv"]
 
@@ -51,7 +52,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 300)]
+"values": [Vector2(0, 0), Vector2(0, 500)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -97,6 +98,14 @@ _data = {
 "RESET": SubResource("Animation_vblcf"),
 "play": SubResource("Animation_bhxkr")
 }
+
+[sub_resource type="SystemFont" id="SystemFont_2xx7w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ngn51"]
+font = SubResource("SystemFont_2xx7w")
+font_size = 151
+outline_size = 65
+outline_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("settings")]
 layout_mode = 3
@@ -158,8 +167,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 9600.0
-offset_bottom = 5400.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
@@ -182,6 +189,7 @@ text = "Play"
 [node name="TutorialButton" type="Button" parent="M/HB"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+focus_mode = 0
 text = "Tutorial
 "
 
@@ -190,16 +198,18 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 text = "Settings"
 
-[node name="CreditsButton" type="Button" parent="M/HB"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-text = "Credits
-"
-
 [node name="ExitButton" type="Button" parent="M/HB"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 text = "Exit"
+
+[node name="TextureRect" type="TextureRect" parent="M"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("8_mytlc")
+expand_mode = 2
 
 [node name="Settings" parent="." instance=ExtResource("2_2hew0")]
 visible = false
@@ -233,10 +243,22 @@ texture = ExtResource("10_v2omv")
 stream = ExtResource("9_rs8qf")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.6, 0.419608, 0.419608, 1)
+color = Color(0.784314, 0.619608, 0.619608, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -784.0
+offset_top = 326.0
+offset_right = 196.0
+offset_bottom = 658.0
+grow_horizontal = 2
+text = "Collapse"
+label_settings = SubResource("LabelSettings_ngn51")
 
 [connection signal="pressed" from="M/HB/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="M/HB/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="M/HB/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="M/HB/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="M/HB/ExitButton" to="." method="_on_exit_button_pressed"]
