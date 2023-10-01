@@ -24,7 +24,7 @@ func _enemy_timer_timeout():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var arr = [Vector2(135.7413, 307.924),Vector2(632.2584, 307.9859),Vector2(1165.591, 207.924),Vector2(-201.076, 207.924),Vector2(1643.37, 107.924)]
+	var arr = [Vector2(135, 307),Vector2(632, 307),Vector2(1165, 207),Vector2(-201, 207),Vector2(1643, 107)]
 	for i in arr:
 		var prel = preload("res://Scenes/support_beam.tscn").instantiate()
 		var position_adjusted_to_tilemap = i
