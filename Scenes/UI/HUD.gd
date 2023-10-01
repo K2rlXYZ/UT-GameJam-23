@@ -1,20 +1,23 @@
 extends CanvasLayer
 
 
-@export var beams_label: Label
-@export var ladders_label: Label
-
 @export var pause_menu: Control
 @export var settings_menu: Control
 
 @export var main_menu: PackedScene
 
+@export var silver_label: Label
+@export var gold_label: Label
+@export var uranium_label: Label
+@export var amethyst_label: Label
 
-func set_beams(amount: int) -> void:
-	beams_label.text = str(amount)
 
-func set_ladders(amount: int) -> void:
-	ladders_label.text = str(amount)
+func set_mineral_amounts(inventory):
+	silver_label.text = str(inventory[0])
+	gold_label.text = str(inventory[1])
+	uranium_label.text = str(inventory[2])
+	amethyst_label.text = str(inventory[3])
+
 
 func pause_game() -> void:
 	pause_menu.show()
