@@ -7,6 +7,8 @@ extends CanvasLayer
 @export var pause_menu: Control
 @export var settings_menu: Control
 
+@export var main_menu: PackedScene
+
 
 func set_beams(amount: int) -> void:
 	beams_label.text = str(amount)
@@ -29,3 +31,7 @@ func _on_resume_button_pressed():
 
 func _on_settings_button_pressed():
 	settings_menu.show()
+
+
+func _on_quit_button_pressed():
+	get_tree().change_scene_to_packed(main_menu)
