@@ -29,7 +29,7 @@ func _unpause_game() -> void:
 	pause_menu.hide()
 	get_tree().paused = false
 
-func _update_clock(aijs, time_left):
+func _update_clock(aijs, time_left = Globals.end_game_timer.time_left):
 	time_label.text = str(time_left)
 
 func _on_resume_button_pressed():
@@ -42,3 +42,7 @@ func _on_settings_button_pressed():
 
 func _on_quit_button_pressed():
 	get_tree().change_scene_to_packed(main_menu)
+
+
+func _process(delta):
+	_update_clock(0)
