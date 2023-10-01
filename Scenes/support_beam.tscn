@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://4nicaqniisum" path="res://Assets/supportbeam.png" id="2_8pboi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lwm2"]
-size = Vector2(20, 300)
+size = Vector2(65, 300)
 
 [node name="CharacterBody2D_SupportBeam" type="CharacterBody2D" node_paths=PackedStringArray("area")]
 collision_layer = 4
@@ -13,6 +13,8 @@ script = ExtResource("1_jrtn6")
 area = NodePath("Area2D")
 
 [node name="Sprite2D_SupportBeam" type="Sprite2D" parent="."]
+z_index = -3
+scale = Vector2(1.05, 1.05)
 texture = ExtResource("2_8pboi")
 
 [node name="CollisionShape2D_SupportBeam" type="CollisionShape2D" parent="."]

@@ -1,12 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxe0u1dpxnwsd"]
+[gd_scene load_steps=6 format=3 uid="uid://dxe0u1dpxnwsd"]
 
 [ext_resource type="Script" path="res://Scenes/sandbox.gd" id="1_t2qam"]
 [ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="2_u53kb"]
 [ext_resource type="PackedScene" uid="uid://drqvgabvb1y4c" path="res://Scenes/tiles_descriptor.tscn" id="3_i8g6g"]
 [ext_resource type="PackedScene" uid="uid://jhcxxjphb1ov" path="res://Scenes/player_character.tscn" id="4_2m4du"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wfg4j"]
-normal = Vector2(-0.0126572, 0.99992)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mou8n"]
 
@@ -24,11 +21,7 @@ layer_0/tile_data = PackedInt32Array(327683, 1, 0, 327685, 1, 0, 327687, 1, 0, 3
 tilemap = NodePath("..")
 
 [node name="StaticBody_WorldBoundingBox" type="StaticBody2D" parent="."]
-collision_layer = 65535
-
-[node name="CollisionShape2D_Roof" type="CollisionShape2D" parent="StaticBody_WorldBoundingBox"]
-position = Vector2(960, 0)
-shape = SubResource("WorldBoundaryShape2D_wfg4j")
+collision_layer = 3
 
 [node name="CollisionShape2D_Floor" type="CollisionShape2D" parent="StaticBody_WorldBoundingBox"]
 position = Vector2(960, 1080)
@@ -38,3 +31,5 @@ shape = SubResource("WorldBoundaryShape2D_mou8n")
 unique_name_in_owner = true
 position = Vector2(400, 336)
 tiles_data = NodePath("../TileMap/BetterTilesData")
+
+[node name="MoleTimer" type="Timer" parent="."]

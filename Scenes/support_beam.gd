@@ -6,7 +6,8 @@ extends CharacterBody2D
 
 var list_of_tile_indexes: Array[Vector2i] = []
 
-var scan_range = 5
+var x_scan_range = 5
+var y_scan_range = 3
 var weight = 1
 
 func set_tiles_around_supported(supported: bool, tiles_data: BetterTilesData):
@@ -18,8 +19,8 @@ func set_tiles_around_supported(supported: bool, tiles_data: BetterTilesData):
 		var tilemap = tree.current_scene.get_children().filter(func(e): return e is TileMap)[0]
 		var local_coordinate = tilemap.local_to_map(tilemap.to_local(position_of_above_tile)) as Vector2i
 		var adjusted_local_coordinate = local_coordinate
-		for x_add in range(-scan_range, scan_range+1):
-			for y_add in range(-scan_range, scan_range+1):
+		for x_add in range(-x_scan_range, x_scan_range+1):
+			for y_add in range(-y_scan_range, 1):
 				var temp_local_coordinate = adjusted_local_coordinate
 				temp_local_coordinate.x+=x_add
 				temp_local_coordinate.y+=y_add

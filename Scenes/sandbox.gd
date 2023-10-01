@@ -1,7 +1,13 @@
 extends Node2D
 
 @export var tiles_data: BetterTilesData
+var timer: Timer
 
+func _enemy_timer_timeout():
+	print("Mole Spawned")
+	Globals.spawn_mole()
+	timer.set_wait_time(randf_range(25, 40))
+	timer.start()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +21,13 @@ func _ready():
 		Globals.support_beams.append(prel)
 		self.add_child(prel)
 		prel.after_ready(tiles_data)
+	
+	timer = Timer.new()
+	timer.set_wait_time(randf_range(25, 40))
+	timer.set_one_shot(true)
+	self.add_child(timer)
+	timer.timeout.connect(_enemy_timer_timeout)
+	timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

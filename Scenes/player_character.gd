@@ -17,7 +17,7 @@ var in_air = false
 var jumped_on_wall = false
 var shoved = false
 
-var inventory = [0,0]
+var inventory = [0,0,0]
 
 
 func jump():
@@ -72,7 +72,7 @@ func place_support():
 		var prel = preload("res://Scenes/support_beam.tscn").instantiate()
 		var player_position_adjusted_to_tilemap = self.position
 		player_position_adjusted_to_tilemap.x = int(player_position_adjusted_to_tilemap.x/100)*100+50
-		player_position_adjusted_to_tilemap.y = int(player_position_adjusted_to_tilemap.y/100)*100+50
+		player_position_adjusted_to_tilemap.y = int((player_position_adjusted_to_tilemap.y-20)/100)*100+50
 		prel.position = player_position_adjusted_to_tilemap
 		get_parent().add_child(prel)
 		Globals.support_beams.append(prel)
@@ -88,8 +88,17 @@ func place_or_pickup_support():
 			return
 	if not in_air:
 		place_support()
+		
+func set_above_unstable_after_mine(target_tile):
+	var above_target_tile_position = target_tile.local_position
+	above_target_tile_position.y -= 1
+	var tile = tiles_data.find_tile_by_coord(above_target_tile_position)
+	if tile != null:
+		if tile.exists and not tile.supported:
+			tile.unstable = true
 
 func mine():
+	print(inventory)
 	# Get vector from player towards mouse and limit its length
 	var vect = get_global_mouse_position() - self.position
 	vect = vect.limit_length(250)
@@ -104,27 +113,19 @@ func mine():
 		#Get the target tiles BetterTileData
 		var target_tile = tiles_data.find_tile_by_coord(local_coordinate)
 		if (target_tile.durability == 1):
-			var source_id = tilemap.get_cell_source_id(0, local_coordinate)
-			if source_id != null:
-				var atlas_coord = tilemap.get_cell_atlas_coords(0, local_coordinate)
-				if atlas_coord != null:
-					var source = tilemap.tile_set.get_source(source_id)
-					if source != null:
-						var tile_data = source.get_tile_data(atlas_coord,0)
-						if tile_data != null:
-							var custom_data = tile_data.get_custom_data("obj")
-							if custom_data != null:
-								add_to_inventory(custom_data)
-			tilemap.erase_cell(0, local_coordinate)
+			add_to_inventory(local_coordinate, tilemap)
+			
 			$PlayerAnimation.destroy_rock(collision_point)
 			$PlayerAnimation.pickhitsound()
+			
 			target_tile.exists = false
-			var above_target_tile_position = target_tile.local_position
-			above_target_tile_position.y -= 1
-			var tile = tiles_data.find_tile_by_coord(above_target_tile_position)
-			if tile != null:
-				if tile.exists and not tile.supported:
-					tile.unstable = true
+			set_above_unstable_after_mine(target_tile)
+			
+			for tile_local_coords in (Globals.cancelable_tile_index_pairs as Dictionary).keys():
+				if local_coordinate == tile_local_coords:
+					Globals.cancelable_tile_index_pairs[tile_local_coords][0] = true
+				
+			tilemap.erase_cell(0, local_coordinate)
 		else:
 			target_tile.durability -= 1
 			
@@ -166,11 +167,23 @@ func animate() -> void:
 		player_animation.play_idle()
 		player_animation.run_effect_stop()
 
-func add_to_inventory(id):
-	if id != null:
-		if id.name == "Gold":
-			inventory[0] += 1
-		elif id.name == "Silver":
-			inventory[1] += 1
-		else:
-			pass
+func add_to_inventory(local_coordinate, tilemap):
+	var source_id = tilemap.get_cell_source_id(0, local_coordinate)
+	if source_id != null:
+		var atlas_coord = tilemap.get_cell_atlas_coords(0, local_coordinate)
+		if atlas_coord != null:
+			var source = tilemap.tile_set.get_source(source_id)
+			if source != null:
+				var tile_data = source.get_tile_data(atlas_coord,0)
+				if tile_data != null:
+					var custom_data = tile_data.get_custom_data("obj")
+					if custom_data != null:
+						if custom_data.name == "Gold":
+							inventory[0] += 1
+						elif custom_data.name == "Silver":
+							inventory[1] += 1
+						elif custom_data.name == "Dirt":
+							inventory[2] += 1
+						else:
+							pass
+	
