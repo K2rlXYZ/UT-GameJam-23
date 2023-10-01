@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cslg1ub6j33qg"]
+[gd_scene load_steps=13 format=3 uid="uid://cslg1ub6j33qg"]
 
 [ext_resource type="Script" path="res://Scenes/sandbox.gd" id="1_5fgc0"]
 [ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="2_8sell"]
