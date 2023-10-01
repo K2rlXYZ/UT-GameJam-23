@@ -52,7 +52,12 @@ func _ready():
 	hud = load("res://Scenes/UI/hud.tscn").instantiate()
 	add_child(hud)
 	
+	
+	
 	get_tree().get_nodes_in_group("player")[0].mined.connect(hud.set_mineral_amounts)
+	var egt = (Globals.end_game_timer as AlternateTimer)
+	egt.second_elapsed.connect(hud._update_clock.bind(egt.time_left))
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

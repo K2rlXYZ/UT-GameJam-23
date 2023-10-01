@@ -413,8 +413,6 @@ position = Vector2(5.689, 86.339)
 [node name="Lantern" type="PointLight2D" parent="Torso/RightArm/flame"]
 texture = ExtResource("9_ayykq")
 
-[node name="Timer" type="Timer" parent="Torso/RightArm/flame/Lantern"]
-
 [node name="LeftArm" type="Sprite2D" parent="Torso"]
 position = Vector2(-24, -48)
 texture = ExtResource("5_txcu7")
@@ -449,5 +447,3 @@ stream = ExtResource("18_ete17")
 
 [node name="Place" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_gvo0g")
-
-[connection signal="timeout" from="Torso/RightArm/flame/Lantern/Timer" to="." method="_on_timer_timeout"]

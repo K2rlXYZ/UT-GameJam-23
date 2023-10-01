@@ -84,8 +84,6 @@ _data = {
 [node name="CharacterBody2D_PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("raycast") groups=["player"]]
 position = Vector2(100, 100)
 script = ExtResource("1_do68i")
-sprite = NodePath("")
-pickaxe = NodePath(".")
 raycast = NodePath("RayCast2D")
 
 [node name="CollisionShape2D_PlayerCharacter" type="CollisionShape2D" parent="."]

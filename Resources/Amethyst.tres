@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_aiyrv")
 name = "Amethyst"
-value = 0.0
-weight = 0.0
+value = 2.0
+weight = 0.8
