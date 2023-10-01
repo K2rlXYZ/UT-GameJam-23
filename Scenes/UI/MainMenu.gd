@@ -32,7 +32,10 @@ func _on_play_button_pressed():
 	get_tree().change_scene_to_packed(scene_to_play)
 
 func _on_tutorial_button_pressed():
-	pass # Replace with function body.
+	$CanvasLayer/Tutorial.show()
+	await any_key
+	$CanvasLayer/Tutorial.hide()
+
 
 func _on_settings_button_pressed():
 	settings.show()
