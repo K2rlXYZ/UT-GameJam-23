@@ -3,11 +3,26 @@
 [ext_resource type="Script" path="res://Scenes/player_character.gd" id="1_do68i"]
 [ext_resource type="Texture2D" uid="uid://cuykn1x63h8s1" path="res://Assets/blood_phantom.png" id="3_tlmuo"]
 [ext_resource type="PackedScene" uid="uid://dnpc1ofrqqb0g" path="res://Scenes/player_animation.tscn" id="4_760tx"]
-[ext_resource type="Script" path="res://Scenes/blood_demon.gd" id="4_n0nhx"]
 [ext_resource type="AudioStream" uid="uid://bq60v2ip27auy" path="res://Assets/Audio/jumpscare.wav" id="5_kwnht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a1oi"]
 size = Vector2(170, 215)
+
+[sub_resource type="GDScript" id="GDScript_y2u2g"]
+script/source = "class_name spook
+
+extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="Animation" id="Animation_iwroj"]
 resource_name = "scare"
@@ -73,33 +88,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(-0.1, 0.1, 5.1, 6.3, 9.5),
 "transitions": PackedFloat32Array(1e-05, 1e-05, 1, 1, 1),
 "update": 1,
-"values": [true, true, true, false, false]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite2D")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(6.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"scare", 1.0, false],
-"method": &"play"
-}]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AnimatedSprite2D:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 6.3, 9.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
+"values": [true, true, false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ttjt6"]
@@ -131,9 +120,10 @@ target_position = Vector2(100, 0)
 modulate = Color(100, 0, 10.65, 1)
 light_mask = 2
 visibility_layer = 2
-position = Vector2(800, 400)
+position = Vector2(2020, 500)
+rotation = -0.846485
 texture = ExtResource("3_tlmuo")
-script = ExtResource("4_n0nhx")
+script = SubResource("GDScript_y2u2g")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/blood_demon"]
 
