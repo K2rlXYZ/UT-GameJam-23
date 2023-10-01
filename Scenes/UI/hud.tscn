@@ -28,7 +28,7 @@ region = Rect2(150, 0, 50, 50)
 font_size = 60
 font_color = Color(0.462745, 0.462745, 0.462745, 1)
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("pause_menu", "settings_menu", "silver_label", "gold_label", "uranium_label", "amethyst_label")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("pause_menu", "settings_menu", "silver_label", "gold_label", "uranium_label", "amethyst_label", "time_label")]
 process_mode = 3
 script = ExtResource("1_5jl6j")
 pause_menu = NodePath("PauseMenu")
@@ -38,6 +38,7 @@ silver_label = NodePath("UI/M/HB/Silver/SilverAmount")
 gold_label = NodePath("UI/M/HB/Gold/GoldAmount")
 uranium_label = NodePath("UI/M/HB/Uranium/UraniumAmount")
 amethyst_label = NodePath("UI/M/HB/Amethyst/AmethystAmount")
+time_label = NodePath("UI/M/TimeLabel")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -54,7 +55,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="HB" type="HBoxContainer" parent="UI/M"]
 layout_mode = 2
@@ -105,6 +109,11 @@ texture = SubResource("AtlasTexture_8utfv")
 [node name="AmethystAmount" type="Label" parent="UI/M/HB/Amethyst"]
 layout_mode = 2
 text = "0"
+
+[node name="TimeLabel" type="Label" parent="UI/M"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [node name="PauseMenu" type="Control" parent="."]
 visible = false
