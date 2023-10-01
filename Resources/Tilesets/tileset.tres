@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://dbhny88sxygd2"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://dbhny88sxygd2"]
 
 [ext_resource type="Texture2D" uid="uid://cwye44xhtfprb" path="res://Assets/Spritesheets/tileset.png" id="1_8byii"]
 [ext_resource type="Resource" uid="uid://ga4vk8ku4lkk" path="res://Resources/Gold.tres" id="2_p4ql8"]
@@ -6,7 +6,9 @@
 [ext_resource type="Resource" uid="uid://b4hu2btusvvfp" path="res://Resources/Silver.tres" id="3_kya2g"]
 [ext_resource type="Resource" uid="uid://cq3dfsjha1fbp" path="res://Resources/Uranium.tres" id="5_60115"]
 [ext_resource type="Resource" uid="uid://4txi00tqv3nc" path="res://Resources/Amethyst.tres" id="6_2m05e"]
+[ext_resource type="Resource" uid="uid://m0pwgxutlx8t" path="res://Resources/Bloodstone.tres" id="6_g71kg"]
 [ext_resource type="Texture2D" uid="uid://bksdq6fab7gyh" path="res://Assets/tilemap_newores.png" id="7_bhljo"]
+[ext_resource type="Resource" uid="uid://b6a3c572qfvav" path="res://Resources/Diamond.tres" id="8_d3bp7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0grj"]
 texture = ExtResource("1_8byii")
@@ -144,6 +146,26 @@ texture_region_size = Vector2i(100, 100)
 3:5/0/physics_layer_0/angular_velocity = 0.0
 3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 3:5/0/custom_data_0 = ExtResource("6_2m05e")
+3:7/0 = 0
+3:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:7/0/physics_layer_0/angular_velocity = 0.0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+3:7/0/custom_data_0 = ExtResource("8_d3bp7")
+2:7/0 = 0
+2:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:7/0/physics_layer_0/angular_velocity = 0.0
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+2:7/0/custom_data_0 = ExtResource("8_d3bp7")
+1:7/0 = 0
+1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:7/0/physics_layer_0/angular_velocity = 0.0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+1:7/0/custom_data_0 = ExtResource("6_g71kg")
+0:7/0 = 0
+0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:7/0/physics_layer_0/angular_velocity = 0.0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+0:7/0/custom_data_0 = ExtResource("6_g71kg")
 
 [resource]
 tile_size = Vector2i(100, 100)
