@@ -6,7 +6,7 @@ extends Resource
 @export var value: float
 @export var weight: float
 
-func _init():
+func _ready():
 	if name == "Gold":
 		value = randf_range(100, 200)
 		weight = randf_range(0.5, 2.5)
