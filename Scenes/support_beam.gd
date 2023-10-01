@@ -44,6 +44,7 @@ func set_tiles_around_supported(supported: bool, tiles_data: BetterTilesData):
 			var tile = tiles_data.find_tile_by_coord(index)
 			tile.supported = false
 			tile.unstable = true
+			tiles_data.unsupported_lst.append(tile)
 		Globals.check_for_collapse()
 				
 func after_ready(tiles_data):
