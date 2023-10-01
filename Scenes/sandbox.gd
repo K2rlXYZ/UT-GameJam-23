@@ -2,6 +2,16 @@ extends Node2D
 
 @export var tiles_data: BetterTilesData
 var timer: Timer
+var end_conditions = [[15,0,0], [0,25,0]]
+
+func win():
+	# TODO: OSKAR!!!! MAKE WIN INVOLVED IN GAMEFLOW
+	print("U won!")
+
+func _check_win_conditions():
+	var player = get_tree().get_nodes_in_group("player")[0] as PlayerCharacter
+	if player.inventory[0] == end_conditions[0][0] or player.inventory[1] == end_conditions[1][1]:
+		win()
 
 func _enemy_timer_timeout():
 	print("Mole Spawned")
@@ -31,6 +41,9 @@ func _ready():
 	self.add_child(timer)
 	timer.timeout.connect(_enemy_timer_timeout)
 	timer.start()
+	
+	var player = get_tree().get_nodes_in_group("player")[0] as PlayerCharacter
+	player.mined.connect(_check_win_conditions)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

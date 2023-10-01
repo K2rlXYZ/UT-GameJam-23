@@ -17,6 +17,8 @@ var in_air = false
 var jumped_on_wall = false
 var shoved = false
 
+signal mined()
+
 var inventory = [0,0,0]
 
 
@@ -131,7 +133,7 @@ func mine():
 			tilemap.erase_cell(0, local_coordinate)
 		else:
 			target_tile.durability -= 1
-			
+	mined.emit()
 	Globals.check_for_collapse()
 	
 

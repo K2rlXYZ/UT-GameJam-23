@@ -84,8 +84,9 @@ func collapse(start_tile: BetterTileData):
 	while true && unstable_position.y < 100:
 		var unstb = find_tile_by_coord(unstable_position)
 		if unstb == null:
-			lst.append(BetterTileData.new().construct(unstable_position))
+			unstb=BetterTileData.new().construct(unstable_position)
 			unstb.exists = true
+			lst.append(unstb)
 		else:
 			if unstb.exists:
 				break
