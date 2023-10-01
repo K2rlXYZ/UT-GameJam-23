@@ -4,7 +4,6 @@ extends Node2D
 var timer: Timer
 @export var end_conditions = [[15,0,0], [0,25,0]] # 15 gold or 25 silver
 
-
 func win():
 	# TODO: OSKAR!!!! MAKE WIN INVOLVED IN GAMEFLOW
 	var win_screen = load("res://Scenes/UI/win_screen.tscn").instantiate()

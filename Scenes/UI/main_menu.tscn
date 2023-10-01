@@ -162,6 +162,7 @@ theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
 
 [node name="HB" type="HBoxContainer" parent="M"]
 layout_mode = 2
