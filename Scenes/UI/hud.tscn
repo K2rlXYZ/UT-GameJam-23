@@ -1,21 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://bef71fvcrn6in"]
+[gd_scene load_steps=11 format=3 uid="uid://bef71fvcrn6in"]
 
 [ext_resource type="Script" path="res://Scenes/UI/HUD.gd" id="1_5jl6j"]
 [ext_resource type="PackedScene" uid="uid://c3kasu2jbxtp1" path="res://Scenes/UI/main_menu.tscn" id="2_52qnp"]
 [ext_resource type="PackedScene" uid="uid://caq5idrkkj5rm" path="res://Scenes/UI/settings.tscn" id="2_ji0u5"]
+[ext_resource type="Texture2D" uid="uid://bixklarfyjwey" path="res://Assets/minerals.png" id="3_qo6ed"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m8xtl"]
+load_path = "res://.godot/imported/minerals.png-46d010b52660809fae9077bdaf19ea60.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsl6d"]
+atlas = SubResource("CompressedTexture2D_m8xtl")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m24y6"]
+atlas = ExtResource("3_qo6ed")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt4q6"]
+atlas = SubResource("CompressedTexture2D_m8xtl")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8utfv"]
+atlas = SubResource("CompressedTexture2D_m8xtl")
+region = Rect2(150, 0, 50, 50)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ay0n4"]
 font_size = 60
 font_color = Color(0.462745, 0.462745, 0.462745, 1)
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("beams_label", "ladders_label", "pause_menu", "settings_menu")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("pause_menu", "settings_menu", "silver_label", "gold_label", "uranium_label", "amethyst_label")]
 process_mode = 3
 script = ExtResource("1_5jl6j")
-beams_label = NodePath("UI/M/HB/Beams/BeamsLabel")
-ladders_label = NodePath("UI/M/HB/Ladders/LaddersLabel")
 pause_menu = NodePath("PauseMenu")
 settings_menu = NodePath("PauseMenu/M/Settings")
 main_menu = ExtResource("2_52qnp")
+silver_label = NodePath("UI/M/HB/Silver/SilverAmount")
+gold_label = NodePath("UI/M/HB/Gold/GoldAmount")
+uranium_label = NodePath("UI/M/HB/Uranium/UraniumAmount")
+amethyst_label = NodePath("UI/M/HB/Amethyst/AmethystAmount")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -37,34 +59,52 @@ theme_override_constants/margin_bottom = 10
 [node name="HB" type="HBoxContainer" parent="UI/M"]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_constants/separation = 215
+theme_override_constants/separation = 100
 alignment = 1
 
-[node name="Beams" type="HBoxContainer" parent="UI/M/HB"]
+[node name="Silver" type="HBoxContainer" parent="UI/M/HB"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/M/HB/Beams"]
+[node name="TextureRect" type="TextureRect" parent="UI/M/HB/Silver"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vsl6d")
+
+[node name="SilverAmount" type="Label" parent="UI/M/HB/Silver"]
+layout_mode = 2
+text = "0"
+
+[node name="Gold" type="HBoxContainer" parent="UI/M/HB"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/M/HB/Beams"]
+[node name="TextureRect" type="TextureRect" parent="UI/M/HB/Gold"]
 layout_mode = 2
-text = "Beams: "
+texture = SubResource("AtlasTexture_m24y6")
 
-[node name="BeamsLabel" type="Label" parent="UI/M/HB/Beams"]
+[node name="GoldAmount" type="Label" parent="UI/M/HB/Gold"]
 layout_mode = 2
+text = "0"
 
-[node name="Ladders" type="HBoxContainer" parent="UI/M/HB"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/M/HB/Ladders"]
+[node name="Uranium" type="HBoxContainer" parent="UI/M/HB"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/M/HB/Ladders"]
+[node name="TextureRect" type="TextureRect" parent="UI/M/HB/Uranium"]
 layout_mode = 2
-text = "Ladders: "
+texture = SubResource("AtlasTexture_lt4q6")
 
-[node name="LaddersLabel" type="Label" parent="UI/M/HB/Ladders"]
+[node name="UraniumAmount" type="Label" parent="UI/M/HB/Uranium"]
 layout_mode = 2
+text = "0"
+
+[node name="Amethyst" type="HBoxContainer" parent="UI/M/HB"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/M/HB/Amethyst"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8utfv")
+
+[node name="AmethystAmount" type="Label" parent="UI/M/HB/Amethyst"]
+layout_mode = 2
+text = "0"
 
 [node name="PauseMenu" type="Control" parent="."]
 visible = false
