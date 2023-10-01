@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cslg1ub6j33qg"]
+[gd_scene load_steps=12 format=3 uid="uid://cslg1ub6j33qg"]
 
 [ext_resource type="Script" path="res://Scenes/sandbox.gd" id="1_5fgc0"]
 [ext_resource type="TileSet" uid="uid://dbhny88sxygd2" path="res://Resources/Tilesets/tileset.tres" id="2_8sell"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://jhcxxjphb1ov" path="res://Scenes/player_character.tscn" id="4_5xgqc"]
 [ext_resource type="AudioStream" uid="uid://bq60v2ip27auy" path="res://Assets/Audio/jumpscare.wav" id="5_bwt7h"]
 [ext_resource type="AudioStream" uid="uid://ci0p8ff3ypsal" path="res://Assets/Audio/mole_roar.wav" id="5_tsofx"]
-[ext_resource type="AudioStream" uid="uid://ch6pirwenvmoj" path="res://Assets/Audio/hyperventilating.wav" id="6_b740w"]
 [ext_resource type="Texture2D" uid="uid://cuykn1x63h8s1" path="res://Assets/blood_phantom.png" id="7_q3xlg"]
 [ext_resource type="Script" path="res://Scenes/blood_demon.gd" id="8_kgmri"]
 
