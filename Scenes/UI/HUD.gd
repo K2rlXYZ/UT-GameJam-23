@@ -21,8 +21,8 @@ func set_mineral_amounts(inventory):
 	gold_label.text = str(inventory[1])
 	uranium_label.text = str(inventory[2])
 	amethyst_label.text = str(inventory[3])
-	diamond_label.text = str(inventory[4])
-	blood_label.text = str(inventory[5])
+	diamond_label.text = str(inventory[5])
+	blood_label.text = str(inventory[4])
 
 
 func pause_game() -> void:

@@ -339,6 +339,7 @@ target_position = Vector2(100, 0)
 [node name="PlayerAnimation" parent="." instance=ExtResource("4_760tx")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
 [node name="blood_demon" type="Sprite2D" parent="Camera2D"]
 modulate = Color(16.57, 0, 37.87, 1)
