@@ -81,9 +81,10 @@ _data = {
 "scare": SubResource("Animation_iwroj")
 }
 
-[node name="CharacterBody2D_PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("raycast") groups=["player"]]
+[node name="CharacterBody2D_PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("pickaxe", "raycast") groups=["player"]]
 position = Vector2(100, 100)
 script = ExtResource("1_do68i")
+pickaxe = NodePath(".")
 raycast = NodePath("RayCast2D")
 
 [node name="CollisionShape2D_PlayerCharacter" type="CollisionShape2D" parent="."]
