@@ -30,7 +30,7 @@ func _unpause_game() -> void:
 	get_tree().paused = false
 
 func _update_clock(aijs, time_left = Globals.end_game_timer.time_left):
-	time_label.text = str(time_left)
+	time_label.text = str(time_left/1000)
 
 func _on_resume_button_pressed():
 	_unpause_game()

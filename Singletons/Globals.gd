@@ -9,14 +9,12 @@ var end_game_timer: AlternateTimer
 func _end_game():
 	print("Game Over")
 
-func _init():
+func _ready():
 	end_game_timer = AlternateTimer.new()
 	end_game_timer.autostart = false
 	end_game_timer.one_shot = true
 	end_game_timer.wait_time = 300 * 1000
-#	end_game_timer.timeout.connect()
-#	end_game_timer.second_elapsed.connect()
-	end_game_timer.start()
+	add_child(end_game_timer)
 
 func check_for_collapse():
 	var tilemap = get_tree().current_scene.get_children().filter(func(e): return e is TileMap)[0] as TileMap

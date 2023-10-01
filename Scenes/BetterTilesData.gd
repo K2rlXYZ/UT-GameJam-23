@@ -48,7 +48,7 @@ func first_collapse(position_for_particles, start_tile_local_position):
 	var emitted = false
 	var ck = (func(e, stlp): 
 		#print(Globals.cancelable_tile_index_pairs)
-		print(e)
+		#print(e)
 		if (stlp in Globals.cancelable_tile_index_pairs.keys()):
 			var data = Globals.cancelable_tile_index_pairs[stlp]
 			#print(data[0])

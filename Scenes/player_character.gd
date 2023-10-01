@@ -187,12 +187,16 @@ func add_to_inventory(local_coordinate, tilemap):
 					if custom_data != null:
 						if custom_data.name == "Silver":
 							inventory[0] += 1
+							Globals.end_game_timer.wait_time+=1
 						elif custom_data.name == "Gold":
 							inventory[1] += 1
+							Globals.end_game_timer.wait_time+=2
 						elif custom_data.name == "Uranium":
 							inventory[2] += 1
+							Globals.end_game_timer.wait_time+=3
 						elif custom_data.name == "Amethyst":
 							inventory[3] += 1
+							Globals.end_game_timer.wait_time+=4
 						else:
 							pass
 	
@@ -200,3 +204,8 @@ func _ready():
 	$PlayerAnimation.AmbientHorror()
 	
 
+
+
+func _on_area_2d_body_entered(body):
+	if body is TileMap:
+		Globals._end_game()

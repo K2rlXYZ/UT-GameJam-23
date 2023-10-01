@@ -8,12 +8,9 @@ func win():
 	# TODO: OSKAR!!!! MAKE WIN INVOLVED IN GAMEFLOW
 	var win_screen = load("res://Scenes/UI/win_screen.tscn").instantiate()
 	hud.add_child(win_screen)
-	
 
 func _check_win_conditions():
 	var player = get_tree().get_nodes_in_group("player")[0] as PlayerCharacter
-	if player.inventory[0] == end_conditions[0][0] or player.inventory[1] == end_conditions[1][1]:
-		win()
 
 func _enemy_timer_timeout():
 	print("Mole Spawned")
@@ -52,11 +49,9 @@ func _ready():
 	hud = load("res://Scenes/UI/hud.tscn").instantiate()
 	add_child(hud)
 	
-	
+	Globals.end_game_timer.start()
 	
 	get_tree().get_nodes_in_group("player")[0].mined.connect(hud.set_mineral_amounts)
-	var egt = Globals.end_game_timer
-#	egt.second_elapsed.connect(hud._update_clock)
 	
 
 
