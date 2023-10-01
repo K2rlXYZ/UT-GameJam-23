@@ -19,7 +19,7 @@ const HOUR : int = 60
 var timer_active : bool = false
 var start_ticks : int = 0
 
-var time_left: int = 0
+@export var time_left: int = 0
 var last_ms_ticks : int = 0
 
 #time tracking
