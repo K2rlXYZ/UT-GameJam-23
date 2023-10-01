@@ -8,6 +8,18 @@ var end_game_timer: AlternateTimer
 
 func _end_game():
 	print("Game Over")
+	var end_screen = load("res://Scenes/UI/end_screen.tscn").instantiate()
+	
+	var lvl = get_tree().current_scene
+	var hud = lvl.get_node("HUD")
+	lvl.remove_child(hud)
+	lvl.queue_free()
+	get_tree().root.add_child(hud)
+	hud.add_child(end_screen)
+	hud.move_child(end_screen, 0)
+	get_tree().current_scene = hud
+	
+	
 
 func _ready():
 	end_game_timer = AlternateTimer.new()

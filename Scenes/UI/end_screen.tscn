@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0yrtcyvyww5k"]
+
+[ext_resource type="Script" path="res://Scenes/UI/end_screen.gd" id="1_jr38d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_migi4"]
+font_size = 106
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jr38d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="M" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 300
+
+[node name="Label" type="Label" parent="M"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "You have perished!"
+label_settings = SubResource("LabelSettings_migi4")
+
+[node name="ExitButton" type="Button" parent="M"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Exit to menu"
+
+[connection signal="pressed" from="M/ExitButton" to="." method="_on_exit_button_pressed"]
